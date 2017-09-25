@@ -1,6 +1,6 @@
 <?php
 
-namespace Utilities\Situation;
+namespace App\Utilities\Situation;
 
 class Arrays{
     static function get()

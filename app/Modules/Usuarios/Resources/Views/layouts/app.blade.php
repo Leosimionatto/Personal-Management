@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <meta name="csrf-token" content="{{ csrf_token() }}" />
         <title>Personal Management</title>
 
         <!-- Styles -->
@@ -45,13 +46,14 @@
     <script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
 
     <!--  My jquery scripts  -->
+    <script src="{{ asset('js/javascript/steps.js') }}"></script>
     <script src="{{ asset('js/javascript/functions.js') }}"></script>
-    <script src="{{ asset('js/multiple-select-master/multiple-select.js') }}"></script>
 
     <!--  Scripts  -->
     <script src="{{ asset('js/fullcalendar/lib/moment.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/fullcalendar/fullcalendar.js') }}"></script>
     <script src="{{ asset('js/fullcalendar/locale/pt-br.js') }}"></script>
+    <script src="{{ asset('js/multiple-select-master/multiple-select.js') }}"></script>
 
     <!-- Textarea structure -->
     <script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
@@ -60,5 +62,7 @@
             nicEditors.allTextAreas
         );
     </script>
+
+    @yield('scripts')
 
 </html>

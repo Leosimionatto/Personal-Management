@@ -3,6 +3,12 @@ $(window).on('load', function(){
         $(this).find('.dropdown-menu').toggle();
     });
 
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
     $('.nicEdit-main').each(function(){
         $(this).on('focusout', function(){
             var content = $(this).text();

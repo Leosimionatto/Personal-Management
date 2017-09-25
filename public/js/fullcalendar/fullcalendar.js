@@ -88,7 +88,7 @@ FC.proxy = proxy;
 FC.capitaliseFirstLetter = capitaliseFirstLetter;
 
 
-/* FullCalendar-specific DOM utilities
+/* FullCalendar-specific DOM Utilities
 ----------------------------------------------------------------------------------------------------------------------*/
 
 
@@ -234,7 +234,7 @@ function subtractInnerElHeight(outerEl, innerEl) {
 }
 
 
-/* Element Geom utilities
+/* Element Geom Utilities
 ----------------------------------------------------------------------------------------------------------------------*/
 
 FC.getOuterRect = getOuterRect;
@@ -383,7 +383,7 @@ function getCssFloat(el, prop) {
 }
 
 
-/* Mouse / Touch utilities
+/* Mouse / Touch Utilities
 ----------------------------------------------------------------------------------------------------------------------*/
 
 FC.preventDefault = preventDefault;
@@ -576,7 +576,7 @@ function flexibleCompare(a, b) {
 }
 
 
-/* FullCalendar-specific Misc utilities
+/* FullCalendar-specific Misc Utilities
 ----------------------------------------------------------------------------------------------------------------------*/
 
 
@@ -622,7 +622,7 @@ function intersectRanges(subjectRange, constraintRange) {
 }
 
 
-/* Date utilities
+/* Date Utilities
 ----------------------------------------------------------------------------------------------------------------------*/
 
 FC.computeGreatestUnit = computeGreatestUnit;
@@ -884,7 +884,7 @@ FC.warn = function() {
 };
 
 
-/* General utilities
+/* General Utilities
 ----------------------------------------------------------------------------------------------------------------------*/
 
 var hasOwnPropMethod = {}.hasOwnProperty;
@@ -4948,7 +4948,7 @@ var Grid = FC.Grid = Class.extend(ListenerMixin, {
 
 
 
-	/* Generic rendering utilities for subclasses
+	/* Generic rendering Utilities for subclasses
 	------------------------------------------------------------------------------------------------------------------*/
 
 
@@ -6304,7 +6304,7 @@ Grid.mixin({
 });
 
 
-/* utilities
+/* Utilities
 ----------------------------------------------------------------------------------------------------------------------*/
 
 
@@ -11855,7 +11855,7 @@ Calendar.mixin({
 
 
 
-	// Event-Specific Date utilities. TODO: move
+	// Event-Specific Date Utilities. TODO: move
 	// -----------------------------------------------------------------------------------------------------------------
 
 

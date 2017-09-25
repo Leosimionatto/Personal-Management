@@ -1,6 +1,6 @@
 <?php
 
-namespace Utilities\Priority;
+namespace App\Utilities\Priority;
 
 class Arrays{
     static function get()

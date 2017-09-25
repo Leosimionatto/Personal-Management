@@ -12,5 +12,11 @@
 */
 
 Route::group(['prefix' => 'usuarios'], function () {
-    Route::get('/projetos', 'IndexController@index');
+    /*
+     * Rotas referente a projects
+     */
+    Route::get('/projetos', 'ProjectController@index')->name('projects.index');
+    Route::get('/projetos/novo-projeto', 'ProjectController@add')->name('projects.new-project');
+    Route::post('/projetos/adicionar-projeto', 'ProjectController@store');
+
 });
