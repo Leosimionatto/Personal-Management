@@ -12,7 +12,5 @@
 */
 
 Route::group(['prefix' => 'usuarios'], function () {
-    Route::get('/', function () {
-        dd('This is the Usuarios module index page. Build something great!');
-    });
+    Route::get('/projetos', 'IndexController@index');
 });

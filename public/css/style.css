@@ -1,0 +1,1156 @@
+html{
+    overflow-y: scroll !important;
+}
+/* Configurações gerais da aplicação(Layout configuration) */
+.application-menu{
+    top:0;
+    bottom:0;
+    width:15%;
+    font-size:13px;
+    position:fixed;
+    background-color:#2a2c36;
+}
+.application-menu .menu-title{
+    padding:12px;
+    display:block;
+    color:#EDEAE3;
+    font-size:15px;
+    text-align:center;
+    background-color:#141519;
+}
+.application-menu .profile-configuration{
+    padding:12px;
+    padding-top:20px;
+    padding-bottom:20px;
+    background-color:rgba(0, 0, 0, 0.2);
+}
+.application-menu .profile-options{
+    color:#EDEAE3;
+    margin-top:4px;
+}
+.application-menu .profile-options a{
+    color:#EDEAE3;
+}
+.application-menu ul{
+    margin:0;
+    padding:0;
+}
+.application-menu ul li{
+    padding:9px;
+    border-top:1px solid #404040;
+}
+.application-menu ul li a{
+    color:#EDEAE3;
+}
+.application-body{
+    padding:8px;
+    margin-left:15%;
+    width:85% !important;
+}
+.application-body .menu-top{
+    padding:14px !important;
+}
+/* Essas são as configurações referentes ao módulo inicial do sistema(Painel - Home) */
+.home-page .modules{
+    padding:12px;
+}
+.home-page .modules-explanation-title{
+    font-size:22px;
+    margin-bottom:4px;
+    padding-bottom:5px;
+    border-bottom:1px solid #E0E0E0;
+}
+.home-page .modules-explanation-title span{
+    color:#86C543;
+    font-size:22px;
+}
+.home-page .modules-explanation-body .module{
+    width:20%;
+    padding:8px;
+    cursor:pointer;
+    margin-top:8px;
+    margin-right:8px;
+    text-align:center;
+    border:1px solid #C0C0C0;
+    background-color:#F8F8F8;
+}
+.home-page .modules-explanation-body .module:hover{
+    border:1px solid #E75000;
+}
+.home-page .remember{
+    width:70%;
+}
+.home-page .remember-title{
+    padding-bottom:4px;
+    border-bottom:1px solid #E0E0E0;
+}
+.home-page .remember-body{
+    font-size:13px;
+}
+.home-page .remember-body .sticky-note .table{
+    padding-bottom:18px;
+    border-bottom:1px solid #F0F0F0;
+}
+.home-page .remember-post-it{
+    width:28%;
+    margin-left:10px;
+}
+.home-page .annotation{
+    padding:12px;
+    vertical-align:top;
+    background-color:#F9FE73;
+    font-size:12px !important;
+}
+.home-page .annotation h4{
+    padding-bottom:6px;
+}
+.home-page .annotation label{
+    display:block;
+    font-size:11px;
+}
+.home-page .goals-filter .filter-box i{
+    float:right;
+    color:#696969;
+    padding:0.65rem;
+    border:1px solid #C0C0C0;
+    background-color:#F0F0F0;
+    border-right:0;
+}
+.home-page .goals-filter input{
+    float:right;
+    padding:4px;
+    border:1px solid #C0C0C0;
+}
+.home-page .goals-filter button{
+    padding:4px;
+    margin-left:6px;
+    border:1px solid #C0C0C0;
+}
+.home-page .goals-filter button i{
+    color:#696969;
+    font-size:14px;
+    margin-left:1px;
+}
+.home-page .goals{
+    padding:4px;
+    padding-bottom:4px;
+}
+.home-page .goals table{
+    width:100%;
+    margin-top:10px;
+    table-layout:fixed;
+}
+.home-page .goals thead th{
+    padding:10px;
+    text-align:center;
+    border-top:1px solid #E0E0E0;
+    border-bottom:2px solid #E0E0E0;
+}
+.home-page .goals tbody tr:nth-child(odd) {
+    background-color:#F4F4F4;
+}
+.home-page .goals tbody td{
+    padding:12px;
+    text-align:center;
+    border-bottom:1px solid #E0E0E0;
+}
+.home-page .goals tbody td label{
+    font-size:11px;
+}
+/* Este css refere-se a página de perfil do usuário(Painel - perfil) */
+.personal-information{
+    width:49%;
+    text-align:left;
+}
+.personal-information .fields-group{
+    padding:4px;
+}
+.personal-information .fields-group input{
+    width:60%;
+    padding:2px;
+}
+.personal-information button{
+    padding:3px;
+    border-radius:1px;
+    border:1px solid #B0B0B0;
+}
+.personal-information button i{
+    color:#494949;
+}
+.complements{
+    width:49%;
+    text-align:left;
+    vertical-align:top;
+}
+.complements .fields-group{
+    padding:4px;
+}
+.complements .fields-group input{
+    width:60%;
+    padding:2px;
+}
+.complements button{
+    padding:3px;
+    border-radius:1px;
+    border:1px solid #B0B0B0;
+}
+.complements button i{
+    color:#494949;
+}
+/* Este css refere-se a página de pesquisa (Painel - Pesquisa) */
+.filter-system{
+    top:10px;
+    right:8px;
+    width:195px;
+    position:absolute;
+}
+.filter-system input{
+    padding:3px;
+    text-align:center;
+    border-radius:15px;
+    border:1px solid #C0C0C0;
+}
+.filter-system input:focus{
+    outline: 0 none;
+}
+.filter-system button{
+    border:none;
+    background-color:transparent;
+}
+/* Este css refere-se a página que contém o dashboard (Painel - Dashboard) */
+.welcome-phrase{
+    padding:4px;
+    margin-bottom:15px;
+}
+.welcome-phrase .welcome-message{
+    font-size:17px;
+    font-weight:400;
+}
+.dashboard .user-statistics{
+    width:45%;
+    cursor:pointer;
+}
+.dashboard .user-statistics:hover{
+    border:1px solid #E75000;
+}
+.dashboard .table{
+    margin:0;
+    font-weight:500;
+}
+.dashboard .table .statistic-number{
+    font-size:18px;
+}
+.dashboard .statistics{
+    width:64%;
+}
+/* Este css refere-se a página de cadastro e visualização de compromissos(Painel - Compromissos) */
+.commitments .upcoming-events{
+    width:68%;
+    text-align:left;
+}
+.commitments .upcoming-events table{
+    width:100%;
+    table-layout:fixed;
+}
+.commitments .upcoming-events table thead th{
+    color:#FFF;
+    padding:6px;
+    font-weight:500;
+    text-align:center;
+    background-color:#6D7993;
+}
+.commitments .upcoming-events table tbody td{
+    padding:8px;
+    text-align:center;
+    border-bottom:1px solid #F5F5F5;
+}
+.commitments .show-commitments{
+    margin-top:12px;
+    text-align:center;
+}
+.commitments .show-commitments .event{
+    margin-left:6px;
+    margin-bottom:10px;
+}
+.commitments .new-commitment-image{
+    width:60%;
+    margin-left:auto;
+    margin-right:auto;
+    text-align:center;
+}
+.commitments .new-commitment-image i{
+    font-size:22px;
+    margin-left:6px;
+    margin-right:6px;
+    vertical-align:middle;
+}
+.commitments .new-commitment{
+    width:30%;
+    text-align:left;
+}
+.commitments .commitment-form{
+    margin-top:4px;
+    margin-bottom:6px;
+    text-align:center;
+}
+.commitments .commitment-form input{
+    width:85%;
+    padding:3px;
+    font-size:12px;
+    margin-bottom:4px;
+}
+.commitments .commitment-form textarea{
+    width:85%;
+    max-width:85%;
+    height:100px;
+    max-height:100px;
+    padding:3px;
+    resize:none;
+    font-size:12px;
+    margin-bottom:4px;
+}
+.commitments .commitment-form button{
+    width:85%;
+    padding:3px;
+}
+/* Este css é referente a página de gerenciamento de projetos(Painel - Projetos) */
+.projects .projects-list table{
+    width:100%;
+    table-layout:fixed;
+}
+.projects .projects-list table thead th{
+    color:#FFF;
+    padding:10px;
+    font-weight:500;
+    text-align:center;
+    background-color:#587658;
+    border-bottom:2px solid #E0E0E0;
+}
+.projects .projects-list table tbody td{
+    padding:10px;
+    text-align:center;
+    border-bottom:1px solid #E0E0E0;
+}
+.projects .project-actions button{
+    padding:3px;
+    margin-left:2px;
+    margin-right:2px;
+    border:1px solid #C0C0C0;
+}
+.projects .project-progress{
+    padding:6px;
+}
+.projects .progress-information .table-cell{
+    border-top:1px solid #E0E0E0;
+}
+.projects .overflow-auto{
+    height:280px;
+}
+.projects .overflow-auto::-webkit-scrollbar {
+    width: 0.6em;
+}
+.projects .overflow-auto::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+.projects .overflow-auto::-webkit-scrollbar-thumb {
+    background-color:#D0D0D0;
+}
+.projects .feed .card-body{
+    max-height:280px;
+}
+.projects .project-action-body{
+    padding:6px;
+    border-bottom:1px solid #E0E0E0;
+}
+.projects .feed .action-information{
+    margin-top:4px;
+}
+.projects .feed .card-body i{
+    color:#999;
+    font-size:15px;
+}
+/* Este css é referente a página de cadastro de novos projetos(Painel - Novos Projetos) */
+.new-project .new-project-form form{
+    margin-top:8px;
+}
+.new-project .new-project-form form .form-group{
+    margin-bottom:8px;
+}
+.new-project .new-project-form form label{
+    display:block;
+    font-size:14px;
+    font-weight:500;
+    padding-bottom:4px;
+}
+.new-project .new-project-form form input{
+    width:100%;
+    padding:3px;
+    margin-bottom:4px;
+}
+.new-project .new-project-form form select{
+    width:100%;
+    padding:4px;
+    margin-bottom:4px;
+}
+.new-project .new-project-form form textarea{
+    width:100%;
+    padding:4px;
+    resize:none;
+    height:120px;
+    margin-bottom:4px;
+}
+.new-project .new-project-form form .table .table-cell{
+    padding:4px;
+}
+.new-project .new-project-form form .table label{
+    width:120px;
+    padding:4px;
+    font-size:11px;
+}
+.new-project .new-project-form form input[type=checkbox]{
+    width:25px;
+}
+/* Este css é referente a página de Informações gerais de um projeto(Painel - Página Projeto) */
+.project-page h4, .title{
+    font-size:17px;
+}
+.project-page button{
+    padding:5px;
+    font-size:13px;
+    border-radius:4px;
+}
+.project-page button i{
+    color:#FFF;
+}
+.project-page .participant{
+    margin-bottom:6px;
+    padding-bottom:10px;
+    border-bottom:1px solid #E0E0E0;
+}
+.project-page .participant .table{
+    margin-bottom:0;
+    padding-bottom:0;
+}
+.project-page .project-events .table{
+    margin:8px;
+    padding:6px;
+    margin-bottom:0;
+    table-layout:fixed;
+}
+.project-page .project-events .table .table-cell{
+    padding-top:10px;
+    padding-bottom:8px;
+    border-bottom:1px solid #E0E0E0;
+}
+.project-page .developer-tasks-filter{
+    margin-top:6px;
+}
+.project-page .developer-tasks-filter input{
+    width:15%;
+    padding:6px;
+    margin-right:3px;
+    border-radius:3px;
+    border:1px solid #C0C0C0;
+}
+.project-page .developer-tasks-filter select{
+    width:15%;
+    padding:6px;
+    margin-right:3px;
+    border-radius:3px;
+    border:1px solid #C0C0C0;
+}
+.project-page .steps-percent{
+    padding:2px;
+    margin-top:8px;
+    padding-top:8px;
+    border-top:1px solid #E0E0E0;
+}
+.project-page .task-step{
+    cursor:pointer;
+    margin-bottom:0;
+    padding-left:15px;
+}
+.project-page .task-step:hover .disabled{
+    border-left:4px solid #3C763D;
+}
+.project-page .task-step .actived{
+    padding-left:10px;
+    border-left:4px solid #3C763D;
+}
+.project-page .task-step .disabled{
+    padding-left:10px;
+    border-left:4px solid #C44D58;
+}
+.project-page .task-step .table-cell{
+    padding:8px;
+    border-bottom:1px dotted #D0D0D0;
+}
+/* Este css é referente a página de Informações de uma tarefa(Painel - Tarefa desenvolvimento) */
+.projects .task-definition{
+    height:520px;
+    position:relative;
+    padding-left:16px;
+    border-left:1px solid #DBDBDB;
+}
+.projects .step-explanation{
+    height:480px;
+    padding-right:12px;
+}
+.projects .task-explanation{
+    padding:8px;
+    background:#ffffdd;
+    border:1px solid #D0D0D0;
+}
+.projects .task-explanation i{
+    color:#999;
+}
+.projects .update .update-title{
+    padding:2px;
+    font-weight:500;
+    margin-bottom:4px;
+    border-bottom:1px solid #E0E0E0;
+}
+/* Configuração de tags globais */
+*{
+    color:#595969;
+    font-size:13px;
+    font-family:'Raleway', sans-serif;
+}
+html{
+    position:relative;
+    min-height:100% !important;
+}
+h3{
+    margin:0 !important;
+    font-size:20px !important;
+}
+h4{
+    margin:0 !important;
+}
+h5{
+    margin:0 !important;
+}
+i{
+    color:#86C543;
+}
+b{
+    font-family:'Roboto', sans-serif !important;
+}
+figcaption{
+    margin-top:3px;
+}
+label{
+    margin:0 !important;
+    font-weight:500 !important;
+}
+input{
+    border:1px solid #C7C7C7;
+}
+input[type=file]{
+    border:0;
+}
+textarea{
+    border:1px solid #C7C7C7;
+}
+select{
+    border:1px solid #C7C7C7;
+}
+button a{
+    color:#FFF;
+}
+button a:hover{
+    color:#FFF;
+    text-decoration:none;
+}
+button a:active{
+    color:#FFF;
+    text-decoration:none;
+}
+button a:link{
+    color:#FFF;
+    text-decoration:none;
+}
+progress{
+    display:block;
+    width:100%;
+    height:0.7rem;
+    background:#C0C0C0;
+}
+progress[value]{
+    color:#0074d9;
+    border:0;
+    appearance:none;
+}
+progress[value]::-webkit-progress-bar{
+    background-color: #eee;
+}
+progress[value]::-webkit-progress-value::before{
+    content: attr(value);
+}
+progress[value]::-webkit-progress-value{
+    background-color: #0074d9;
+    border-top-left-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+}
+progress[value]::-webkit-progress-value{
+    background-color: #63c2de;
+}
+.progress-value{
+    margin-top:3px;
+    font-size:12px;
+}
+/* Form-itens */
+.form-group{
+    margin-bottom:6px !important;
+}
+.form-label{
+    font-size:14px;
+    margin-top:8px !important;
+    margin-bottom:3px !important;
+}
+.form-control{
+    resize:none;
+    padding:6px !important;
+    font-size:13px !important;
+    border-radius:1px !important;
+}
+.form-divider{
+    font-weight:500;
+    padding-bottom:4px;
+    font-size:16px !important;
+    border-bottom:1px solid #E0E0E0;
+}
+.form-text-area{
+    height:125px !important;
+}
+/* Tabelas */
+table{
+    width:100%;
+    margin-top:4px;
+    table-layout:fixed;
+}
+table thead th{
+    padding:8px;
+    text-align:center;
+    border-bottom:1px solid #E0E0E0;
+    font-family:'Roboto', sans-serif !important;
+}
+table tbody td{
+    padding:10px;
+    text-align:center;
+    border-bottom:1px solid #F0F0F0;
+}
+table tfoot td{
+    padding-top:6px;
+}
+/* Widths */
+.width-10{
+    width:10%;
+}
+.width-15{
+    width:15%;
+}
+.width-20{
+    width:20%;
+}
+.width-25{
+    width:25%;
+}
+.width-30{
+    width:30%;
+}
+.width-35{
+    width:35%;
+}
+.width-38{
+    width:38%;
+}
+.width-40{
+    width:40%;
+}
+.width-45{
+    width:45%;
+}
+.width-49{
+    width:49%;
+}
+.width-60{
+    width:60%;
+}
+.width-65{
+    width:65%;
+}
+.width-68{
+    width:68%;
+}
+.width-70{
+    width:70%;
+}
+.width-80{
+    width:80%;
+}
+.width-85{
+    width:85%;
+}
+.width-90{
+    width:90%;
+}
+/* Paddings */
+.padding-4{
+    padding:4px;
+}
+.padding-10{
+    padding:8px;
+}
+.padding-12{
+    padding:12px;
+}
+.padding-left-6{
+    padding-left:6px;
+}
+.padding-bottom-10{
+    padding-bottom:10px;
+}
+/* Spaces */
+.space-top-15{
+    margin-top:15px;
+}
+.space-top-10{
+    margin-top:10px;
+}
+.space-top-6{
+    margin-top:6px;
+}
+.space-top-2{
+    margin-top:2px;
+}
+.space-right-45{
+    margin-right:45px;
+}
+.space-right-35{
+    margin-right:35px;
+}
+.space-right-15{
+    margin-right:15px;
+}
+.space-right-10{
+    margin-right:10px;
+}
+.space-right-8{
+    margin-right:8px;
+}
+.space-right-6{
+    margin-right:6px;
+}
+.space-left-4{
+    margin-left:4px;
+}
+.space-left-6{
+    margin-left:6px;
+}
+.space-bottom-10{
+    margin-bottom:10px;
+}
+.space-bottom-15{
+    margin-bottom:15px;
+}
+.space-bottom-4{
+    margin-bottom:4px;
+}
+.space-bottom-6{
+    margin-bottom:6px;
+}
+.space-bottom-2{
+    margin-bottom:2px;
+}
+/* Displays */
+.block{
+    display:block;
+}
+.inline-block{
+    display:inline-block !important;
+}
+.table{
+    display:table;
+}
+.table-row{
+    display:table-row;
+}
+.table-cell{
+    padding-right:16px;
+    display:table-cell;
+    vertical-align:middle;
+}
+/* Vertical-align */
+.align-center{
+    vertical-align:middle;
+}
+.align-top{
+    vertical-align:top;
+}
+/* Positions */
+.relative{
+    position:relative;
+}
+/* Overflow */
+.overflow-auto{
+    overflow-y:auto;
+}
+/* Cards */
+.card{
+    box-shadow:0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+}
+.card-header{
+    padding-bottom:6px;
+    border-bottom:1px solid #E0E0E0;
+}
+.card-header i{
+    font-size:16px;
+}
+.card-footer{
+    margin-top:8px;
+    padding-top:6px;
+    border-top:1px solid #E0E0E0;
+}
+/* Styles for fonts */
+.underline{
+    text-decoration:underline;
+}
+.bold{
+    font-weight:bold;
+}
+/* Post-it */
+.post-it{
+    width:22%;
+    padding:4px;
+    height:180px;
+    font-size:14px;
+    margin-right:4px;
+    text-align:center;
+    display:inline-block;
+}
+.post-it-actions{
+    text-align:right;
+}
+.post-it-actions i{
+    color:#F9F9F9;
+}
+/* Post-it colors */
+.blue{
+    background-color:#89bdd3;
+}
+.blue i{
+    color:#494949;
+}
+.yellow{
+    background-color:#FAE596;
+}
+.yellow i{
+    color:#494949;
+}
+.green{
+    background-color:#76BF85;
+}
+.green i{
+    color:#494949;
+}
+/* Font colors */
+.red{
+    color:#C44D58;
+}
+.white{
+    color:#FFF;
+}
+/* Texts */
+.text{
+    margin-top:2px;
+    margin-bottom:2px;
+}
+/* Floats */
+.right{
+    float:right;
+}
+.left{
+    float:left;
+}
+/* Messages */
+.message{
+    font-size:16px;
+    font-weight:500;
+}
+/* Titles */
+.title{
+    color:#86C543 !important;
+}
+/* font-weight */
+.bold-500{
+    font-weight:500 !important;
+}
+.bold-500 b{
+    font-weight:500 !important;
+}
+/* font-size */
+.small{
+    font-size:12px !important;
+}
+.medium{
+    font-size:14px;
+}
+.big{
+    font-size:16px;
+}
+/* Dropdown */
+.dropdown i{
+    cursor:pointer;
+}
+.dropdown .notifications-information label{
+    font-size:8px;
+    border-radius:10px;
+    vertical-align:top;
+    margin-right:-3px !important;
+}
+.dropdown .dropdown-menu{
+    right: 0;
+    left: auto;
+    width:220px;
+    text-align: center;
+}
+.dropdown .dropdown-menu li{
+    padding:4px;
+}
+.dropdown .dropdown-menu .divider{
+    padding:0;
+    margin:4px;
+}
+/* Modal */
+.modal{
+    left:0;
+    top:0;
+    z-index:3;
+    width:100%;
+    height:100%;
+    display:none;
+    position:fixed;
+    padding-top:50px;
+    overflow-y:hidden !important;
+    background-color:rgb(0,0,0);
+    background-color:rgba(0,0,0,0.4);
+}
+.modal-content{
+    padding:0;
+    outline:0;
+    width:600px;
+    margin:auto;
+    position:relative;
+    background-color:#fff;
+    border-radius:1px !important;
+}
+.modal .modal-header{
+    padding:14px;
+    text-align:left;
+    position:relative;
+    border-bottom:1px solid #E0E0E0;
+}
+.modal .modal-header .close-modal{
+    top:2px;
+    right:8px;
+    font-size:22px;
+    cursor:pointer;
+    position:absolute;
+}
+.modal .modal-container{
+    margin:0;
+    padding:15px;
+    padding-top:8px;
+    text-align:left;
+}
+.modal .modal-container form label{
+    display:block;
+    font-size:14px;
+    font-weight:500 !important;
+}
+.modal .modal-container form input{
+    width:100%;
+    padding:5px;
+    margin-top:3px;
+    margin-bottom:6px;
+    border:1px solid #C0C0C0;
+}
+.modal .modal-container form textarea{
+    width:100%;
+    height:90px;
+    padding:5px;
+    resize:none;
+    margin-top:3px;
+    margin-bottom:6px;
+    border:1px solid #C0C0C0;
+}
+.modal .modal-container form select{
+    width:100%;
+    padding:5px;
+    margin-top:3px;
+    margin-bottom:6px;
+    border:1px solid #C0C0C0;
+}
+.modal .modal-footer{
+    margin:0;
+    padding:14px;
+}
+.modal .modal-footer button{
+    font-size:13px;
+}
+.modal .modal-footer button i{
+    color:#FFF;
+}
+/* Specific style */
+.btn{
+    font-size:13px !important;
+    padding:5px !important;
+}
+/* fieldset */
+.fieldset fieldset{
+    border: 1px groove #ddd !important;
+    padding: 0 1.4em 1.4em 1.4em !important;
+    margin: 0 0 1.5em 0 !important;
+    -webkit-box-shadow:  0px 0px 0px 0px #000;
+    box-shadow:  0px 0px 0px 0px #000;
+}
+.fieldset legend{
+    width:inherit;
+    padding:0 6px;
+    border-bottom:none;
+    font-size: 1.1em !important;
+    font-weight: bold !important;
+    text-align: left !important;
+    font-family:'Roboto', sans-serif;
+}
+.fieldset fieldset input{
+    padding:4px;
+    margin-right:3px;
+    border:1px solid #A0A0A0;
+}
+.fieldset fieldset select{
+    padding:4px;
+    margin-right:3px;
+    border:1px solid #A0A0A0;
+}
+/* font-awesome icons */
+.fa-search{
+    color:#86C543 !important;
+}
+/* Configuração do título com espaço inferior */
+.top-title{
+    margin-bottom:4px;
+    padding-bottom:3px;
+    border-bottom:1px solid #E0E0E0;
+}
+/* Routes */
+.disabled-route-option{
+    color:#A0A0A0;
+}
+.available-route-option i{
+    margin-left:4px;
+    margin-right:4px;
+}
+.sign-out{
+    cursor:pointer;
+}
+.sign-out i{
+    font-size:14px;
+}
+h3 .project-color{
+    color:#86C543;
+    font-size:20px !important;
+}
+/* Step system Jquery */
+.steps .steps-titles{
+    margin-top:14px;
+    margin-bottom:12px;
+}
+.steps .steps-titles .step-title-box{
+    color:#FFF;
+    width:195px;
+    padding:8px;
+    cursor:pointer;
+    margin-right:4px;
+    border-radius:2px;
+    display:inline-block;
+    background-color:#86C543;
+}
+.steps .hidden{
+    display:none;
+}
+.steps .collapse{
+    background-color:#B0B0B0 !important;
+}
+.steps .actions{
+    padding:6px;
+    text-align:right;
+}
+.steps .btn{
+    margin-left:6px;
+    border-radius:2px;
+    padding:6px !important;
+}
+.steps .warning{
+    border:1px solid #EB5766;
+}
+.steps .invalid-field{
+    margin:0;
+    color:#EB5766;
+    margin-top:4px;
+}
+.steps .warning-specific{
+    border:1px solid #EB5766;
+}
+.steps .invalid-field-specific{
+    margin:0;
+    color:#EB5766;
+    margin-top:4px;
+}
+/* Fullcalendar design */
+.calendar .fc-head{
+    background-color:#639232;
+}
+.calendar .fc-head .fc-day-header span{
+    color:#FFF !important;
+}
+.calendar .fc-head .fc-day-header{
+    padding:10px;
+    font-weight:500;
+}
+.calendar .fc-scroller::-webkit-scrollbar {
+    width: 0.6em;
+}
+.calendar .fc-scroller::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+.calendar .fc-scroller::-webkit-scrollbar-thumb {
+    background-color:#D0D0D0;
+}
+.calendar .fc-center h2{
+    font-size:18px;
+}
+.calendar .fc-time{
+    color:#FFF;
+    display:block;
+    font-weight:bold;
+}
+.calendar .fc-title{
+    color:#FFF;
+    display:block;
+}
+/* Bootstrap alerts */
+.alert{
+    display:none;
+}
+.alert *{
+    color:#a94442 !important;
+}
+.alert ul li{
+    padding:2px;
+}
+/* NicEdit */
+.nicEdit-main{
+    padding:8px !important;
+}
