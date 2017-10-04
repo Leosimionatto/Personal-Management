@@ -13,7 +13,7 @@
 
 Route::group(['prefix' => 'usuarios'], function () {
     /*
-     * Rotas referente a projects
+     * Rotas referente a projetos
      */
     Route::get('/projetos', 'ProjectController@index')->name('projects.index');
     Route::get('/projetos/novo-projeto', 'ProjectController@add')->name('projects.new-project');

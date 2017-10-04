@@ -190,3 +190,78 @@ $(window).on('load', function(){
         });
     });
 });
+
+function ajax_request(url, form)
+{
+    call_ajax(form, function(result){
+        var post = $.extend({}, result);
+
+        $.ajax({
+            url: url,
+            method: 'POST',
+            data: post,
+            success: function(data){
+                if(data.status === '00'){
+                    window.location.reload();
+                }
+                if(data.responseJSON.errors){
+                    $('.insert-errors').empty();
+
+                    var errors = $.map(data.responseJSON.errors, function(value, index) {
+                        return [value];
+                    });
+
+                    if(errors instanceof Array){
+                        $.each(errors, function(index, value){
+                            $('.insert-errors').append('<li>' + value + '</li>');
+                        });
+                    }
+
+                    $('.insert-errors-alert').show();
+                }
+            },
+            error: function(response){
+                if(response.responseJSON.errors){
+                    $('.insert-errors').empty();
+
+                    var errors = $.map(response.responseJSON.errors, function(value, index) {
+                        return [value];
+                    });
+
+                    if(errors instanceof Array){
+                        $.each(errors, function(index, value){
+                            $('.insert-errors').append('<li>' + value + '</li>');
+                        });
+                    }
+
+                    $('.insert-errors-alert').show();
+                }
+            }
+        });
+    })
+}
+
+function call_ajax(form, cb)
+{
+    var post = [];
+
+    form.forEach(function(data){
+        data.forEach(function(subform){
+            if(subform.name && subform.value){
+                post[subform.name] = subform.value;
+            }else{
+                var i = 0;
+                subform.forEach(function(value){
+                    if(!(post[value.name] instanceof Array)){
+                        post[value.name] = [];
+                    }
+
+                    post[value.name][i] = value.value;
+                    i++;
+                });
+            }
+        });
+    });
+
+    cb(post);
+}

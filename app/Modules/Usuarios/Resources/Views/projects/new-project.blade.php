@@ -4,8 +4,8 @@
     <div class="new-project">
         <div class="menu-top card padding-12 space-bottom-15 relative">
             <div class="block">
-                <span class="available-route-option"><a href="{{ route('projects.index') }}">Página inicial <i class="fa fa-arrow-right"></i></a></span>
-                <span class="available-route-option"><a href="">Projetos <i class="fa fa-arrow-right"></i></a></span>
+                <span class="available-route-option"><a href="">Página inicial <i class="fa fa-arrow-right"></i></a></span>
+                <span class="available-route-option"><a href="{{ route('projects.index') }}">Projetos <i class="fa fa-arrow-right"></i></a></span>
                 <span class="disabled-route-option">Novo projeto</span>
                 <span class="right sign-out disabled-route-option">Sair <i class="fa fa-sign-out"></i></span>
                 <div class="dropdown notifications right space-right-15">
@@ -36,7 +36,7 @@
                     <span class="block space-top-2">Para prosseguir e completar esse cadastro, será necessário arrumar os seguintes erros:</span>
                     <ul class="insert-errors" style="padding-left:15px;padding-top:2px"></ul>
                 </div>
-                <form method="post" enctype="multipart/form-data">
+                <form method="post">
                     <h4>Informações gerais</h4>
 
                     <div class="form-group">
@@ -82,13 +82,13 @@
                         <input type="text" class="form-control required" name="participantes" id="participantes" placeholder="Participantes?">
                     </div>
                     <div class="form-group" style="width:80%">
-                        <label for="prioridades" class="form-label">Qual a prioridade do projeto?</label>
+                        <label for="prioridade" class="form-label">Qual a prioridade do projeto?</label>
                         Esta é uma configuração muito importante no projeto, pois é este passo que definirá os avisos/alertas que serão enviados
                         para o proprietário do projeto. Então, lembre-se de sempre prestar muita atenção.
                         <div class="table space-top-10">
                             <div class="table-row">
                                 <div class="table-cell width-10">
-                                    <input type="radio" value="1" name="prioridades" id="prioridades" checked>
+                                    <input type="radio" value="1" name="prioridade" id="prioridade" checked>
                                 </div>
                                 <div class="table-cell width-20">
                                     <label class="label label-primary">Indefinida</label>
@@ -99,7 +99,7 @@
                             </div>
                             <div class="table-row">
                                 <div class="table-cell width-10">
-                                    <input type="radio" value="2" name="prioridades" id="prioridades">
+                                    <input type="radio" value="2" name="prioridade" id="prioridade">
                                 </div>
                                 <div class="table-cell width-20">
                                     <label class="label label-success">Mínima</label>
@@ -110,7 +110,7 @@
                             </div>
                             <div class="table-row">
                                 <div class="table-cell width-10">
-                                    <input type="radio" value="3" name="prioridades" id="prioridades">
+                                    <input type="radio" value="3" name="prioridade" id="prioridade">
                                 </div>
                                 <div class="table-cell width-20">
                                     <label class="label label-warning">Média</label>
@@ -121,7 +121,7 @@
                             </div>
                             <div class="table-row">
                                 <div class="table-cell width-10">
-                                    <input type="radio" value="4" name="prioridades" id="prioridades">
+                                    <input type="radio" value="4" name="prioridade" id="prioridade">
                                 </div>
                                 <div class="table-cell width-20">
                                     <label class="label label-danger">Máxima</label>
@@ -143,6 +143,9 @@
                         <input type="checkbox" name="alert"> Alertar participantes por e-mail <br>
                         <input type="checkbox" name="alert"> Habilitar repositório na aplicação
                     </div>
+
+                    <input type="hidden" name="idusuario" value="1">
+                    <input type="hidden" name="situacao" value="1">
                 </form>
             </div>
         </div>

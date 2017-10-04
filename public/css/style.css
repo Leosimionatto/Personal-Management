@@ -313,7 +313,7 @@ html{
     width:85%;
     padding:3px;
 }
-/* Este css é referente a página de gerenciamento de projetos(Painel - Projects) */
+/* Este css é referente a página de gerenciamento de projetos(Painel - Project) */
 .projects .projects-list table{
     width:100%;
     table-layout:fixed;
@@ -369,7 +369,7 @@ html{
     color:#999;
     font-size:15px;
 }
-/* Este css é referente a página de cadastro de novos projetos(Painel - Novos Projects) */
+/* Este css é referente a página de cadastro de novos projetos(Painel - Novos Project) */
 .new-project .new-project-form form{
     margin-top:8px;
 }

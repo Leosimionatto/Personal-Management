@@ -35,37 +35,6 @@
             }
         });
 
-        function ajax_request(url, form)
-        {
-            $.ajax({
-                url: url,
-                method: 'POST',
-                dataType: 'json',
-                data: {'form': form},
-                success: function(data){
-                    if(data.status === '00'){
-                        window.location.reload();
-                    }
-                    if(data.error){
-                        $('.insert-errors').empty();
-
-                        if(data.error instanceof Array){
-                            $.each(data.error, function(index, value){
-                                $('.insert-errors').append('<li>' + value + '</li>');
-                            });
-                        }else{
-                            $('.insert-errors').append('<li>' + data.error + '</li>');
-                        }
-
-                        $('.insert-errors-alert').show();
-                    }
-                },
-                error: function(response){
-                    // Do nothing
-                }
-            });
-        }
-
         $('#tecnologias').multipleSelect({
             'placeholder':'Tecnologias a serem utilizadas',
             'width':'100%'

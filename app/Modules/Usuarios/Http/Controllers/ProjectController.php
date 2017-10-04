@@ -2,6 +2,7 @@
 
 namespace App\Modules\Usuarios\Http\Controllers;
 
+use App\Http\Requests\StoreProjectRequest;
 use App\Service\ProjectService;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -27,8 +28,10 @@ class ProjectController extends Controller{
         return view('usuarios::projects.new-project');
     }
 
-    public function store(Request $request)
+    public function store(StoreProjectRequest $request)
     {
-        echo '<pre>';print_r($request->all());exit;
+        $condition = $this->project->add($request->all());
+
+        return $condition;
     }
 }

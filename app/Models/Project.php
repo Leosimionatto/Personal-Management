@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Projects extends Model
+class Project extends Model
 {
     /**
      * The table associated with the model.
@@ -20,7 +20,9 @@ class Projects extends Model
      */
     protected $primaryKey = 'id';
 
+    public $timestamps = false;
+
     protected $fillable = [
-        'nome', 'documento', 'email', 'criado_em', 'atualizado_em'
+        'nome', 'descricao', 'situacao', 'tipo_projeto', 'prioridade', 'dtentrega', 'idusuario', 'documento', 'email', 'criado_em', 'atualizado_em'
     ];
 }
