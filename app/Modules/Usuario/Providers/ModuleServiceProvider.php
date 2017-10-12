@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Modules\Usuarios\Providers;
+namespace App\Modules\Usuario\Providers;
 
 use Caffeinated\Modules\Support\ServiceProvider;
 
@@ -13,9 +13,9 @@ class ModuleServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->loadTranslationsFrom(__DIR__.'/../Resources/Lang', 'usuarios');
-        $this->loadViewsFrom(__DIR__.'/../Resources/Views', 'usuarios');
-        $this->loadMigrationsFrom(__DIR__.'/../Database/Migrations', 'usuarios');
+        $this->loadTranslationsFrom(__DIR__.'/../Resources/Lang', 'usuario');
+        $this->loadViewsFrom(__DIR__.'/../Resources/Views', 'usuario');
+        $this->loadMigrationsFrom(__DIR__.'/../Database/Migrations', 'usuario');
     }
 
     /**

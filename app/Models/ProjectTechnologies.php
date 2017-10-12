@@ -13,7 +13,15 @@ class ProjectTechnologies extends Model
      */
     protected $table = 'tecnologiasprojeto';
 
+    /**
+     * @var bool
+     */
     public $timestamps = false;
+
+    /**
+     * @var bool
+     */
+    public $incrementing = false;
 
     protected $fillable = [
         'idtecnologia', 'idprojeto'

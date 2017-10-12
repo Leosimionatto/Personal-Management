@@ -20,6 +20,9 @@ class Project extends Model
      */
     protected $primaryKey = 'id';
 
+    /**
+     * @var bool
+     */
     public $timestamps = false;
 
     protected $fillable = [

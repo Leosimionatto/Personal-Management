@@ -1,11 +1,11 @@
-@extends('usuarios::layouts.app')
+@extends('usuario::layouts.app')
 
 @section('content')
     <div class="new-project">
         <div class="menu-top card padding-12 space-bottom-15 relative">
             <div class="block">
                 <span class="available-route-option"><a href="">Página inicial <i class="fa fa-arrow-right"></i></a></span>
-                <span class="available-route-option"><a href="{{ route('projects.index') }}">Projetos <i class="fa fa-arrow-right"></i></a></span>
+                <span class="available-route-option"><a href="{{ route('project.index') }}">Projetos <i class="fa fa-arrow-right"></i></a></span>
                 <span class="disabled-route-option">Novo projeto</span>
                 <span class="right sign-out disabled-route-option">Sair <i class="fa fa-sign-out"></i></span>
                 <div class="dropdown notifications right space-right-15">
@@ -30,7 +30,7 @@
                 <h3>Cadastro de um novo projeto:</h3>
                 Para efetuar o cadastro de um novo projeto basta preencher as informações abaixo e clicar em <b>Criar projeto</b>.
             </div>
-            <div class="steps" data-href="{{ url('usuarios/projetos/adicionar-projeto') }}">
+            <div class="steps" data-href="{{ url('usuario/projeto/cadastrar') }}">
                 <div class="alert alert-danger insert-errors-alert" style="margin-bottom:10px;margin-top:15px">
                     <b style="font-size:14px">Oops! Encontramos alguns problemas:</b>
                     <span class="block space-top-2">Para prosseguir e completar esse cadastro, será necessário arrumar os seguintes erros:</span>
@@ -153,5 +153,5 @@
 @endsection
 
 @section('scripts')
-    @include('usuarios::projects.javascript.new-project')
+    @include('usuario::projects.javascript.create')
 @endsection

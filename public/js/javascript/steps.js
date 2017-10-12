@@ -204,6 +204,9 @@ function ajax_request(url, form)
                 if(data.status === '00'){
                     window.location.reload();
                 }
+
+                console.log(data);
+
                 if(data.responseJSON.errors){
                     $('.insert-errors').empty();
 

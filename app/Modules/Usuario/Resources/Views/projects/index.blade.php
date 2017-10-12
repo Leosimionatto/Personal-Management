@@ -1,10 +1,10 @@
-@extends('usuarios::layouts.app')
+@extends('usuario::layouts.app')
 
 @section('content')
     <div class="projects">
         <div class="menu-top card padding-12 space-bottom-15 relative">
             <div class="block">
-                <span class="available-route-option"><a href="">Página inicial <i class="fa fa-arrow-right"></i></a></span>
+                <span class="available-route-option"><a href="{{ route('index') }}">Página inicial <i class="fa fa-arrow-right"></i></a></span>
                 <span class="disabled-route-option">Projetos</span>
                 <span class="right sign-out disabled-route-option">Sair <i class="fa fa-sign-out"></i></span>
                 <div class="dropdown notifications right space-right-15">
@@ -24,7 +24,7 @@
         <div class="text-right">
             <button type="button" class="btn btn-warning left">Compromissos associados <i class="fa fa-calendar-check-o white"></i></button>
             <button type="button" class="btn btn-primary left space-left-6">Principais acontecimentos <i class="fa fa-calendar-check-o white"></i></button>
-            <a href="{{ route('projects.new-project') }}"><button type="button" class="btn btn-primary">Novo projeto <i class="fa fa-plus-circle white"></i></button></a>
+            <a href="{{ route('project.create') }}"><button type="button" class="btn btn-primary">Novo projeto <i class="fa fa-plus-circle white"></i></button></a>
         </div>
         <div class="card padding-12 space-top-15 space-bottom-15 projects-list">
             <div class="card-header block space-bottom-15">
@@ -50,7 +50,7 @@
                                         <td>{!! App\Utilities\Situation\Arrays::situationsLabel($project->situacao) !!}</td>
                                         <td>{{ isset($project->dtentrega) ? date('d/m/Y', strtotime($project->dtentrega)) : 'Indefinida' }}</td>
                                         <td>
-                                            <a href="">
+                                            <a href="{{ route('projects.show', base64_encode($project->id)) }}">
                                                 Informações gerais <i class="fa fa-cogs"></i>
                                             </a>
                                         </td>
