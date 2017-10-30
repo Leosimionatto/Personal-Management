@@ -50,7 +50,7 @@
                                         <td>{!! App\Utilities\Situation\Arrays::situationsLabel($project->situacao) !!}</td>
                                         <td>{{ isset($project->dtentrega) ? date('d/m/Y', strtotime($project->dtentrega)) : 'Indefinida' }}</td>
                                         <td>
-                                            <a href="{{ route('projects.show', base64_encode($project->id)) }}">
+                                            <a href="{{ route('project.show', base64_encode($project->id)) }}">
                                                 Informações gerais <i class="fa fa-cogs"></i>
                                             </a>
                                         </td>

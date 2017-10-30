@@ -25,4 +25,8 @@ $(window).on('load', function(){
             group.find('.invalid-field').remove();
         });
     });
+
+    $('.ms-parent').each(function(){
+        $(this).removeClass('required');
+    });
 });

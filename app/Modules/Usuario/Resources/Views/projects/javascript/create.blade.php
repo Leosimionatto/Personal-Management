@@ -40,8 +40,6 @@
             'width':'100%'
         });
 
-        $('.ms-parent').removeClass('required');
-
         $('.ms-parent').focusin(function(){
             $(this).removeClass('warning');
             $(this).parent().find('.invalid-field').remove();

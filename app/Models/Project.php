@@ -25,7 +25,20 @@ class Project extends Model
      */
     public $timestamps = false;
 
+    /**
+     * @var array
+     */
     protected $fillable = [
-        'nome', 'descricao', 'situacao', 'tipo_projeto', 'prioridade', 'dtentrega', 'idusuario', 'documento', 'email', 'criado_em', 'atualizado_em'
+        'id', 'nome', 'descricao', 'situacao', 'tipo_projeto', 'prioridade', 'dtentrega', 'idusuario', 'documento', 'email', 'criado_em', 'atualizado_em'
     ];
+
+    /**
+     * Method to get related technologies
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function technologies()
+    {
+        return $this->hasMany(ProjectTechnologies::class, 'idprojeto', 'id');
+    }
 }

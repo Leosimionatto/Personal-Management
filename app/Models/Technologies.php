@@ -4,18 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ProjectType extends Model
+class Technologies extends Model
 {
     /**
-     * Database Table
-     *
      * @var string
      */
-    protected $table = 'tpprojeto';
+    protected $table = 'tecnologias';
 
     /**
-     * Table Primary Key
-     *
      * @var string
      */
     protected $primaryKey = 'id';
@@ -26,11 +22,9 @@ class ProjectType extends Model
     public $timestamps = false;
 
     /**
-     * Table Attributes
-     *
      * @var array
      */
     protected $fillable = [
-        'id', 'nmtipo', 'criado_em', 'atualizado_em'
+        'id', 'nome', 'criado_em', 'atualizado_em'
     ];
 }

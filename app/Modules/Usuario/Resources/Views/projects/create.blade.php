@@ -30,12 +30,14 @@
                 <h3>Cadastro de um novo projeto:</h3>
                 Para efetuar o cadastro de um novo projeto basta preencher as informações abaixo e clicar em <b>Criar projeto</b>.
             </div>
+
             <div class="steps" data-href="{{ url('usuario/projeto/cadastrar') }}">
                 <div class="alert alert-danger insert-errors-alert" style="margin-bottom:10px;margin-top:15px">
                     <b style="font-size:14px">Oops! Encontramos alguns problemas:</b>
                     <span class="block space-top-2">Para prosseguir e completar esse cadastro, será necessário arrumar os seguintes erros:</span>
                     <ul class="insert-errors" style="padding-left:15px;padding-top:2px"></ul>
                 </div>
+
                 <form method="post">
                     <h4>Informações gerais</h4>
 
@@ -63,10 +65,9 @@
                     <div class="form-group">
                         <label for="tecnologias" class="form-label">Tecnologias que serão utilizadas?</label>
                         <select name="tecnologias" class="required" id="tecnologias" multiple="multiple">
-                            <option value="1">Zend Framework 2</option>
-                            <option value="2">Laravel 5.4</option>
-                            <option value="3">HTML5</option>
-                            <option value="4">CSS3</option>
+                            @foreach(App\Utilities\Technologies\Arrays::technologies() as $technology)
+                                <option value="{{ $technology['id'] }}">{{ $technology['nome'] }}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="form-group">
@@ -81,6 +82,7 @@
                         <label for="participantes" class="form-label">Quais os participantes?</label>
                         <input type="text" class="form-control required" name="participantes" id="participantes" placeholder="Participantes?">
                     </div>
+
                     <div class="form-group" style="width:80%">
                         <label for="prioridade" class="form-label">Qual a prioridade do projeto?</label>
                         Esta é uma configuração muito importante no projeto, pois é este passo que definirá os avisos/alertas que serão enviados

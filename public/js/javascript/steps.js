@@ -60,7 +60,7 @@ $(window).on('load', function(){
             }
         });
 
-        $(parent).find('.required').each(function(){
+        $(parent).find('.required').not('.nicEdit-main').each(function(){
             var value = $(this).val();
 
             $(this).removeClass('warning');
@@ -74,9 +74,9 @@ $(window).on('load', function(){
 
             if(this.localName === 'select'){
                 var id = $(this).attr('id');
-                var value = $(this).find(':selected');
+                value = $(this).find(':selected');
 
-                if(!value.length > 0){
+                if(!(value.length > 0)){
                     var condition = $(this).hasClass('warning');
 
                     if(!condition){
@@ -204,8 +204,6 @@ function ajax_request(url, form)
                 if(data.status === '00'){
                     window.location.reload();
                 }
-
-                console.log(data);
 
                 if(data.responseJSON.errors){
                     $('.insert-errors').empty();
