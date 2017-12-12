@@ -1,11 +1,12 @@
-$(window).on('load', function(){
+$(document).ready(function(){
     var count = 1;
-    var tot_forms = $('.steps').find('form').length;
+    var steps = $('.steps');
+    var tot_forms = steps.find('form').length;
 
     // Colocando as divs que conterão as ações e os títulos das etapas em seus lugares específicos
-    $('.steps').prepend('<div class="steps-titles"></div>');
+    steps.prepend('<div class="steps-titles"></div>');
 
-    $('.steps').find('form').each(function(){
+    steps.find('form').each(function(){
 
         // Colocando o título de cada uma das etapas no header da página
         var title = $(this).find('h4').text();
@@ -47,43 +48,44 @@ $(window).on('load', function(){
         var actual = parent.attr('class').substring('5') * 1;
         var next = actual + 1;
 
-        $(parent).find('.nicEdit-main').each(function(){
-            var content = $(this).text();
-            var checkClass = $(this).parent().parent().find('textarea').hasClass('required');
+        $(parent).find('.required-summernote').each(function(){
+            var value = $(this).summernote('isEmpty');
 
-            if(!content && checkClass){
-                $(this).parent().css('border', '0');
-                $(this).parent().parent().find('.invalid-field').remove();
+            $(this).parent().find('.invalid-field').remove();
+            $(this).parent().find('.note-frame').removeClass('warning');
 
-                $(this).parent().css('border', '1px solid #c44d58');
-                $(this).parent().parent().append('<p class="invalid-field">Este campo é obrigatório!</p>');
+            if(value){
+                $(this).parent().find('.note-frame').addClass('warning');
+                $(this).parent().append('<p class="invalid-field">Este campo é obrigatório!</p>');
             }
         });
 
-        $(parent).find('.required').not('.nicEdit-main').each(function(){
+        $(parent).find('select.required-multiple-select').each(function(){
+            var value = $(this).find(':selected');
+            var ms_choice = $(this).parent().find('.ms-choice');
+
+            ms_choice.removeClass('warning');
+            $(this).parent().find('.invalid-field').remove();
+
+            if(value.length === 0){
+                var condition = ms_choice.hasClass('warning');
+
+                if(!condition){
+                    ms_choice.addClass('warning');
+                    $(this).parent().append('<p class="invalid-field">Este campo é obrigatório!</p>');
+                }
+            }
+        });
+
+        $(parent).find('.required').each(function(){
             var value = $(this).val();
 
             $(this).removeClass('warning');
             $(this).parent().find('.invalid-field').remove();
-            $(this).parent().find('.ms-parent').removeClass('warning');
 
             if(value === '' || value === '-1'){
                 $(this).addClass('warning');
                 $(this).parent().append('<p class="invalid-field">Este campo é obrigatório!</p>');
-            }
-
-            if(this.localName === 'select'){
-                var id = $(this).attr('id');
-                value = $(this).find(':selected');
-
-                if(!(value.length > 0)){
-                    var condition = $(this).hasClass('warning');
-
-                    if(!condition){
-                        $(this).parent().find('.ms-parent').addClass('warning');
-                        $(this).parent().append('<p class="invalid-field">Este campo é obrigatório!</p>');
-                    }
-                }
             }
         });
 
@@ -119,20 +121,36 @@ $(window).on('load', function(){
             var actual = $('.steps-titles').find('.step-title-box').not('.collapse').attr('class').split(/\s+/)[1].split('-')[1];
             var form = $('.step-' + actual);
 
-            $(form).find('.nicEdit-main').each(function(){
-                var content = $(this).text();
-                var checkClass = $(this).parent().parent().find('textarea').hasClass('required');
-
-                if(!content && checkClass){
-                    $(this).parent().css('border', '0');
-                    $(this).parent().parent().find('.invalid-field').remove();
-
-                    $(this).parent().css('border', '1px solid #c44d58');
-                    $(this).parent().parent().append('<p class="invalid-field">Este campo é obrigatório!</p>');
-                }
-            });
-
             if(next > actual){
+                $(form).find('.required-summernote').each(function(){
+                    var value = $(this).summernote('isEmpty');
+
+                    $(this).parent().find('.invalid-field').remove();
+                    $(this).parent().find('.note-frame').removeClass('warning');
+
+                    if(value){
+                        $(this).parent().find('.note-frame').addClass('warning');
+                        $(this).parent().append('<p class="invalid-field">Este campo é obrigatório!</p>');
+                    }
+                });
+
+                $(form).find('select.required-multiple-select').each(function(){
+                    var value = $(this).find(':selected');
+                    var ms_choice = $(this).parent().find('.ms-choice');
+
+                    ms_choice.removeClass('warning');
+                    $(this).parent().find('.invalid-field').remove();
+
+                    if(value.length === 0){
+                        var condition = ms_choice.hasClass('warning');
+
+                        if(!condition){
+                            ms_choice.addClass('warning');
+                            $(this).parent().append('<p class="invalid-field">Este campo é obrigatório!</p>');
+                        }
+                    }
+                });
+
                 $(form).find('.required').each(function(){
                     var value = $(this).val();
 
@@ -142,20 +160,6 @@ $(window).on('load', function(){
                     if(value === '' || value === '-1'){
                         $(this).addClass('warning');
                         $(this).parent().append('<p class="invalid-field">Este campo é obrigatório!</p>');
-                    }
-
-                    if(this.localName === 'select'){
-                        var id = $(this).attr('id');
-                        var value = $(this).find(':selected');
-
-                        if(!value.length > 0){
-                            var condition = $(this).hasClass('warning');
-
-                            if(!condition){
-                                $(this).parent().find('.ms-parent').addClass('warning');
-                                $(this).parent().append('<p class="invalid-field">Este campo é obrigatório!</p>');
-                            }
-                        }
                     }
                 });
 
@@ -181,7 +185,7 @@ $(window).on('load', function(){
         });
     });
 
-    $('.steps').find(':input').each(function(){
+    steps.find(':input').each(function(){
         $(this).focus(function(){
             var group = $(this).parent();
 

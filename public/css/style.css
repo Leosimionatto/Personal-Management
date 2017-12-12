@@ -1093,7 +1093,7 @@ h3 .project-color{
     padding:6px !important;
 }
 .steps .warning{
-    border:1px solid #EB5766;
+    border:1px solid #EB5766 !important;
 }
 .steps .invalid-field{
     margin:0;
@@ -1150,7 +1150,12 @@ h3 .project-color{
 .alert ul li{
     padding:2px;
 }
-/* NicEdit */
-.nicEdit-main{
-    padding:4px !important;
+/* SummerNote CSS */
+.note-frame{
+    border-radius:2px !important;
+    margin-bottom:6px !important;
+    border:1px solid #d9d9d9 !important;
+}
+.note-editor i{
+    color:#777 !important;
 }

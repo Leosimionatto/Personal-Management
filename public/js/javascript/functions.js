@@ -1,4 +1,4 @@
-$(window).on('load', function(){
+$(document).ready(function(){
     $('.dropdown').click(function() {
         $(this).find('.dropdown-menu').toggle();
     });
@@ -9,24 +9,23 @@ $(window).on('load', function(){
         }
     });
 
-    $('.nicEdit-main').each(function(){
-        $(this).on('focusout', function(){
-            var content = $(this).text();
-
-            $(this).parent().parent().find('textarea').text(content);
-        });
-
-        $(this).focus(function(){
-            var group = $(this).parent().parent();
-
-            $(this).parent().css('borderColor', 'rgb(204, 204, 204)');
-            $(this).parent().css('borderTop', 'none');
-
-            group.find('.invalid-field').remove();
-        });
-    });
-
     $('.ms-parent').each(function(){
         $(this).removeClass('required');
     });
+
+    $('.summernote').summernote({
+        height: 180,
+        focus: true,
+        resize:false,
+        toolbar: [
+            ['style', ['bold', 'italic', 'underline', 'clear']],
+            ['para', ['ul', 'ol', 'paragraph']]
+        ],
+        disableResizeEditor: true
+    });
+
+    $('.note-editor').on('click', function(){
+        $(this).removeClass('warning');
+        $(this).parent().find('.invalid-field').remove();
+    })
 });
