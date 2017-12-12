@@ -4,6 +4,7 @@ namespace App\Modules\Usuario\Http\Controllers;
 
 use App\Http\Requests\StoreProjectRequest;
 use App\Service\ProjectService;
+use App\Service\TechnologyService;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
@@ -15,13 +16,20 @@ class ProjectController extends Controller{
     protected $project;
 
     /**
+     * @var TechnologyService
+     */
+    protected $technologyService;
+
+    /**
      * ProjectController constructor.
      *
      * @param ProjectService $project
+     * @param TechnologyService $technologyService
      */
-    public function __construct(ProjectService $project)
+    public function __construct(ProjectService $project, TechnologyService $technologyService)
     {
         $this->project = $project;
+        $this->technologyService = $technologyService;
     }
 
     /**
@@ -44,7 +52,9 @@ class ProjectController extends Controller{
      */
     public function create()
     {
-        return view('usuario::projects.create');
+        $technologies = $this->technologyService->all();
+
+        return view('usuario::projects.create', compact('technologies'));
     }
 
     /**

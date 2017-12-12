@@ -48,7 +48,7 @@
                     </div>
                     <div class="form-group">
                         <label for="tecnologias" class="form-label">Habilidades necessárias:</label>
-                        <select name="tecnologias" class="required" id="tecnologias" multiple="multiple">
+                        <select name="tecnologias" class="required-multiple-select" id="tecnologias" multiple="multiple">
                             @foreach(App\Utilities\Technologies\Arrays::technologies() as $technology)
                                 <option value="{{ $technology['id'] }}" {{ App\Utilities\Technologies\Arrays::selected($project->technologies, $technology['id']) }}>{{ $technology['nome'] }}</option>
                             @endforeach

@@ -1,21 +1,21 @@
 <script>
-    $(window).on('load', function(){
-        var url = $('.steps').attr('data-href');
+    $(document).ready(function(){
+        var steps = $('.steps');
+        var url = steps.attr('data-href');
 
         $('.submit-form').click(function(){
-            var validation = $('.submit-form').parent().parent();
-
-            validation.find('.required').each(function(){
+            steps.find('.required').each(function(){
+                var value = $(this).val();
 
                 $(this).parent().find('.invalid-field').remove();
 
-                if($(this).val() == '' || $(this).val() == null){
+                if(value === '' || value === null){
                     $(this).removeClass('warning').addClass('warning');
                     $(this).parent().append('<p class="invalid-field">Este campo é obrigatório!</p>');
                 }
             });
 
-            if(validation.find('.warning').length === 0){
+            if(steps.find('.warning').length === 0){
                 var form = [];
 
                 $('.steps').find('form').each(function(index){
@@ -40,8 +40,10 @@
             'width':'100%'
         });
 
+
+
         $('.ms-parent').focusin(function(){
-            $(this).removeClass('warning');
+            $(this).find('.ms-choice').removeClass('warning');
             $(this).parent().find('.invalid-field').remove();
         });
     });

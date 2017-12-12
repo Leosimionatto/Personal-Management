@@ -7,10 +7,11 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
         <link rel="stylesheet" href="{{ asset('font-awesome/css/font-awesome.min.css') }}">
         <link rel='stylesheet' href="{{ asset('js/fullcalendar/fullcalendar.css') }}">
         <link rel='stylesheet' href="{{ asset('js/multiple-select-master/multiple-select.css') }}">
+        <link rel="stylesheet" href="{{ asset('summernote/summernote.css') }}">
         <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Roboto%3A300%2C400%7CRaleway%3A400%2C500%2C900&#038;ver=3.1' type='text/css' media='all'/>
     </head>
     <body>
@@ -45,23 +46,21 @@
     <!-- Jquery include -->
     <script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
 
+    <!-- Bootstrap JS -->
+    <script src="{{ asset('js/bootstrap.js') }}"></script>
+
     <!--  My jquery scripts  -->
     <script src="{{ asset('js/javascript/steps.js') }}"></script>
     <script src="{{ asset('js/javascript/functions.js') }}"></script>
+
+    <!-- SummerNote -->
+    <script src="{{ asset('summernote/summernote.js') }}"></script>
 
     <!--  Scripts  -->
     <script src="{{ asset('js/fullcalendar/lib/moment.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/fullcalendar/fullcalendar.js') }}"></script>
     <script src="{{ asset('js/fullcalendar/locale/pt-br.js') }}"></script>
     <script src="{{ asset('js/multiple-select-master/multiple-select.js') }}"></script>
-
-    <!-- Textarea structure -->
-    <script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
-    <script type="text/javascript">
-        bkLib.onDomLoaded(
-            nicEditors.allTextAreas
-        );
-    </script>
 
     @section('scripts')
     @show

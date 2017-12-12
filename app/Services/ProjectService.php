@@ -10,10 +10,28 @@ use Illuminate\Support\Facades\DB;
 
 class ProjectService{
 
+    /**
+     * @var Project
+     */
     protected $project;
+
+    /**
+     * @var Participant
+     */
     protected $participant;
+
+    /**
+     * @var ProjectTechnologies
+     */
     protected $projectTechnologies;
 
+    /**
+     * ProjectService constructor.
+     *
+     * @param Project $project
+     * @param ProjectTechnologies $projectTechnologies
+     * @param Participant $participant
+     */
     public function __construct(Project $project, ProjectTechnologies $projectTechnologies, Participant $participant)
     {
         $this->project = $project;
@@ -21,35 +39,44 @@ class ProjectService{
         $this->participant = $participant;
     }
 
-    /*
-     * Get all projects
+    /**
+     * Method to get all Projects
+     *
+     * @param Request $request
+     * @return \Illuminate\Database\Eloquent\Collection|static[]
      */
     public function all(Request $request)
     {
         return $this->project->all();
     }
 
-    /*
-     * Get project by ID
+    /**
+     * Method to get Project by id
+     *
+     * @param $id
+     * @return mixed
      */
     public function get($id)
     {
         return $this->project->find($id);
     }
 
-    /*
-     * Add project in database
+    /**
+     * Method to insert Project in Database
+     *
+     * @param $data
+     * @return array
      */
     public function add($data)
     {
         DB::beginTransaction();
 
         try{
-            // Removendo os campos que não serão necessários
             $technologies = $data['tecnologias'];
             $participants = $data['participantes'];
             $participants = ['1'];
 
+            // Removendo os campos que não serão necessários
             unset($data['tecnologias'], $data['participantes']);
 
             // Adicionando os timestamps

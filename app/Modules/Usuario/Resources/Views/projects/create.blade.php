@@ -32,9 +32,11 @@
             </div>
 
             <div class="steps" data-href="{{ url('usuario/projeto/cadastrar') }}">
-                <div class="alert alert-danger insert-errors-alert" style="margin-bottom:10px;margin-top:15px">
+                <div class="alert alert-danger insert-errors-alert space-bottom-10 space-top-15">
                     <b style="font-size:14px">Oops! Encontramos alguns problemas:</b>
-                    <span class="block space-top-2">Para prosseguir e completar esse cadastro, será necessário arrumar os seguintes erros:</span>
+                    <span class="block space-top-2">
+                        Para prosseguir e completar esse cadastro, será necessário corrigir os seguintes erros:
+                    </span>
                     <ul class="insert-errors" style="padding-left:15px;padding-top:2px"></ul>
                 </div>
 
@@ -64,15 +66,15 @@
                     </div>
                     <div class="form-group">
                         <label for="tecnologias" class="form-label">Tecnologias que serão utilizadas?</label>
-                        <select name="tecnologias" class="required" id="tecnologias" multiple="multiple">
-                            @foreach(App\Utilities\Technologies\Arrays::technologies() as $technology)
+                        <select name="tecnologias" class="required-multiple-select" id="tecnologias" multiple="multiple">
+                            @foreach($technologies as $technology)
                                 <option value="{{ $technology['id'] }}">{{ $technology['nome'] }}</option>
                             @endforeach
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="descricao" class="form-label">Qual a descrição do projeto?</label>
-                        <textarea class="form-control form-textarea required" name="descricao" id="descricao" placeholder="Descrição de habilidades necessárias para a participação no projeto"></textarea>
+                        <textarea class="form-control form-textarea summernote required-summernote" name="descricao" id="descricao" placeholder="Descrição de habilidades necessárias para a participação no projeto"></textarea>
                     </div>
                 </form>
                 <form method="post">
