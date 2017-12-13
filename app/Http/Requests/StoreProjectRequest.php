@@ -24,11 +24,11 @@ class StoreProjectRequest extends FormRequest
     public function rules()
     {
         return [
-            'nome' => 'required|max:120',
-            'tipo_projeto' => 'required|exists:tpprojeto,id',
-            'descricao'    => 'required|max:500',
-            'prioridade'  => 'required|exists:prioridades,id',
-            'dtentrega'    => 'date',
+            'nmprojeto'   => 'required|max:120',
+            'idtpprojeto' => 'required|exists:tpprojeto,id',
+            'descricao'   => 'required|max:500',
+            'idprioridade'  => 'required|exists:prioridade,id',
+            'dtentrega'   => 'date',
         ];
     }
 
@@ -47,14 +47,19 @@ class StoreProjectRequest extends FormRequest
         ];
     }
 
+    /**
+     * Method to get Attributes
+     *
+     * @return array
+     */
     public function attributes()
     {
         return [
-            'nome' => 'nome',
-            'tipo_projeto' => 'tipo_projeto',
-            'descricao'    => 'descricao',
-            'prioridade'  => 'prioridade',
-            'dtentrega'    => 'dtentrega',
+            'nmprojeto'   => 'Nome',
+            'idtpprojeto' => 'Tipo',
+            'descricao'   => 'Descrição',
+            'prioridade'  => 'Prioridade',
+            'dtentrega'   => 'Data de Entrega',
         ];
     }
 }

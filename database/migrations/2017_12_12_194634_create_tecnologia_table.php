@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTableUsuarios extends Migration
+class CreateTecnologiaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateTableUsuarios extends Migration
      */
     public function up()
     {
-        Schema::create('usuario', function(Blueprint $table){
+        Schema::create('tecnologia', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nome', 120);
-            $table->string('documento', 14);
-            $table->string('email', 120);
             $table->timestamp('criado_em');
             $table->timestamp('atualizado_em');
         });
@@ -30,6 +28,6 @@ class CreateTableUsuarios extends Migration
      */
     public function down()
     {
-        Schema::drop('usuario');
+        Schema::dropIfExists('tecnologia');
     }
 }

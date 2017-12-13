@@ -11,7 +11,12 @@ class ProjectTechnologies extends Model
      *
      * @var string
      */
-    protected $table = 'tecnologiasprojeto';
+    protected $table = 'tecnologiaprojeto';
+
+    /**
+     * @var string
+     */
+    protected $primaryKey = 'id';
 
     /**
      * @var bool
@@ -19,10 +24,8 @@ class ProjectTechnologies extends Model
     public $timestamps = false;
 
     /**
-     * @var bool
+     * @var array
      */
-    public $incrementing = false;
-
     protected $fillable = [
         'idtecnologia', 'idprojeto'
     ];

@@ -24,7 +24,7 @@
                 </div>
             </div>
             <div class="project-page-actions text-left">
-                <a href="{{ route('project.management', base64_encode($project->id)) }}"><button type="button" class="btn btn-primary">Informações gerais <i class="fa fa-handshake-o"></i></button></a>
+                <a href="{{ route('project.management', $project->id) }}"><button type="button" class="btn btn-primary">Informações gerais <i class="fa fa-handshake-o"></i></button></a>
                 <button type="button" class="btn btn-primary right"><a href="">Desenvolvimento <i class="fa fa-laptop"></i></a></button>
                 <button type="button" class="btn btn-primary right space-right-6">Design <i class="fa fa-paint-brush"></i></button>
             </div>

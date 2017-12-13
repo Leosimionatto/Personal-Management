@@ -45,23 +45,16 @@
 
                     <div class="form-group">
                         <label for="nome" class="form-label">Qual o nome do projeto?</label>
-                        <input type="text" class="form-control required" name="nome" placeholder="Nome do projeto" id="nome">
+                        <input type="text" class="form-control required" name="nmprojeto" placeholder="Nome do projeto" id="nome">
                     </div>
+
                     <div class="form-group">
                         <label for="tipo_projeto" class="form-label">Qual o tipo do projeto?</label>
-                        <select class="form-control required" name="tipo_projeto" id="tipo_projeto">
-                            <option value="-1" selected>Selecione uma opção</option>
-                            <optgroup label="Desenvolvimento">
-                                <option value="1">Criar um site</option>
-                                <option value="2">Criar um aplicativo mobile</option>
-                            </optgroup>
-                            <optgroup label="Design">
-                                <option value="3">Criar um template</option>
-                                <option value="4">Fazer o mockup de um site</option>
-                                <option value="5">Fazer o design de um banner</option>
-                                <option value="6">Fazer o design de um logotipo</option>
-                                <option value="7">Fazer o protótipo de uma aplicação</option>
-                            </optgroup>
+                        <select class="form-control required" name="idtpprojeto" id="tipo_projeto">
+                            <option value="-1" selected disabled>Selecione uma opção</option>
+                            @foreach($types as $type)
+                                <option value="{{ $type['id'] }}">{{ $type['nmtipo'] }}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="form-group">
@@ -92,7 +85,7 @@
                         <div class="table space-top-10">
                             <div class="table-row">
                                 <div class="table-cell width-10">
-                                    <input type="radio" value="1" name="prioridade" id="prioridade" checked>
+                                    <input type="radio" value="1" name="idprioridade" id="prioridade" checked>
                                 </div>
                                 <div class="table-cell width-20">
                                     <label class="label label-primary">Indefinida</label>
@@ -103,7 +96,7 @@
                             </div>
                             <div class="table-row">
                                 <div class="table-cell width-10">
-                                    <input type="radio" value="2" name="prioridade" id="prioridade">
+                                    <input type="radio" value="2" name="idprioridade" id="prioridade">
                                 </div>
                                 <div class="table-cell width-20">
                                     <label class="label label-success">Mínima</label>
@@ -114,7 +107,7 @@
                             </div>
                             <div class="table-row">
                                 <div class="table-cell width-10">
-                                    <input type="radio" value="3" name="prioridade" id="prioridade">
+                                    <input type="radio" value="3" name="idprioridade" id="prioridade">
                                 </div>
                                 <div class="table-cell width-20">
                                     <label class="label label-warning">Média</label>
@@ -125,7 +118,7 @@
                             </div>
                             <div class="table-row">
                                 <div class="table-cell width-10">
-                                    <input type="radio" value="4" name="prioridade" id="prioridade">
+                                    <input type="radio" value="4" name="idprioridade" id="prioridade">
                                 </div>
                                 <div class="table-cell width-20">
                                     <label class="label label-danger">Máxima</label>
@@ -138,7 +131,7 @@
                     </div>
                     <div class="form-group">
                         <label for="dtentrega" class="form-label">Qual a data de término?</label>
-                        <input type="date" class="form-control required" name="dtentrega" id="dtentrega">
+                        <input type="date" class="form-control" name="dtentrega" id="dtentrega">
                     </div>
                     <div class="form-group space-bottom-10" style="width:80%">
                         <label for="project-aditional-options" class="form-label">Opções auxiliares adicionais</label>
@@ -149,7 +142,7 @@
                     </div>
 
                     <input type="hidden" name="idusuario" value="1">
-                    <input type="hidden" name="situacao" value="1">
+                    <input type="hidden" name="idsituacao" value="1">
                 </form>
             </div>
         </div>

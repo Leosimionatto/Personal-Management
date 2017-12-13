@@ -108,7 +108,7 @@ class ProjectService{
                 }
 
                 DB::commit();
-                return ['status' => '00', 'message' => 'Procedimento realizado com sucesso!'];
+                return ['status' => '00', 'id' => $project->id];
             }
         }catch(\Exception $e){
             DB::rollback();

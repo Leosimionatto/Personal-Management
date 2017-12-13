@@ -31,7 +31,11 @@
 
                 form[0].push(select);
 
-                ajax_request(url, form);
+                ajax_request(url, form, function(response){
+                    if(response.status === '00'){
+                        window.location.href = '{{ url('usuario/projeto') }}' + '/' + response.id;
+                    }
+                });
             }
         });
 

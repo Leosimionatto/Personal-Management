@@ -45,12 +45,12 @@
                             @if(isset($projects) && count($projects) > 0)
                                 @foreach($projects as $project)
                                     <tr>
-                                        <td>{{ $project->nome }}</td>
-                                        <td>{!! App\Utilities\Priority\Arrays::priorityLabel($project->prioridade) !!}</td>
-                                        <td>{!! App\Utilities\Situation\Arrays::situationsLabel($project->situacao) !!}</td>
+                                        <td>{{ $project->nmprojeto }}</td>
+                                        <td>{!! App\Utilities\Priority\Arrays::priorityLabel($project->idprioridade) !!}</td>
+                                        <td>{!! App\Utilities\Situation\Arrays::situationsLabel($project->idsituacao) !!}</td>
                                         <td>{{ isset($project->dtentrega) ? date('d/m/Y', strtotime($project->dtentrega)) : 'Indefinida' }}</td>
                                         <td>
-                                            <a href="{{ route('project.show', base64_encode($project->id)) }}">
+                                            <a href="{{ route('project.show', $project->id) }}">
                                                 Informações gerais <i class="fa fa-cogs"></i>
                                             </a>
                                         </td>
@@ -58,7 +58,7 @@
                                 @endforeach
                             @else
                                 <tr>
-                                    <td colspan="5">Nenhum projeto encontrado em nossa base de dados. Para iniciar um novo projeto, basta <a href="">clicar aqui</a>!</td>
+                                    <td colspan="5">Nenhum projeto encontrado em nossa base de dados. Para iniciar um novo projeto, basta <a href="{{ route('project.create') }}">clicar aqui</a>!</td>
                                 </tr>
                             @endif
                         </tbody>

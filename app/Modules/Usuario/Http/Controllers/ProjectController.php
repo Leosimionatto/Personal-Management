@@ -5,6 +5,7 @@ namespace App\Modules\Usuario\Http\Controllers;
 use App\Http\Requests\StoreProjectRequest;
 use App\Service\ProjectService;
 use App\Service\TechnologyService;
+use App\Services\ProjectTypeService;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
@@ -21,15 +22,22 @@ class ProjectController extends Controller{
     protected $technologyService;
 
     /**
+     * @var ProjectTypeService
+     */
+    protected $projectTypeService;
+
+    /**
      * ProjectController constructor.
      *
      * @param ProjectService $project
      * @param TechnologyService $technologyService
+     * @param ProjectTypeService $projectTypeService
      */
-    public function __construct(ProjectService $project, TechnologyService $technologyService)
+    public function __construct(ProjectService $project, TechnologyService $technologyService, ProjectTypeService $projectTypeService)
     {
         $this->project = $project;
         $this->technologyService = $technologyService;
+        $this->projectTypeService = $projectTypeService;
     }
 
     /**
@@ -53,8 +61,9 @@ class ProjectController extends Controller{
     public function create()
     {
         $technologies = $this->technologyService->all();
+        $types = $this->projectTypeService->all();
 
-        return view('usuario::projects.create', compact('technologies'));
+        return view('usuario::projects.create', compact('technologies', 'types'));
     }
 
     /**
@@ -65,7 +74,7 @@ class ProjectController extends Controller{
      */
     public function show($id)
     {
-        $project = $this->project->get(base64_decode($id));
+        $project = $this->project->get($id);
 
         return view('usuario::projects.show', compact('project'));
     }
@@ -78,9 +87,7 @@ class ProjectController extends Controller{
      */
     public function store(StoreProjectRequest $request)
     {
-        $condition = $this->project->add($request->all());
-
-        return $condition;
+        return $this->project->add($request->all());
     }
 
     /**
@@ -91,7 +98,7 @@ class ProjectController extends Controller{
      */
     public function management($id)
     {
-        $project = $this->project->get(base64_decode($id));
+        $project = $this->project->get($id);
 
         return view('usuario::projects.management', compact('project'));
     }

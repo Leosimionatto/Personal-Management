@@ -14,7 +14,7 @@ class Participant extends Model
      *
      * @var string
      */
-    protected $table = 'participantes';
+    protected $table = 'participante';
 
     /**
      * Table Primary Key

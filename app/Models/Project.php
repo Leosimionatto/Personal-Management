@@ -11,7 +11,7 @@ class Project extends Model
      *
      * @var string
      */
-    protected $table = 'projetos';
+    protected $table = 'projeto';
 
     /**
      * Primary key
@@ -29,7 +29,7 @@ class Project extends Model
      * @var array
      */
     protected $fillable = [
-        'id', 'nome', 'descricao', 'situacao', 'tipo_projeto', 'prioridade', 'dtentrega', 'idusuario', 'documento', 'email', 'criado_em', 'atualizado_em'
+        'nmprojeto', 'descricao', 'idsituacao', 'idtpprojeto', 'idprioridade', 'dtentrega', 'idusuario', 'criado_em', 'atualizado_em'
     ];
 
     /**

@@ -9,7 +9,7 @@ class Technologies extends Model
     /**
      * @var string
      */
-    protected $table = 'tecnologias';
+    protected $table = 'tecnologia';
 
     /**
      * @var string

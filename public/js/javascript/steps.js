@@ -195,8 +195,10 @@ $(document).ready(function(){
     });
 });
 
-function ajax_request(url, form)
+function ajax_request(url, form, callback)
 {
+    var list = $('.insert-errors');
+
     call_ajax(form, function(result){
         var post = $.extend({}, result);
 
@@ -206,28 +208,20 @@ function ajax_request(url, form)
             data: post,
             success: function(data){
                 if(data.status === '00'){
-                    window.location.reload();
+                    callback(data);
                 }
 
-                if(data.responseJSON.errors){
-                    $('.insert-errors').empty();
+                if(data.status === '01'){
+                    list.empty();
 
-                    var errors = $.map(data.responseJSON.errors, function(value, index) {
-                        return [value];
-                    });
-
-                    if(errors instanceof Array){
-                        $.each(errors, function(index, value){
-                            $('.insert-errors').append('<li>' + value + '</li>');
-                        });
-                    }
+                    list.append('<li>' + data.message + '</li>');
 
                     $('.insert-errors-alert').show();
                 }
             },
             error: function(response){
-                if(response.responseJSON.errors){
-                    $('.insert-errors').empty();
+                if(response && response.responseJSON.errors){
+                    list.empty();
 
                     var errors = $.map(response.responseJSON.errors, function(value, index) {
                         return [value];
@@ -235,7 +229,7 @@ function ajax_request(url, form)
 
                     if(errors instanceof Array){
                         $.each(errors, function(index, value){
-                            $('.insert-errors').append('<li>' + value + '</li>');
+                            list.append('<li>' + value + '</li>');
                         });
                     }
 
@@ -256,14 +250,16 @@ function call_ajax(form, cb)
                 post[subform.name] = subform.value;
             }else{
                 var i = 0;
-                subform.forEach(function(value){
-                    if(!(post[value.name] instanceof Array)){
-                        post[value.name] = [];
-                    }
+                if(subform && subform.length > 0){
+                    subform.forEach(function(value){
+                        if(!(post[value.name] instanceof Array)){
+                            post[value.name] = [];
+                        }
 
-                    post[value.name][i] = value.value;
-                    i++;
-                });
+                        post[value.name][i] = value.value;
+                        i++;
+                    });
+                }
             }
         });
     });
