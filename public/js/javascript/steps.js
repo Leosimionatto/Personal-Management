@@ -83,7 +83,7 @@ $(document).ready(function(){
             $(this).removeClass('warning');
             $(this).parent().find('.invalid-field').remove();
 
-            if(value === '' || value === '-1'){
+            if(!value || value === '' || value === '-1'){
                 $(this).addClass('warning');
                 $(this).parent().append('<p class="invalid-field">Este campo é obrigatório!</p>');
             }
@@ -157,7 +157,7 @@ $(document).ready(function(){
                     $(this).removeClass('warning');
                     $(this).parent().find('.invalid-field').remove();
 
-                    if(value === '' || value === '-1'){
+                    if(!value || value === '' || value === '-1'){
                         $(this).addClass('warning');
                         $(this).parent().append('<p class="invalid-field">Este campo é obrigatório!</p>');
                     }

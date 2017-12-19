@@ -73,9 +73,14 @@
                 <form method="post">
                     <h4>Informações gerais</h4>
 
-                    <div class="form-group">
-                        <label for="participantes" class="form-label">Quais os participantes?</label>
+                    <label for="participantes" class="form-label">Quais os participantes?</label>
+                    <div class="form-group input-group table space-bottom-4">
                         <input type="text" class="form-control required" name="participantes" id="participantes" placeholder="Participantes?">
+                        <div class="input-group-addon"><i class="fa fa-user-plus"></i></div>
+                    </div>
+
+                    <div class="space-top-10 space-bottom-10">
+                        <b>E-mail:</b> gilberto.giro.resende@gmail.com
                     </div>
 
                     <div class="form-group" style="width:80%">

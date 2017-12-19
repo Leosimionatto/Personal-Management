@@ -35,11 +35,11 @@
                     <h4>Principais informações</h4>
                     <div class="form-group">
                         <label for="" class="form-label">Nome do projeto:</label>
-                        <input type="text" name="nmprojeto" class="form-control" placeholder="Qual o nome do projeto?" value="{{ old('nmprojeto', $project['nmprojeto']) }}">
+                        <input type="text" name="nmprojeto" class="form-control required" placeholder="Qual o nome do projeto?" value="{{ old('nmprojeto', $project['nmprojeto']) }}">
                     </div>
                     <div class="form-group">
                         <label for="tipo_projeto" class="form-label">Tipo do projeto:</label>
-                        <select name="idtpprojeto" class="form-control" id="tipo_projeto">
+                        <select name="idtpprojeto" class="form-control required" id="tipo_projeto">
                             <option value="">Qual o nome do projeto?</option>
                             @foreach(App\Utilities\ProjectType\Arrays::types() as $type)
                                 <option value="{{ $type['id'] }}" {{ old('idtpprojeto', $project->idtpprojeto) == $type['id'] ? 'selected' : '' }}>{{ $type['nmtipo'] }}</option>
@@ -56,7 +56,7 @@
                     </div>
                     <div class="form-group">
                         <label for="" class="form-label">Descrição do projeto:</label>
-                        <textarea name="" class="form-control form-text-area summernote" placeholder="Qual a descrição do projeto?">{!! $project->descricao !!}</textarea>
+                        <textarea name="" class="form-control required-summernote form-text-area summernote" placeholder="Qual a descrição do projeto?">{!! $project->descricao !!}</textarea>
                     </div>
                 </form>
                 <form>

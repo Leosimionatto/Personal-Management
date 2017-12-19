@@ -22,5 +22,4 @@ Route::group(['prefix' => 'usuario'], function () {
     Route::post('/projeto/cadastrar', 'ProjectController@store');
     Route::get('/projeto/{id}', 'ProjectController@show')->name('project.show');
     Route::get('/projeto/{id}/administrativo', 'ProjectController@management')->name('project.management');
-
 });

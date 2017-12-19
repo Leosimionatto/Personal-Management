@@ -614,6 +614,12 @@ progress[value]::-webkit-progress-value{
     font-size:13px !important;
     border-radius:1px !important;
 }
+.input-group input{
+    margin-bottom:0 !important;
+}
+.input-group-addon{
+    cursor:pointer;
+}
 .form-divider{
     font-weight:500;
     padding-bottom:4px;
@@ -837,29 +843,29 @@ table tfoot td{
 }
 /* Post-it colors */
 .blue{
-    background-color:#89bdd3;
+    background-color:#89bdd3 !important;
 }
 .blue i{
-    color:#494949;
+    color:#494949 !important;
 }
 .yellow{
-    background-color:#FAE596;
+    background-color:#FAE596 !important;
 }
 .yellow i{
-    color:#494949;
+    color:#494949 !important;
 }
 .green{
-    background-color:#76BF85;
+    background-color:#76BF85 !important;
 }
 .green i{
-    color:#494949;
+    color:#494949 !important;
 }
 /* Font colors */
 .red{
-    color:#C44D58;
+    color:#C44D58 !important;
 }
 .white{
-    color:#FFF;
+    color:#FFF !important;
 }
 /* Texts */
 .text{

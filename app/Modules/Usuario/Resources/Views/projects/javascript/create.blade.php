@@ -2,6 +2,7 @@
     $(document).ready(function(){
         var steps = $('.steps');
         var url = steps.attr('data-href');
+        var participants = {};
 
         $('.submit-form').click(function(){
             steps.find('.required').each(function(){
@@ -14,6 +15,13 @@
                     $(this).parent().append('<p class="invalid-field">Este campo é obrigatório!</p>');
                 }
             });
+;
+            if(Object.keys(participants).length !== 0){
+                var div = $('#participantes');
+
+                div.removeClass('warning');
+                div.parent().find('.invalid-field').remove();
+            }
 
             if(steps.find('.warning').length === 0){
                 var form = [];
@@ -43,8 +51,6 @@
             'placeholder':'Tecnologias a serem utilizadas',
             'width':'100%'
         });
-
-
 
         $('.ms-parent').focusin(function(){
             $(this).find('.ms-choice').removeClass('warning');
