@@ -75,12 +75,16 @@
 
                     <label for="participantes" class="form-label">Quais os participantes?</label>
                     <div class="form-group input-group table space-bottom-4">
-                        <input type="text" class="form-control required" name="participantes" id="participantes" placeholder="Participantes?">
-                        <div class="input-group-addon"><i class="fa fa-user-plus"></i></div>
+                        <input type="text" class="form-control required participant" name="participantes" id="participantes" placeholder="Participantes?">
+                        <div class="input-group-addon add-participant"><i class="fa fa-user-plus"></i></div>
                     </div>
 
-                    <div class="space-top-10 space-bottom-10">
-                        <b>E-mail:</b> gilberto.giro.resende@gmail.com
+                    <div class="space-top-10 space-bottom-10 space-left-6">
+                        <ol>
+                            <li><b>E-mail:</b> gilberto.giro.resende@gmail.com <a href="" class="space-left-6">Remover participante</a></li>
+                            <li><b>E-mail:</b> gilberto.giro.resende@gmail.com <a href="" class="space-left-6">Remover participante</a></li>
+                            <li><b>E-mail:</b> gilberto.giro.resende@gmail.com <a href="" class="space-left-6">Remover participante</a></li>
+                        </ol>
                     </div>
 
                     <div class="form-group" style="width:80%">

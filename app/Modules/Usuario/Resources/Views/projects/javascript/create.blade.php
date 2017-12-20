@@ -12,7 +12,7 @@
 
                 if(value === '' || value === null){
                     $(this).removeClass('warning').addClass('warning');
-                    $(this).parent().append('<p class="invalid-field">Este campo é obrigatório!</p>');
+                    $(this).parent().append('<p class="invalid-field" style="display:table-row">Este campo é obrigatório!</p>');
                 }
             });
 ;
@@ -47,6 +47,13 @@
             }
         });
 
+        $('.add-participant').on('click', function(e){
+            e.preventDefault();
+            e.stopPropagation();
+
+            checkUser($('.participant').val());
+        });
+
         $('#tecnologias').multipleSelect({
             'placeholder':'Tecnologias a serem utilizadas',
             'width':'100%'
@@ -56,5 +63,23 @@
             $(this).find('.ms-choice').removeClass('warning');
             $(this).parent().find('.invalid-field').remove();
         });
+
+        // Method to check if User exists by Email
+        function checkUser(email)
+        {
+            var request = $.ajax({
+                url: '{{ url('usuario/checar-email-usuario') }}',
+                method: 'GET',
+                data: {'email': email}
+            });
+
+            request
+                .done(function(response){
+                    console.log(response);
+                })
+                .fail(function(response){
+                    console.log(response);
+                });
+        }
     });
 </script>

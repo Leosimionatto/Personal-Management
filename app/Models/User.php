@@ -37,12 +37,13 @@ class User extends Authenticatable
         'nome', 'documento', 'email', 'criado_em', 'atualizado_em'
     ];
 
-//    /**
-//     * The attributes that should be hidden for arrays.
-//     *
-//     * @var array
-//     */
-//    protected $hidden = [
-//        'password', 'remember_token',
-//    ];
+    /**
+     * Get the password for the user.
+     *
+     * @return string
+     */
+    public function getAuthPassword()
+    {
+        return $this->senha;
+    }
 }

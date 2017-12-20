@@ -14,12 +14,17 @@
 Route::group(['prefix' => 'usuario'], function () {
     Route::get('/', 'IndexController@index')->name('index');
 
-    /**
-     * Routes about projects
+    /*
+     * Routes about Projects
      */
     Route::get('/projeto', 'ProjectController@index')->name('project.index');
     Route::get('/projeto/cadastrar', 'ProjectController@create')->name('project.create');
     Route::post('/projeto/cadastrar', 'ProjectController@store');
     Route::get('/projeto/{id}', 'ProjectController@show')->name('project.show');
     Route::get('/projeto/{id}/administrativo', 'ProjectController@management')->name('project.management');
+
+    /*
+     * Routes about Users (Participants)
+     */
+    Route::get('/checar-email-usuario', 'UserController@checkByEmail');
 });

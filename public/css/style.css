@@ -595,6 +595,10 @@ progress[value]::-webkit-progress-value{
 progress[value]::-webkit-progress-value{
     background-color: #63c2de;
 }
+ol li{
+    padding:3px;
+    font-size:13px !important;
+}
 .progress-value{
     margin-top:3px;
     font-size:12px;

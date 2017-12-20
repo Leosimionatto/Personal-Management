@@ -1625,7 +1625,7 @@ function renderParsedFormat(parsedFormat, date1, date2, separator, isRTL) {
 }
 
 
-// Format String Parsing
+// Format Str Parsing
 // ---------------------------------------------------------------------------------------------------------------------
 
 var parsedFormatStrCache = {};
