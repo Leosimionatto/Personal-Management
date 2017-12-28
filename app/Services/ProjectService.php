@@ -2,11 +2,14 @@
 
 namespace App\Service;
 
+use App\Mail\Participation;
 use App\Models\Participant;
 use App\Models\Project;
 use App\Models\ProjectTechnologies;
+use App\Utilities\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class ProjectService{
 
@@ -74,7 +77,6 @@ class ProjectService{
         try{
             $technologies = $data['tecnologias'];
             $participants = $data['participantes'];
-            $participants = ['1'];
 
             // Removendo os campos que não serão necessários
             unset($data['tecnologias'], $data['participantes']);
@@ -101,10 +103,19 @@ class ProjectService{
                         'idusuario' => 1,
                         'solicitapart' => 'pen',
                         'criado_em' => $data['criado_em'],
-                        'atualizado_em' => $data['atualizado_em']
+                        'atualizado_em' => $data['atualizado_em'],
+                        'token'         => Str::random()
                     ];
 
-                    $this->participant->create($post);
+                    $new = $this->participant->create($post);
+
+                    $post = [
+                        'nmprojeto'      => $project->nmprojeto,
+                        'nmparticipante' => $new->user->nome,
+                        'token'          => $new->token
+                    ];
+
+                    Mail::to($new->user)->send(new Participation($post));
                 }
 
                 DB::commit();

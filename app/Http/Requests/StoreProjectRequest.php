@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Validator;
 
 class StoreProjectRequest extends FormRequest
 {
@@ -24,11 +25,13 @@ class StoreProjectRequest extends FormRequest
     public function rules()
     {
         return [
-            'nmprojeto'   => 'required|max:120',
-            'idtpprojeto' => 'required|exists:tpprojeto,id',
-            'descricao'   => 'required|max:500',
+            'nmprojeto'     => 'required|max:120',
+            'idtpprojeto'   => 'required|exists:tpprojeto,id',
+            'descricao'     => 'required|max:500',
+            'tecnologias'   => 'required',
+            'participantes' => 'required',
             'idprioridade'  => 'required|exists:prioridade,id',
-            'dtentrega'   => 'date',
+            'dtentrega'     => 'date',
         ];
     }
 
@@ -40,6 +43,8 @@ class StoreProjectRequest extends FormRequest
     public function messages()
     {
         return [
+            'tecnologias.required' => 'É necessário fornecer ao menos uma :attribute',
+            'participantes.required' => 'É necessário fornecer ao menos um :attribute',
             'required' => 'O campo :attribute é obrigatório.',
             'exists' => 'O Campo :attribute não foi encontrado na base de dados',
             'max' => 'A quantidade de caracteres do campo :attribute é inválida',
@@ -55,11 +60,14 @@ class StoreProjectRequest extends FormRequest
     public function attributes()
     {
         return [
-            'nmprojeto'   => 'Nome',
-            'idtpprojeto' => 'Tipo',
-            'descricao'   => 'Descrição',
-            'prioridade'  => 'Prioridade',
-            'dtentrega'   => 'Data de Entrega',
+            'nmprojeto'      => 'Nome',
+            'idtpprojeto'    => 'Tipo',
+            'descricao'      => 'Descrição',
+            'prioridade'     => 'Prioridade',
+            'participantes'  => 'Participantes',
+            'tecnologias'  => 'Tecnologias',
+            'prioridade'     => 'Prioridade',
+            'dtentrega'      => 'Data de Entrega',
         ];
     }
 }

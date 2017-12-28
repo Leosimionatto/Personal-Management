@@ -1,5 +1,5 @@
 html{
-    overflow-y: scroll !important;
+    overflow-y: scroll;
 }
 /* Configurações gerais da aplicação(Layout configuration) */
 .application-menu{
@@ -47,8 +47,12 @@ html{
     margin-left:15%;
     width:85% !important;
 }
+.application-body-complete{
+    padding:8px;
+}
 .application-body .menu-top{
-    padding:14px !important;
+    padding:16px !important;
+    box-shadow:0 1px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
 }
 /* Essas são as configurações referentes ao módulo inicial do sistema(Painel - Home) */
 .home-page .modules{
@@ -385,19 +389,19 @@ html{
 .new-project .new-project-form form input{
     width:100%;
     padding:3px;
-    margin-bottom:4px;
+    margin-bottom:3px !important;
 }
 .new-project .new-project-form form select{
     width:100%;
     padding:4px;
-    margin-bottom:4px;
+    margin-bottom:3px !important;
 }
 .new-project .new-project-form form textarea{
     width:100%;
     padding:4px;
     resize:none;
     height:120px;
-    margin-bottom:4px;
+    margin-bottom:3px !important;
 }
 .new-project .new-project-form form .table .table-cell{
     padding:4px;
@@ -696,6 +700,9 @@ table tfoot td{
 .width-70{
     width:70%;
 }
+.width-75{
+    width:75%;
+}
 .width-80{
     width:80%;
 }
@@ -908,6 +915,29 @@ table tfoot td{
 }
 .big{
     font-size:16px;
+}
+/* Center Elements in Page */
+.center-page{
+    top:0;
+    left:0;
+    width:100%;
+    position:absolute;
+    align-items:center;
+    height:100%;
+    display:flex;
+    justify-content:center;
+}
+/* Circular Icon */
+.circular-icon{
+    width:95px;
+    border-radius:50%;
+    display:flex;
+    margin-right:auto;
+    margin-left:auto;
+    justify-content:center;
+    align-items: center;
+    height:95px;
+    background:#FFFFFF;
 }
 /* Dropdown */
 .dropdown i{

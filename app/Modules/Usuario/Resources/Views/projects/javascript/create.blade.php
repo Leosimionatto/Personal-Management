@@ -1,8 +1,15 @@
 <script>
+    var participants = [];
+
     $(document).ready(function(){
         var steps = $('.steps');
         var url = steps.attr('data-href');
-        var participants = {};
+
+        // Div who has the list of participants
+        var list = $('.participants-list');
+
+        // Input to add participants
+        var input = $('#participantes');
 
         $('.submit-form').click(function(){
             steps.find('.required').each(function(){
@@ -27,7 +34,7 @@
                 var form = [];
 
                 $('.steps').find('form').each(function(index){
-                    form[index] = $(this).find(':input').not('#tecnologias').serializeArray();
+                    form[index] = $(this).find(':input').not('#tecnologias').not('#participantes').serializeArray();
                 });
 
                 var values = $('#tecnologias').multipleSelect('getSelects', 'array');
@@ -38,6 +45,7 @@
                 });
 
                 form[0].push(select);
+                form[0].push(participants);
 
                 ajax_request(url, form, function(response){
                     if(response.status === '00'){
@@ -64,6 +72,12 @@
             $(this).parent().find('.invalid-field').remove();
         });
 
+        // Method to add an Participant
+        function newParticipant(email)
+        {
+            participants.push({name:'participantes', value:email});
+        }
+
         // Method to check if User exists by Email
         function checkUser(email)
         {
@@ -75,11 +89,33 @@
 
             request
                 .done(function(response){
-                    console.log(response);
+                    if(response.status === '00'){
+                        list.append('<li><b>E-mail:</b> ' + email + ' <a href="" data-email="' + email + '" class="space-left-6 remove-participant">Remover participante</a></li>');
+
+                        // Last step
+                        newParticipant(email);
+                    }
+                    if(response.status === '01'){
+                        input.addClass('warning');
+                        input.parent().append('<p class="invalid-field" style="display:table-row">' + response.message + '</p>');
+                    }
                 })
                 .fail(function(response){
-                    console.log(response);
+                    //Do nothing
                 });
         }
+    });
+
+    $(document).on('click', '.remove-participant', function(e){
+        e.preventDefault();
+        e.stopPropagation();
+
+        var key = $(this).attr('data-email');
+
+        $(this).parent().remove();
+
+        participants = participants.filter(function(element){
+            return element.value !== key;
+        });
     });
 </script>

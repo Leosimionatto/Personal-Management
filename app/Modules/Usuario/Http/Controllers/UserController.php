@@ -37,7 +37,7 @@ class UserController extends Controller{
             return ['status' => '00'];
         }
 
-        return ['status' => '01'];
+        return ['status' => '01', 'message' => 'Usuário não encontrado na Base de Dados.'];
     }
 
 }

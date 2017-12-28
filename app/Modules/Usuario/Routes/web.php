@@ -22,9 +22,15 @@ Route::group(['prefix' => 'usuario'], function () {
     Route::post('/projeto/cadastrar', 'ProjectController@store');
     Route::get('/projeto/{id}', 'ProjectController@show')->name('project.show');
     Route::get('/projeto/{id}/administrativo', 'ProjectController@management')->name('project.management');
+    Route::get('projeto/solicitacao/participacao/{token}', 'ProjectController@request')->name('project.participation.request');
 
     /*
      * Routes about Users (Participants)
      */
     Route::get('/checar-email-usuario', 'UserController@checkByEmail');
+
+    /*
+     * Routes about Ajax Requests
+     */
+    Route::get('/modal/confirmacao', 'AjaxController@confirm')->name('modal.confirm');
 });

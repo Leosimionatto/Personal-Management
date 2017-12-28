@@ -80,11 +80,7 @@
                     </div>
 
                     <div class="space-top-10 space-bottom-10 space-left-6">
-                        <ol>
-                            <li><b>E-mail:</b> gilberto.giro.resende@gmail.com <a href="" class="space-left-6">Remover participante</a></li>
-                            <li><b>E-mail:</b> gilberto.giro.resende@gmail.com <a href="" class="space-left-6">Remover participante</a></li>
-                            <li><b>E-mail:</b> gilberto.giro.resende@gmail.com <a href="" class="space-left-6">Remover participante</a></li>
-                        </ol>
+                        <ol class="participants-list"></ol>
                     </div>
 
                     <div class="form-group" style="width:80%">
