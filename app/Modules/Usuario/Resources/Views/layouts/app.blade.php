@@ -17,12 +17,12 @@
     <body>
         <div class="application-menu">
             <span class="menu-title">
-                Personal <span style="color:#86C543;font-size:15px">Management</span>
+                Personal <span style="color:#86C543;font-size:16px">Management</span>
             </span>
             <div class="profile-configuration text-center">
                 <img src="{{ asset('img/sem-foto.png') }}" width="38%">
                 <div class="profile-options">
-                    <span class="block name"><a href="">Gilberto Giro Resende <i class="fa fa-edit"></i></a></span>
+                    <span class="block name space-top-6"><a href="">{{ \Illuminate\Support\Facades\Auth::guard('user')->user()->nome }} <i class="fa fa-edit"></i></a></span>
                 </div>
             </div>
             <div class="menu-actions">

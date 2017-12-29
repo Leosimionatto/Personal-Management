@@ -2,13 +2,22 @@
 
 @section('content')
     <div class="home-page">
-        <div class="menu-top card padding-12 space-bottom-10 relative">
+        <div class="menu-top card padding-12 space-bottom-15 relative">
             <div class="block">
                 <span class="disabled-route-option">Página inicial</span>
-                <div class="filter-system right">
-                    <input type="text" name="" value="" placeholder="O que você busca?">
-                    <span class="file-system-icon"><button type="submit" name="search"><i class="fa fa-search"></i></button></span>
+                <span class="right sign-out"><a href="{{ route('logout') }}" class="disabled-route-option">Sair <i class="fa fa-sign-out"></i></a></span>
+                <div class="dropdown notifications right space-right-15">
+                    <div class="notifications-information">
+                        <label class="label label-danger">10</label>
+                        <i class="fa fa-bell"></i>
+                    </div>
+                    <ul class="dropdown-menu">
+                        <li><b>Status Atualizações</b></li>
+                        <li class="divider"></li>
+                        <li>Nenhuma notificação recente</li>
+                    </ul>
                 </div>
+                <span class="right disabled-route-option space-right-15">Personal Management</span>
             </div>
         </div>
         <div class="modules card space-bottom-10">
@@ -124,8 +133,8 @@
             </div>
         </div>
         <div class="card remember inline-block padding-10">
-            <div class="remember-title">
-                <h3>Informações importantes:</h3>
+            <div class="remember-title padding-4">
+                <h3 style="padding-bottom:6px">Atualizações de Atividades - <span class="project-color">Situação do Prazo</span>:</h3>
             </div>
             <div class="remember-body">
                 <div class="sticky-note">

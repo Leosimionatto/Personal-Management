@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="{{ asset('font-awesome/css/font-awesome.min.css') }}">
         <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Roboto%3A300%2C400%7CRaleway%3A400%2C500%2C900&#038;ver=3.1' type='text/css' media='all'/>
     </head>
-    <body>
+    <body style="background:#FFFAFA">
         <div class="application-body-complete">
             @yield('content')
         </div>

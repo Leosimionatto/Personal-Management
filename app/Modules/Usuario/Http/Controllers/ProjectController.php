@@ -27,6 +27,9 @@ class ProjectController extends Controller{
      */
     protected $projectTypeService;
 
+    /**
+     * @var ParticipantService
+     */
     protected $participantService;
 
     /**
@@ -118,6 +121,17 @@ class ProjectController extends Controller{
     {
         $participant = $this->participantService->findByToken($token);
 
-        return view('usuario::projects.request.participation', compact('participant'));
+        return view('usuario::projects.request.participation', compact('participant', 'token'));
+    }
+
+    /**
+     * Method to update an Project Participation Request
+     *
+     * @param Request $request
+     * @return array
+     */
+    public function updateRequest(Request $request)
+    {
+        return $this->participantService->participate($request->all());
     }
 }

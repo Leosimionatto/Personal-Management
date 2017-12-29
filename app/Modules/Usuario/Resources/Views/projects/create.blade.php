@@ -145,9 +145,6 @@
                         <input type="checkbox" name="alert"> Alertar participantes por e-mail <br>
                         <input type="checkbox" name="alert"> Habilitar repositório na aplicação
                     </div>
-
-                    <input type="hidden" name="idusuario" value="1">
-                    <input type="hidden" name="idsituacao" value="1">
                 </form>
             </div>
         </div>

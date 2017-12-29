@@ -1,36 +1,43 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| This file is where you may define all of the routes that are handled
-| by your module. Just tell Laravel the URIs it should respond
-| to using a Closure or controller method. Build something great!
-|
-*/
-
 Route::group(['prefix' => 'usuario'], function () {
-    Route::get('/', 'IndexController@index')->name('index');
+    Route::group(['middleware' => 'auth:user'], function(){
+        Route::get('/', 'IndexController@index')->name('index');
+
+        /*
+         * Routes about Projects
+         */
+        Route::get('/projeto', 'ProjectController@index')->name('project.index');
+        Route::get('/projeto/cadastrar', 'ProjectController@create')->name('project.create');
+        Route::post('/projeto/cadastrar', 'ProjectController@store');
+        Route::get('/projeto/{id}', 'ProjectController@show')->name('project.show');
+        Route::get('/projeto/{id}/administrativo', 'ProjectController@management')->name('project.management');
+
+        /*
+         * Routes about Users (Participants)
+         */
+        Route::get('/checar-email-usuario', 'UserController@checkByEmail');
+
+        /*
+         * Route to Logout
+         */
+        Route::get('/logout', 'LoginController@logout')->name('logout');
+    });
 
     /*
-     * Routes about Projects
+     * Routes about Login
      */
-    Route::get('/projeto', 'ProjectController@index')->name('project.index');
-    Route::get('/projeto/cadastrar', 'ProjectController@create')->name('project.create');
-    Route::post('/projeto/cadastrar', 'ProjectController@store');
-    Route::get('/projeto/{id}', 'ProjectController@show')->name('project.show');
-    Route::get('/projeto/{id}/administrativo', 'ProjectController@management')->name('project.management');
-    Route::get('projeto/solicitacao/participacao/{token}', 'ProjectController@request')->name('project.participation.request');
-
-    /*
-     * Routes about Users (Participants)
-     */
-    Route::get('/checar-email-usuario', 'UserController@checkByEmail');
+    Route::get('/login', [ 'as' => 'login', 'uses' => 'LoginController@index']);
+    Route::post('/login', [ 'as' => 'login', 'uses' => 'LoginController@auth']);
 
     /*
      * Routes about Ajax Requests
      */
     Route::get('/modal/confirmacao', 'AjaxController@confirm')->name('modal.confirm');
+
+    /*
+     * Routes about Project Requests
+     */
+    Route::get('projeto/solicitacao/participacao/{token}', 'ProjectController@request')->name('project.participation.request');
+    Route::post('projeto/solicitacao/participacao', 'ProjectController@updateRequest');
 });

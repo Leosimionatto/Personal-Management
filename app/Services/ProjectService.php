@@ -6,8 +6,10 @@ use App\Mail\Participation;
 use App\Models\Participant;
 use App\Models\Project;
 use App\Models\ProjectTechnologies;
+use App\Models\User;
 use App\Utilities\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 
@@ -29,17 +31,24 @@ class ProjectService{
     protected $projectTechnologies;
 
     /**
+     * @var User
+     */
+    protected $user;
+
+    /**
      * ProjectService constructor.
      *
      * @param Project $project
      * @param ProjectTechnologies $projectTechnologies
      * @param Participant $participant
+     * @param User $user
      */
-    public function __construct(Project $project, ProjectTechnologies $projectTechnologies, Participant $participant)
+    public function __construct(Project $project, ProjectTechnologies $projectTechnologies, Participant $participant, User $user)
     {
         $this->project = $project;
         $this->projectTechnologies = $projectTechnologies;
         $this->participant = $participant;
+        $this->user = $user;
     }
 
     /**
@@ -82,6 +91,8 @@ class ProjectService{
             unset($data['tecnologias'], $data['participantes']);
 
             // Adicionando os timestamps
+            $data['idusuario'] = Auth::guard('user')->user()->id;
+            $data['idsituacao'] = 1;
             $data['criado_em'] = date('d/m/Y H:i:s');
             $data['atualizado_em'] = date('d/m/Y H:i:s');
 
@@ -98,9 +109,11 @@ class ProjectService{
                 }
 
                 foreach($participants as $participant){
+                    $user = $this->user->all()->where('email', '=', $participant)->first();
+
                     $post = [
                         'idprojeto'    => $project->id,
-                        'idusuario' => 1,
+                        'idusuario' => $user->id,
                         'solicitapart' => 'pen',
                         'criado_em' => $data['criado_em'],
                         'atualizado_em' => $data['atualizado_em'],

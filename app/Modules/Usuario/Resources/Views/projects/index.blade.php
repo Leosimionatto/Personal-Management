@@ -13,9 +13,15 @@
                         <i class="fa fa-bell"></i>
                     </div>
                     <ul class="dropdown-menu">
-                        <li><b>Status Atualizações</b></li>
+                        <li>
+                            <b>Status Atualizações</b> - <b class="green-color">Precedência</b>
+                        </li>
+
                         <li class="divider"></li>
-                        <li>Nenhuma notificação recente</li>
+
+                        @foreach($notifications as $notification)
+                            <li class="notification" style="padding:8px">{!! $notification->data['message'] !!}</li>
+                        @endforeach
                     </ul>
                 </div>
                 <span class="right disabled-route-option space-right-15">Personal Management</span>

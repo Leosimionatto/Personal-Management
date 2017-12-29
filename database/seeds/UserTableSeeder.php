@@ -15,6 +15,7 @@ class UserTableSeeder extends Seeder
             0 => [
                 'nome' => 'Gilberto Giro Resende',
                 'email' => 'gilberto.giro.resende@gmail.com',
+                'senha' => bcrypt('123456'),
                 'documento' => '460.595.328-02',
                 'criado_em' => date('Y-m-d H:i:s'),
                 'atualizado_em' => date('Y-m-d H:i:s'),

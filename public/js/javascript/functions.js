@@ -27,5 +27,13 @@ $(document).ready(function(){
     $('.note-editor').on('click', function(){
         $(this).removeClass('warning');
         $(this).parent().find('.invalid-field').remove();
-    })
+    });
+
+    $('.overflow-auto').on('mousewheel DOMMouseScroll', function (e) {
+        var e0 = e.originalEvent;
+        var delta = e0.wheelDelta || -e0.detail;
+
+        this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+        e.preventDefault();
+    });
 });

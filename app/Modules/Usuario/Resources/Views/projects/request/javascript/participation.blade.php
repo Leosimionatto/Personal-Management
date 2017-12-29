@@ -1,12 +1,23 @@
 <script>
     $(document).ready(function(){
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
         $('.call-confirm-modal').on('click', function(event){
             event.preventDefault();
 
+            var div = $('.accept');
             var condition = $('.accept:checked').length > 0;
+
+            div.parent().find('.invalid-field').remove();
 
             if(condition){
                 call_confirm_modal();
+            }else{
+                div.parent().append('<p class="invalid-field">Você precisa concordar com os termos.</p>');
             }
         });
     });
@@ -33,4 +44,28 @@
                 // Do nothing
             });
     }
+
+    $(document).on('click', '.confirm', function(){
+        var url = '{{ url("usuario/projeto/solicitacao/participacao") }}';
+
+        var request = $.ajax({
+            url: url,
+            method: 'POST',
+            data: {
+                token: '{{ $token }}',
+                solicitapart: 'ace',
+                fltoken: 's'
+            }
+        });
+
+        request
+            .done(function(response){
+                if(response.status === '00'){
+                    window.location.href = '{{ url('usuario/projeto/') }}' + '/' + response.id;
+                }
+            })
+            .fail(function(response){
+               // Do nothing
+            });
+    });
 </script>
