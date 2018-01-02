@@ -40,15 +40,19 @@
                         <input type="checkbox" class="accept"> Aceito os <b>Termos</b> impostos anteriormente.
                     </div>
                     <div class="space-top-10" style="position:absolute;bottom:10px;right:10px">
-                        <button class="btn btn-danger space-right-6">Recusar Solicitação <i class="fa fa-thumbs-down white"></i></button>
-                        <button class="btn btn-primary call-confirm-modal">Aceitar Solicitação <i class="fa fa-thumbs-up white"></i></button>
+                        @if($participant->fltoken !== 's')
+                            <button class="btn btn-danger space-right-6 call-recuse-modal">Recusar Solicitação <i class="fa fa-thumbs-down white"></i></button>
+                            <button class="btn btn-primary call-confirm-modal">Aceitar Solicitação <i class="fa fa-thumbs-up white"></i></button>
+                        @else
+                            <p class="invalid-field"><b style="color:#c44d58">Essa soliciatação já foi respondida.</b></p>
+                        @endif
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="modal actual-modal"></div>
+    <div class="modal fade actual-modal"></div>
 @endsection
 
 @section('scripts')

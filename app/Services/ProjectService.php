@@ -7,6 +7,7 @@ use App\Models\Participant;
 use App\Models\Project;
 use App\Models\ProjectTechnologies;
 use App\Models\User;
+use App\Notifications\ParticipationRequestNotification;
 use App\Utilities\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -129,6 +130,8 @@ class ProjectService{
                     ];
 
                     Mail::to($new->user)->send(new Participation($post));
+
+                    $new->notify(new ParticipationRequestNotification($project));
                 }
 
                 DB::commit();

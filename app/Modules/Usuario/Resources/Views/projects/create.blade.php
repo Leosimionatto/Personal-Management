@@ -8,17 +8,9 @@
                 <span class="available-route-option"><a href="{{ route('project.index') }}">Projetos <i class="fa fa-arrow-right"></i></a></span>
                 <span class="disabled-route-option">Novo projeto</span>
                 <span class="right sign-out disabled-route-option">Sair <i class="fa fa-sign-out"></i></span>
-                <div class="dropdown notifications right space-right-15">
-                    <div class="notifications-information">
-                        <label class="label label-danger">10</label>
-                        <i class="fa fa-bell"></i>
-                    </div>
-                    <ul class="dropdown-menu">
-                        <li><b>Status Atualizações</b></li>
-                        <li class="divider"></li>
-                        <li>Nenhuma notificação recente</li>
-                    </ul>
-                </div>
+
+                @include('usuario::layouts.notification')
+
                 <span class="right disabled-route-option space-right-15">Personal Management</span>
             </div>
         </div>

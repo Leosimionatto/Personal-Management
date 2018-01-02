@@ -75,7 +75,20 @@
         // Method to add an Participant
         function newParticipant(email)
         {
-            participants.push({name:'participantes', value:email});
+            var exists = participants.filter(function(element){
+                return element.value === email;
+            });
+
+            input.parent().find('.invalid-field').remove();
+
+            if(exists.length === 0){
+                participants.push({name:'participantes', value:email});
+
+                list.append('<li><b>E-mail:</b> ' + email + ' <a href="" data-email="' + email + '" class="space-left-6 remove-participant">Remover participante</a></li>');
+            }else{
+                input.addClass('warning');
+                input.parent().append('<p class="invalid-field" style="display:table-row">Este participante já foi adicionado.</p>');
+            }
         }
 
         // Method to check if User exists by Email
@@ -90,9 +103,6 @@
             request
                 .done(function(response){
                     if(response.status === '00'){
-                        list.append('<li><b>E-mail:</b> ' + email + ' <a href="" data-email="' + email + '" class="space-left-6 remove-participant">Remover participante</a></li>');
-
-                        // Last step
                         newParticipant(email);
                     }
                     if(response.status === '01'){

@@ -11,7 +11,17 @@ Route::group(['prefix' => 'usuario'], function () {
         Route::get('/projeto/cadastrar', 'ProjectController@create')->name('project.create');
         Route::post('/projeto/cadastrar', 'ProjectController@store');
         Route::get('/projeto/{id}', 'ProjectController@show')->name('project.show');
+        Route::get('/projeto/{id}/requisicao', 'ProjectController@participationRequest')->name('project.request');
         Route::get('/projeto/{id}/administrativo', 'ProjectController@management')->name('project.management');
+
+        /*
+         * Routes about Notifications
+         */
+        Route::get('/notificacao', 'NotificationController@index')->name('notification.index');
+        Route::get('/notificacao/ler', 'NotificationController@read')->name('notification.read');
+        Route::get('/notificacao/ler/todas', 'NotificationController@markAll')->name('notification.mark-all-as-read');
+        Route::get('/notificacao/remover', 'NotificationController@delete')->name('notification.delete');
+        Route::get('/notificacao/remover/todas', 'NotificationController@deleteAll')->name('notification.delete-all');
 
         /*
          * Routes about Users (Participants)
@@ -34,6 +44,9 @@ Route::group(['prefix' => 'usuario'], function () {
      * Routes about Ajax Requests
      */
     Route::get('/modal/confirmacao', 'AjaxController@confirm')->name('modal.confirm');
+    Route::get('/modal/recusa', 'AjaxController@recuse')->name('modal.recuse');
+    Route::get('/modal/editar/requisicao/participacao', 'AjaxController@editParticipation')->name('modal.edit-participation-request');
+
 
     /*
      * Routes about Project Requests

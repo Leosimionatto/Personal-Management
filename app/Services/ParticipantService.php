@@ -24,6 +24,28 @@ class ParticipantService{
     }
 
     /**
+     * Method to get Participant by User id
+     *
+     * @param $id
+     * @return mixed
+     */
+    public function findByUser($id)
+    {
+        return $this->repository->all()->where('idusuario', '=', $id);
+    }
+
+    /**
+     * Method to find all Participants by Project id
+     *
+     * @param $id
+     * @return \Illuminate\Database\Eloquent\Collection|static[]
+     */
+    public function getParticipantsByProject($id)
+    {
+        return $this->repository->all()->where('idprojeto', '=', $id);
+    }
+
+    /**
      * Method to find participant by Token
      *
      * @param $token

@@ -20,7 +20,7 @@
                 Personal <span style="color:#86C543;font-size:16px">Management</span>
             </span>
             <div class="profile-configuration text-center">
-                <img src="{{ asset('img/sem-foto.png') }}" width="38%">
+                <img src="{{ asset('img/sem-foto.png') }}" width="90px">
                 <div class="profile-options">
                     <span class="block name space-top-6"><a href="">{{ \Illuminate\Support\Facades\Auth::guard('user')->user()->nome }} <i class="fa fa-edit"></i></a></span>
                 </div>

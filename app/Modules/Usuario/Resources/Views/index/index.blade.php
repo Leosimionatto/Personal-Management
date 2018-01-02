@@ -6,17 +6,9 @@
             <div class="block">
                 <span class="disabled-route-option">Página inicial</span>
                 <span class="right sign-out"><a href="{{ route('logout') }}" class="disabled-route-option">Sair <i class="fa fa-sign-out"></i></a></span>
-                <div class="dropdown notifications right space-right-15">
-                    <div class="notifications-information">
-                        <label class="label label-danger">10</label>
-                        <i class="fa fa-bell"></i>
-                    </div>
-                    <ul class="dropdown-menu">
-                        <li><b>Status Atualizações</b></li>
-                        <li class="divider"></li>
-                        <li>Nenhuma notificação recente</li>
-                    </ul>
-                </div>
+
+                @include('usuario::layouts.notification')
+
                 <span class="right disabled-route-option space-right-15">Personal Management</span>
             </div>
         </div>

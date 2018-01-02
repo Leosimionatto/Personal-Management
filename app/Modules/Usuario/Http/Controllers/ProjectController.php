@@ -75,6 +75,17 @@ class ProjectController extends Controller{
     }
 
     /**
+     * Method to insert project in database
+     *
+     * @param StoreProjectRequest $request
+     * @return array
+     */
+    public function store(StoreProjectRequest $request)
+    {
+        return $this->project->add($request->all());
+    }
+
+    /**
      * Method to show project information
      *
      * @param $id
@@ -85,17 +96,6 @@ class ProjectController extends Controller{
         $project = $this->project->get($id);
 
         return view('usuario::projects.show', compact('project'));
-    }
-
-    /**
-     * Method to insert project in database
-     *
-     * @param StoreProjectRequest $request
-     * @return array
-     */
-    public function store(StoreProjectRequest $request)
-    {
-        return $this->project->add($request->all());
     }
 
     /**
@@ -133,5 +133,18 @@ class ProjectController extends Controller{
     public function updateRequest(Request $request)
     {
         return $this->participantService->participate($request->all());
+    }
+
+    /**
+     * Method to show all Participation Requests
+     *
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function participationRequest($id)
+    {
+        $participants = $this->participantService->getParticipantsByProject($id);
+
+        return view('usuario::projects.request.index', compact('participants', 'id'));
     }
 }

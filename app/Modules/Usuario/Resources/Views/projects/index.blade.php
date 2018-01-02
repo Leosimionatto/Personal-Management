@@ -7,23 +7,9 @@
                 <span class="available-route-option"><a href="{{ route('index') }}">Página inicial <i class="fa fa-arrow-right"></i></a></span>
                 <span class="disabled-route-option">Projetos</span>
                 <span class="right sign-out disabled-route-option">Sair <i class="fa fa-sign-out"></i></span>
-                <div class="dropdown notifications right space-right-15">
-                    <div class="notifications-information">
-                        <label class="label label-danger">10</label>
-                        <i class="fa fa-bell"></i>
-                    </div>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <b>Status Atualizações</b> - <b class="green-color">Precedência</b>
-                        </li>
 
-                        <li class="divider"></li>
+                @include('usuario::layouts.notification')
 
-                        @foreach($notifications as $notification)
-                            <li class="notification" style="padding:8px">{!! $notification->data['message'] !!}</li>
-                        @endforeach
-                    </ul>
-                </div>
                 <span class="right disabled-route-option space-right-15">Personal Management</span>
             </div>
         </div>

@@ -47,7 +47,10 @@ class ParticipationRequestAnswerNotification extends Notification
     public function toArray($notifiable)
     {
         return [
-            'message' => 'O usuário <b>' . $this->participant->user->nome . '</b> optou por ' . (($this->participant->solicitapart === 'ace') ? 'aceitar' : 'recusar') . ' sua requisição de participação'
+            'message' => 'O usuário <b>' . $this->participant->user->nome . '</b> optou por ' . (($this->participant->solicitapart === 'ace') ? 'aceitar' : 'recusar') . ' sua requisição de participação',
+            'module'  => 'Projetos',
+            'issuer'  => $this->participant->user->id,
+            'route'   => route('project.request', $this->participant->idprojeto)
         ];
     }
 }
