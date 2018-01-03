@@ -49,13 +49,13 @@
                                 <td>{{ (new \Carbon\Carbon($notification['created_at']))->format('d/m/Y') }}</td>
                                 <td>
                                     @if(empty($notification['read_at']))
-                                        <button class="btn btn-success circular-button read" data-id="{{ $notification['id'] }}" title="Marcar como Lido"><i class="fa fa-book white"></i></button>
+                                        <button class="btn btn-success circular-button read" data-id="{{ $notification['id'] }}" data-toggle="tooltip" data-placement="top" title="Marcar como Lido"><i class="fa fa-book white"></i></button>
                                     @endif
 
-                                    <button class="btn btn-danger circular-button delete" data-id="{{ $notification['id'] }}" title="Remover Notificação"><i class="fa fa-trash white"></i></button>
+                                    <button class="btn btn-danger circular-button delete" data-id="{{ $notification['id'] }}" data-toggle="tooltip" data-placement="top" title="Remover Notificação"><i class="fa fa-trash white"></i></button>
 
                                     @if(!empty($notification['data']['route']))
-                                        <button class="btn btn-primary circular-button" title="Ir ao Local"><i class="fa fa-external-link white"></i></button>
+                                        <button class="btn btn-primary circular-button" data-toggle="tooltip" data-placement="top" title="Ir ao Local"><i class="fa fa-external-link white"></i></button>
                                     @endif
                                 </td>
                             </tr>

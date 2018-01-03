@@ -12,6 +12,7 @@ Route::group(['prefix' => 'usuario'], function () {
         Route::post('/projeto/cadastrar', 'ProjectController@store');
         Route::get('/projeto/{id}', 'ProjectController@show')->name('project.show');
         Route::get('/projeto/{id}/requisicao', 'ProjectController@participationRequest')->name('project.request');
+        Route::post('/projeto/{id}/requisicao', 'ProjectController@editParticipationRequest')->name('project.request.edit');
         Route::get('/projeto/{id}/administrativo', 'ProjectController@management')->name('project.management');
 
         /*

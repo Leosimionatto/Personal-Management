@@ -2,6 +2,7 @@
 
 namespace App\Modules\Usuario\Http\Controllers;
 
+use App\Http\Requests\EditParticipationRequest;
 use App\Http\Requests\StoreProjectRequest;
 use App\Service\ProjectService;
 use App\Service\TechnologyService;
@@ -146,5 +147,16 @@ class ProjectController extends Controller{
         $participants = $this->participantService->getParticipantsByProject($id);
 
         return view('usuario::projects.request.index', compact('participants', 'id'));
+    }
+
+    /**
+     * Method to edit Participation Request
+     *
+     * @param EditParticipationRequest $request, $id
+     * @return array
+     */
+    public function editParticipationRequest(EditParticipationRequest $request, $id)
+    {
+        return $this->participantService->edit($request->all());
     }
 }

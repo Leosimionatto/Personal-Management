@@ -41,4 +41,14 @@ class Project extends Model
     {
         return $this->hasMany(ProjectTechnologies::class, 'idprojeto', 'id');
     }
+
+    /**
+     * Get related user
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User', 'idusuario', 'id');
+    }
 }

@@ -131,7 +131,7 @@ class ProjectService{
 
                     Mail::to($new->user)->send(new Participation($post));
 
-                    $new->notify(new ParticipationRequestNotification($project));
+                    $new->user->notify(new ParticipationRequestNotification($project));
                 }
 
                 DB::commit();

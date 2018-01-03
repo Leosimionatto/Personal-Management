@@ -49,7 +49,7 @@ class ParticipationRequestNotification extends Notification
         return [
             'message' => 'Há uma nova <b>Requisição de Participação</b> em um projeto esperando por sua aprovação.',
             'module' => 'Projetos',
-            'issuer' => $this->project->idusuario
+            'issuer' => $this->project->user->nome
         ];
     }
 }

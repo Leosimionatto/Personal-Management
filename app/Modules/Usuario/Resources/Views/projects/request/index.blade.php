@@ -25,7 +25,6 @@
         <div class="card-header padding-4">
             <h3>
                 Requisições de Participação - <span class="project-color">Lista de Informações</span>
-                <i class="fa fa-users right"></i>
             </h3>
             <p style="margin:2px 0 0 0;">Lista de participantes que estão aguardando pelo posicionamento em algum dos setores de atuação no projeto em questão.</p>
         </div>
@@ -47,8 +46,8 @@
                                 <td>{{ (!empty($participant->cargo)) ? $participant->cargo : '-' }}</td>
                                 <td>{{ (!empty($participant->deveresdesc)) ? $participant->deveresdesc : '-' }}</td>
                                 <td>
-                                    <button class="btn btn-primary circular-button edit" title="Editar Informações" data-id="{{ $participant->user->id }}"><i class="fa fa-address-book white"></i></button>
-                                    <button class="btn btn-warning circular-button" title="Cancelar Participação"><i class="fa fa-lock white"></i></button>
+                                    <button class="btn btn-primary circular-button edit" data-toggle="tooltip" data-placement="top" title="Editar Informações" data-id="{{ $participant->user->id }}"><i class="fa fa-address-book white"></i></button>
+                                    <button class="btn btn-warning circular-button" data-toggle="tooltip" data-placement="top" title="Cancelar Participação"><i class="fa fa-lock white"></i></button>
                                 </td>
                             </tr>
                         @endforeach

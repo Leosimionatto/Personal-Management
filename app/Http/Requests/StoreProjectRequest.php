@@ -64,8 +64,8 @@ class StoreProjectRequest extends FormRequest
             'idtpprojeto'    => 'Tipo',
             'descricao'      => 'Descrição',
             'prioridade'     => 'Prioridade',
-            'participantes'  => 'Participantes',
-            'tecnologias'  => 'Tecnologias',
+            'participantes'  => 'Participante',
+            'tecnologias'  => 'Tecnologia',
             'prioridade'     => 'Prioridade',
             'dtentrega'      => 'Data de Entrega',
         ];

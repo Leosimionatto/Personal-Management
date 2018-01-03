@@ -24,6 +24,33 @@ class ParticipantService{
     }
 
     /**
+     * Method to edit an Participate
+     *
+     * @param $data
+     * @return array
+     */
+    public function edit($data)
+    {
+        DB::beginTransaction();
+        try{
+            $id = $data['id'];
+
+            unset($data['id']);
+
+            if($this->repository->find($id)->update($data)){
+                DB::commit();
+                return ['status' => '00'];
+            }
+
+            DB::rollback();
+            return ['status' => '01', 'message' => 'Ocorreu um erro! Caso o erro persista, contate um administrador.'];
+        }catch(\Exception $e){
+            DB::rollback();
+            return ['status' => '01', 'message' => $e->getMessage()];
+        }
+    }
+
+    /**
      * Method to get Participant by User id
      *
      * @param $id
@@ -31,7 +58,7 @@ class ParticipantService{
      */
     public function findByUser($id)
     {
-        return $this->repository->all()->where('idusuario', '=', $id);
+        return $this->repository->all()->where('idusuario', '=', $id)->first();
     }
 
     /**

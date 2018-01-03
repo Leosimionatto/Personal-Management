@@ -49,7 +49,7 @@ class ParticipationRequestAnswerNotification extends Notification
         return [
             'message' => 'O usuário <b>' . $this->participant->user->nome . '</b> optou por ' . (($this->participant->solicitapart === 'ace') ? 'aceitar' : 'recusar') . ' sua requisição de participação',
             'module'  => 'Projetos',
-            'issuer'  => $this->participant->user->id,
+            'issuer'  => $this->participant->user->nome,
             'route'   => route('project.request', $this->participant->idprojeto)
         ];
     }
