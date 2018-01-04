@@ -3,10 +3,10 @@
         <title></title>
     </head>
     <body>
-    <table style="table-layout:inherit !important;width:50%;margin-right:auto;margin-left:auto;">
+    <table style="table-layout:inherit !important;width:525px;margin-right:auto;margin-left:auto;">
         <thead>
             <tr>
-                <th colspan="2" style="height:35px;background-color:#428bca;"></th>
+                <th colspan="2" style="height:35px;background-color:#628D6E;"></th>
             </tr>
         </thead>
         <tbody>
@@ -27,8 +27,8 @@
                 </td>
             </tr>
             <tr>
-                <td style="padding:14px;border-bottom:1px solid #e7e7e7;font-family:'Calibri Light', sans-serif;">
-                    <p style="font-size:16px;font-family:'Calibri Light', sans-serif !important;margin-bottom:10px"><b>Informações para Contato:</b></p>
+                <td style="padding:8px 8px 8px 8px;border-bottom:1px solid #e7e7e7;font-family:'Calibri Light', sans-serif;">
+                    <p style="font-size:16px;font-family:'Calibri Light', sans-serif !important;margin-bottom:10px;margin-top:0 !important;"><b>Informações para Contato:</b></p>
                     <p style="font-size:14px;margin:0"><b>E-mail:</b> personal.management.app@gmail.com</p>
                     <p style="font-size:14px;margin:8px 0 0 0;"><b>Telefone:</b> (11)97565-4389</p>
                 </td>
@@ -72,7 +72,7 @@
         </tbody>
         <tfoot>
             <tr>
-                <td colspan="2" style="height:20px;background-color:#428bca"></td>
+                <td colspan="2" style="height:20px;background-color:#628D6E"></td>
             </tr>
         </tfoot>
     </table>

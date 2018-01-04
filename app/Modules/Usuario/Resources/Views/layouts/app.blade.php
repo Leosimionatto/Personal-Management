@@ -30,7 +30,7 @@
                     <li><a href=""><i class="fa fa-home"></i> Página inicial</a></li>
                     <li><a href=""><i class="fa fa-cloud"></i> Feed de notícias</a></li>
                     <li><a href=""><i class="fa fa-dashboard"></i> Dashboard</a></li>
-                    <li><a href=""><i class="fa fa-database"></i> Projetos</a></li>
+                    <li><a href="{{ route('project.index') }}"><i class="fa fa-database"></i> Projetos</a></li>
                     <li><a href=""><i class="fa fa-group"></i> Tarefas</a></li>
                     <li><a href=""><i class="fa fa-bar-chart"></i> Estudos</a></li>
                     <li><a href=""><i class="fa fa-book"></i> Quadro de anotações</a></li>

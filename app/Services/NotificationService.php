@@ -24,6 +24,17 @@ class NotificationService{
     }
 
     /**
+     * Method to get all User Notifications
+     *
+     * @param $id
+     * @return \Illuminate\Database\Eloquent\Collection|static[]
+     */
+    public function all($id)
+    {
+        return $this->notification->all()->where('notifiable_id', '=', $id);
+    }
+
+    /**
      * Method to find specific Notification
      *
      * @param $id

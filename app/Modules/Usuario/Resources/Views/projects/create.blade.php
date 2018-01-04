@@ -67,7 +67,7 @@
 
                     <label for="participantes" class="form-label">Quais os participantes?</label>
                     <div class="form-group input-group table space-bottom-4">
-                        <input type="text" class="form-control required participant" name="participantes" id="participantes" placeholder="Participantes?">
+                        <input type="text" class="form-control required participant" name="participantes" id="participantes" data-toggle="tooltip" data-placement="top" title="Para adicionar participantes informe o e-mail do mesmo e clique no botão que encontra-se na direita." placeholder="Participantes?">
                         <div class="input-group-addon add-participant"><i class="fa fa-user-plus"></i></div>
                     </div>
 

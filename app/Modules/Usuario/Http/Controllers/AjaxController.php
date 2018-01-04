@@ -51,9 +51,22 @@ class AjaxController extends Controller{
      */
     public function editParticipation(Request $request)
     {
-        $participant = $this->participantService->findByUser($request->get('id'));
+        $participant = $this->participantService->find($request->get('id'));
 
         return response()->json(['html' => view('usuario::ajax.edit-participation', compact('participant'))->render()]);
+    }
+
+    /**
+     * Method to call and get Cancel Participation Modal
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function cancelParticipation(Request $request)
+    {
+        $participant = $this->participantService->find($request->get('id'));
+
+        return response()->json(['html' => view('usuario::ajax.cancel-participation', compact('participant'))->render()]);
     }
 
 }

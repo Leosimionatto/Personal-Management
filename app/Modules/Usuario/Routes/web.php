@@ -11,8 +11,10 @@ Route::group(['prefix' => 'usuario'], function () {
         Route::get('/projeto/cadastrar', 'ProjectController@create')->name('project.create');
         Route::post('/projeto/cadastrar', 'ProjectController@store');
         Route::get('/projeto/{id}', 'ProjectController@show')->name('project.show');
+        Route::get('/projeto/{id}/participante', 'ProjectController@participant')->name('project.participant');
         Route::get('/projeto/{id}/requisicao', 'ProjectController@participationRequest')->name('project.request');
-        Route::post('/projeto/{id}/requisicao', 'ProjectController@editParticipationRequest')->name('project.request.edit');
+        Route::post('/projeto/{id}/editar/requisicao', 'ProjectController@editParticipationRequest')->name('project.request.edit');
+        Route::post('/projeto/{id}/cancelar/requisicao', 'ProjectController@cancelParticipationRequest')->name('project.request.cancel');
         Route::get('/projeto/{id}/administrativo', 'ProjectController@management')->name('project.management');
 
         /*
@@ -47,7 +49,7 @@ Route::group(['prefix' => 'usuario'], function () {
     Route::get('/modal/confirmacao', 'AjaxController@confirm')->name('modal.confirm');
     Route::get('/modal/recusa', 'AjaxController@recuse')->name('modal.recuse');
     Route::get('/modal/editar/requisicao/participacao', 'AjaxController@editParticipation')->name('modal.edit-participation-request');
-
+    Route::get('/modal/cancelar/requisicao/participacao', 'AjaxController@cancelParticipation')->name('modal.cancel-participation-request');
 
     /*
      * Routes about Project Requests

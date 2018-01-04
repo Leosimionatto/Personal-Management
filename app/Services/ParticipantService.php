@@ -24,6 +24,17 @@ class ParticipantService{
     }
 
     /**
+     * Method to get Participant by id
+     *
+     * @param $id
+     * @return mixed
+     */
+    public function find($id)
+    {
+        return $this->repository->find($id);
+    }
+
+    /**
      * Method to edit an Participate
      *
      * @param $data
@@ -51,6 +62,29 @@ class ParticipantService{
     }
 
     /**
+     * Method to cancel Participation
+     *
+     * @param $id
+     * @return array
+     */
+    public function cancel($id)
+    {
+        DB::beginTransaction();
+        try{
+            if($this->repository->find($id)->delete()){
+                DB::commit();
+                return ['status' => '00'];
+            }
+
+            DB::rollback();
+            return ['status' => '01', 'message' => 'Ocorreu um erro! Caso o erro persista, contate um administrador.'];
+        }catch(\Exception $e){
+            DB::rollback();
+            return ['status' => '01', 'message' => $e->getMessage()];
+        }
+    }
+
+    /**
      * Method to get Participant by User id
      *
      * @param $id
@@ -62,6 +96,17 @@ class ParticipantService{
     }
 
     /**
+     * Method to get all Misallocated Project Participants
+     *
+     * @param $id
+     * @return mixed
+     */
+    public function getProjectMisallocatedParticipants($id)
+    {
+        return $this->repository->all()->where('idprojeto', '=', $id)->where('solicitapart', '=', 'ace')->where('cargo',NULL)->where('deveresdesc', NULL);
+    }
+
+    /**
      * Method to find all Participants by Project id
      *
      * @param $id
@@ -69,7 +114,7 @@ class ParticipantService{
      */
     public function getParticipantsByProject($id)
     {
-        return $this->repository->all()->where('idprojeto', '=', $id);
+        return $this->repository->all()->where('idprojeto', '=', $id)->where('solicitapart', '=', 'ace')->where('cargo', '!=', NULL)->where('deveresdesc', '!=', NULL);
     }
 
     /**

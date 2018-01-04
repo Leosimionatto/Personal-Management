@@ -3,7 +3,7 @@
         <div class="modal-body" style="padding:0">
             <div class="width-38 padding-12 text-center inline-block align-top" style="position:absolute;left:0;bottom:0;top:0;background-color:#628D6E">
                 <div class="circular-icon space-top-6 space-bottom-10">
-                    <img src="{{ asset('img/seo-marketing/png/031-edit.png') }}" width="60px">
+                    <img src="{{ asset('img/users/png/user-10.png') }}" width="60px">
                 </div>
 
                 <h4 class="white">Cargo e Deveres</h4>
@@ -24,11 +24,11 @@
                         <textarea name="deveresdesc" class="form-control form-text-area" id="deveresdesc" placeholder="Descrição de Exemplo..."></textarea>
                     </div>
 
-                    <input type="hidden" name="id" value="{{ $participant->id }}">
+                    <input type="hidden" name="id" class="not-required" value="{{ $participant->id }}">
 
                     <div class="form-group space-top-10 text-right">
-                        <button class="warning-button space-right-4" data-dismiss="modal">Cancelar <i class="fa fa-remove white"></i></button>
-                        <button class="success-button confirm">Confirmar <i class="fa fa-check white"></i></button>
+                        <button class="warning-button space-right-4 not-required" data-dismiss="modal">Cancelar <i class="fa fa-remove white"></i></button>
+                        <button class="success-button confirm not-required">Confirmar <i class="fa fa-check white"></i></button>
                     </div>
                 </form>
             </div>

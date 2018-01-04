@@ -12,7 +12,7 @@
 
         @if(count($notifications) > 0)
             @foreach($notifications as $notification)
-                <a href="" class="block">
+                <a href="" data-id="{{ $notification->id }}" data-href="{{ (!empty($notification->data['route'])) ? $notification->data['route'] : '' }}" class="block mark-as-read">
                     <li class="notification" style="padding:8px">{!! $notification->data['message'] !!}</li>
                 </a>
             @endforeach
@@ -25,3 +25,7 @@
         </div>
     </ul>
 </div>
+
+@section('scripts')
+    @include('usuario::layouts.javascript.notification')
+@endsection

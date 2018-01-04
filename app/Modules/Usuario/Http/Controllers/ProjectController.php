@@ -113,6 +113,19 @@ class ProjectController extends Controller{
     }
 
     /**
+     * Method to show all Project Participants
+     *
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function participant($id)
+    {
+        $participants = $this->participantService->getParticipantsByProject($id);
+
+        return view('usuario::projects.participant', compact('participants', 'id'));
+    }
+
+    /**
      * Method to show Project Participation Request
      *
      * @param $token
@@ -144,7 +157,7 @@ class ProjectController extends Controller{
      */
     public function participationRequest($id)
     {
-        $participants = $this->participantService->getParticipantsByProject($id);
+        $participants = $this->participantService->getProjectMisallocatedParticipants($id);
 
         return view('usuario::projects.request.index', compact('participants', 'id'));
     }
@@ -158,5 +171,16 @@ class ProjectController extends Controller{
     public function editParticipationRequest(EditParticipationRequest $request, $id)
     {
         return $this->participantService->edit($request->all());
+    }
+
+    /**
+     * Method to cancel Participation Request
+     *
+     * @param Request $request, $id
+     * @return array
+     */
+    public function cancelParticipationRequest(Request $request, $id)
+    {
+        return $this->participantService->cancel($request->get('id'));
     }
 }

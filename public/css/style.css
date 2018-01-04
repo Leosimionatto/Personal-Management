@@ -430,9 +430,8 @@ html{
     padding-bottom:0;
 }
 .project-page .project-events .table{
-    margin:8px;
+    margin:8px 8px 0 8px;
     padding:6px;
-    margin-bottom:0;
     table-layout:fixed;
 }
 .project-page .project-events .table .table-cell{
@@ -932,14 +931,14 @@ table tfoot td{
 }
 /* Circular */
 .circular-icon{
-    width:95px;
+    width:105px;
     border-radius:50%;
     display:flex !important;
     margin-right:auto;
     margin-left:auto;
     justify-content:center !important;
     align-items: center !important;
-    height:95px;
+    height:105px;
     background:#FFFFFF !important;
 }
 .circular-button{
@@ -954,7 +953,7 @@ table tfoot td{
 .dropdown .notifications-information label{
     font-size:8px;
     vertical-align:top;
-    margin-right:-3px !important;
+    margin-right:-4px !important;
 }
 .dropdown a:hover{
     text-decoration:none;
@@ -1239,7 +1238,7 @@ h3 .project-color{
     font-size:22px;
     cursor:pointer;
     display:inline-block;
-    margin:0 3px 0 3px;
+    margin:0 4px 0 4px;
 }
 /* SummerNote CSS */
 .note-frame{
@@ -1254,6 +1253,9 @@ h3 .project-color{
 .dark-green-color{
     color:#628D6E !important;
 }
+.dark-yellow-color{
+    color:#FDB652 !important;
+}
 .green-color{
     color:#86C543 !important;
 }
@@ -1262,6 +1264,9 @@ h3 .project-color{
 }
 .blue-color{
     color:#428bca !important;
+}
+.yellow-color{
+    color:#F8D584 !important;
 }
 /* Buttons */
 .success-button{

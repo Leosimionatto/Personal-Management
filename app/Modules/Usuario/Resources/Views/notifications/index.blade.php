@@ -40,12 +40,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @if(count($notifications) > 0)
-                        @foreach($notifications as $notification)
+                    @if(count($notificationsList) > 0)
+                        @foreach($notificationsList as $notification)
                             <tr>
                                 <td>{{ (!empty($notification['data']['issuer'])) ? $notification['data']['issuer'] : '-' }}</td>
                                 <td>{{ (!empty($notification['data']['module'])) ? $notification['data']['module'] : '-' }}</td>
-                                <td>{!! $notification['data']['message'] !!}</td>
+                                <td>{!! (!empty($notification['data']['message'])) ? $notification['data']['message'] : '-' !!}</td>
                                 <td>{{ (new \Carbon\Carbon($notification['created_at']))->format('d/m/Y') }}</td>
                                 <td>
                                     @if(empty($notification['read_at']))
@@ -55,7 +55,9 @@
                                     <button class="btn btn-danger circular-button delete" data-id="{{ $notification['id'] }}" data-toggle="tooltip" data-placement="top" title="Remover Notificação"><i class="fa fa-trash white"></i></button>
 
                                     @if(!empty($notification['data']['route']))
-                                        <button class="btn btn-primary circular-button" data-toggle="tooltip" data-placement="top" title="Ir ao Local"><i class="fa fa-external-link white"></i></button>
+                                        <a href="{{ $notification['data']['route'] }}">
+                                            <button class="btn btn-primary circular-button" data-toggle="tooltip" data-placement="top" title="Ir ao Local"><i class="fa fa-external-link white"></i></button>
+                                        </a>
                                     @endif
                                 </td>
                             </tr>

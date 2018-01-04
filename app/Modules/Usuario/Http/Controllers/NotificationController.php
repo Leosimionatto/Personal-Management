@@ -5,6 +5,7 @@ namespace App\Modules\Usuario\Http\Controllers;
 use App\Services\NotificationService;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class NotificationController extends Controller{
 
@@ -30,7 +31,9 @@ class NotificationController extends Controller{
      */
     public function index()
     {
-        return view('usuario::notifications.index');
+        $notificationsList = Auth::guard('user')->user()->notifications;
+
+        return view('usuario::notifications.index', compact('notificationsList'));
     }
 
     /**
