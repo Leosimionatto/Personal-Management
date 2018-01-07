@@ -46,7 +46,7 @@
                                 <td>{{ (!empty($participant->cargo)) ? $participant->cargo : '-' }}</td>
                                 <td>{{ (!empty($participant->deveresdesc)) ? $participant->deveresdesc : '-' }}</td>
                                 <td>
-                                    <button class="btn btn-primary circular-button edit" data-toggle="tooltip" data-placement="top" title="Editar Informações" data-id="{{ $participant->id }}"><i class="fa fa-address-book white"></i></button>
+                                    <button class="btn btn-primary circular-button edit" data-toggle="tooltip" data-placement="top" title="Posicionar Participante" data-id="{{ $participant->id }}"><i class="fa fa-address-book white"></i></button>
                                     <button class="btn btn-warning circular-button cancel" data-toggle="tooltip" data-placement="top" title="Cancelar Participação" data-id="{{ $participant->id }}"><i class="fa fa-lock white"></i></button>
                                 </td>
                             </tr>

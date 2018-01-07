@@ -25,7 +25,3 @@
         </div>
     </ul>
 </div>
-
-@section('scripts')
-    @include('usuario::layouts.javascript.notification')
-@endsection

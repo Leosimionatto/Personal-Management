@@ -62,6 +62,8 @@
     <script src="{{ asset('js/fullcalendar/locale/pt-br.js') }}"></script>
     <script src="{{ asset('js/multiple-select-master/multiple-select.js') }}"></script>
 
+    @include('usuario::layouts.javascript.notification')
+
     @section('scripts')
     @show
 

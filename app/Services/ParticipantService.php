@@ -114,7 +114,7 @@ class ParticipantService{
      */
     public function getParticipantsByProject($id)
     {
-        return $this->repository->all()->where('idprojeto', '=', $id)->where('solicitapart', '=', 'ace')->where('cargo', '!=', NULL)->where('deveresdesc', '!=', NULL);
+        return $this->repository->all()->where('idprojeto', '=', $id)->where('solicitapart', '=', 'ace');
     }
 
     /**

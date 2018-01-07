@@ -33,10 +33,9 @@
             <table class="relative" style="margin:0">
                 <thead style="background-color:#587658">
                     <tr>
+                        <th class="white bold-500 padding-10"><i class="fa fa-gears white"></i> Situação</th>
                         <th class="white bold-500 padding-10"><i class="fa fa-user white"></i> Participante</th>
-                        <th class="white bold-500 padding-10"><i class="fa fa-database white"></i> Cargo</th>
-                        <th class="white bold-500 padding-10"><i class="fa fa-bell white"></i> Deveres</th>
-                        <th class="white bold-500 padding-10"><i class="fa fa-calendar-check-o white"></i> Recebida em</th>
+                        <th class="white bold-500 padding-10"><i class="fa fa-briefcase white"></i> Cargo</th>
                         <th class="white bold-500 padding-10"><i class="fa fa-info-circle white"></i> Ações</th>
                     </tr>
                 </thead>
@@ -44,12 +43,16 @@
                     @if(count($participants) > 0)
                         @foreach($participants as $participant)
                             <tr>
+                                <td>{!! (!empty($participant->cargo) && !empty($participant->deveresdesc)) ? '<i class="fa fa-check green-color big"></i>' : '<i class="fa fa-remove red-color big"></i>' !!}</td>
                                 <td>{{ $participant->user->nome }}</td>
                                 <td>{{ (!empty($participant->cargo)) ? $participant->cargo : '-' }}</td>
-                                <td>{{ (!empty($participant->deveresdesc)) ? $participant->deveresdesc : '-' }}</td>
-                                <td>{{ (new \Carbon\Carbon($participant->criado_em))->format('d/m/Y') }}</td>
                                 <td>
-                                    <button class="btn btn-warning circular-button"><i class="fa fa-edit white"></i></button>
+                                    <a href="{{ route('project.request', $id) }}" target="_blank" style="text-decoration:none">
+                                        <button class="btn btn-info circular-button" data-toggle="tooltip" data-placement="top" title="Verificar Requisição"><i class="fa fa-send white"></i></button>
+                                    </a>
+                                    <a href="" class="cancel" data-id="{{ $participant->id }}" data-toggle="tooltip" data-placement="top" title="Cancelar Participação">
+                                        <button class="btn btn-warning circular-button"><i class="fa fa-lock white"></i></button>
+                                    </a>
                                 </td>
                             </tr>
                         @endforeach
@@ -62,8 +65,10 @@
             </table>
         </div>
     </div>
+
+    <div class="modal fade actual-modal"></div>
 @endsection
 
 @section('scripts')
-    @include('usuario::notifications.javascript.index')
+    @include('usuario::projects.javascript.participant')
 @endsection

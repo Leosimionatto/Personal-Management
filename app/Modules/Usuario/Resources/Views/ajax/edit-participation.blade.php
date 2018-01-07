@@ -16,8 +16,13 @@
                 </div>
                 <form action="" class="padding-12 space-top-2 edit-participation-form">
                     <div class="form-group">
-                        <label for="cargo" class="form-label" style="margin-top:-4px !important;">Cargo do Participante</label>
-                        <input type="text" name="cargo" class="form-control" id="cargo" placeholder="Cargo Exemplo">
+                        <label for="idcargo" class="form-label" style="margin-top:-4px !important;">Cargo do Participante</label>
+                        <select name="idcargo" class="form-control" id="idcargo">
+                            <option value="">Selecione uma opção</option>
+                            @foreach($posts as $post)
+                                <option value="{{ $post->id }}">{{ $post->nmcargo }}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="form-group" style="margin-bottom:0;">
                         <label for="deveresdesc" class="form-label">Descrição dos Deveres</label>

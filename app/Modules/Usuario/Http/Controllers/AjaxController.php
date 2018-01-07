@@ -3,6 +3,7 @@
 namespace App\Modules\Usuario\Http\Controllers;
 
 use App\Services\ParticipantService;
+use App\Services\PostService;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
@@ -14,13 +15,20 @@ class AjaxController extends Controller{
     protected $participantService;
 
     /**
+     * @var PostService
+     */
+    protected $postService;
+
+    /**
      * AjaxController constructor.
      *
      * @param ParticipantService $participantService
+     * @param PostService $postService
      */
-    public function __construct(ParticipantService $participantService)
+    public function __construct(ParticipantService $participantService, PostService $postService)
     {
         $this->participantService = $participantService;
+        $this->postService = $postService;
     }
 
     /**
@@ -52,8 +60,9 @@ class AjaxController extends Controller{
     public function editParticipation(Request $request)
     {
         $participant = $this->participantService->find($request->get('id'));
+        $posts = $this->postService->all();
 
-        return response()->json(['html' => view('usuario::ajax.edit-participation', compact('participant'))->render()]);
+        return response()->json(['html' => view('usuario::ajax.edit-participation', compact('participant','posts'))->render()]);
     }
 
     /**

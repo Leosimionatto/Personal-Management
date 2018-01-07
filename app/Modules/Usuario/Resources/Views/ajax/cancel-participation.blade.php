@@ -1,5 +1,5 @@
 <div class="modal-dialog">
-    <div class="modal-content" style="width:45%;height:327px;position:relative !important;">
+    <div class="modal-content" style="width:48%;height:327px;position:relative !important;">
         <div class="modal-body" style="padding:0">
             <div class="width-38 padding-12 text-center inline-block align-top" style="position:absolute;left:0;bottom:0;top:0;background-color:#F8D584">
                 <div class="circular-icon space-top-6 space-bottom-10">
