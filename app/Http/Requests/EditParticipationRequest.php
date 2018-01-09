@@ -24,7 +24,7 @@ class EditParticipationRequest extends FormRequest
     public function rules()
     {
         return [
-            'cargo' => 'required|max:200',
+            'idcargo' => 'required|exists:cargo,id',
             'deveresdesc' => 'required'
         ];
     }

@@ -126,6 +126,29 @@ class ProjectController extends Controller{
     }
 
     /**
+     * Method to add an Participant
+     *
+     * @param Request $request
+     * @param $id
+     * @return array
+     */
+    public function addParticipant(Request $request, $id)
+    {
+        return $this->participantService->add($request->get('email'), $id);
+    }
+
+    /**
+     * Method to edit an Participant
+     *
+     * @param Request $request
+     * @return array
+     */
+    public function editParticipant(Request $request)
+    {
+        return $this->participantService->edit($request->all());
+    }
+
+    /**
      * Method to show Project Participation Request
      *
      * @param $token

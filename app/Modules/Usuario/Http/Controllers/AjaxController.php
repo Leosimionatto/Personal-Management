@@ -7,7 +7,8 @@ use App\Services\PostService;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
-class AjaxController extends Controller{
+class AjaxController extends Controller
+{
 
     /**
      * @var ParticipantService
@@ -62,7 +63,7 @@ class AjaxController extends Controller{
         $participant = $this->participantService->find($request->get('id'));
         $posts = $this->postService->all();
 
-        return response()->json(['html' => view('usuario::ajax.edit-participation', compact('participant','posts'))->render()]);
+        return response()->json(['html' => view('usuario::ajax.edit-participation', compact('participant', 'posts'))->render()]);
     }
 
     /**
@@ -78,4 +79,29 @@ class AjaxController extends Controller{
         return response()->json(['html' => view('usuario::ajax.cancel-participation', compact('participant'))->render()]);
     }
 
+    /**
+     * Method to call and get Add Participant Modal
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function addParticipant()
+    {
+        $posts = $this->postService->all();
+
+        return response()->json(['html' => view('usuario::ajax.add-participant', compact('posts'))->render()]);
+    }
+
+    /**
+     * Method to call and get Edit Participant Modal
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function editParticipant(Request $request)
+    {
+        $posts = $this->postService->all();
+        $participant = $this->participantService->find($request->get('id'));
+
+        return response()->json(['html' => view('usuario::ajax.edit-participant', compact('posts', 'participant'))->render()]);
+    }
 }

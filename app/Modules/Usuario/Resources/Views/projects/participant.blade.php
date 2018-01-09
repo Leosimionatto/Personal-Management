@@ -16,9 +16,7 @@
     </div>
 
     <div class="actions space-bottom-15">
-        <button class="btn btn-warning mark-all-as-read">Marcar todas como lidas <i class="fa fa-book white"></i></button>
-        <button class="btn btn-primary right delete-all">Limpar Caixa de Notificações <i class="fa fa-trash white"></i></button>
-        <button class="btn btn-primary space-right-6 right">Exportar <i class="fa fa-file-excel-o white"></i></button>
+        <button class="btn btn-warning add-participant">Adicionar participante <i class="fa fa-user-plus white"></i></button>
     </div>
 
     <div class="card padding-10">
@@ -26,15 +24,16 @@
             <h3>
                 Participantes - <span class="project-color">Lista de Informações Gerais</span>
             </h3>
-            <p style="margin:2px 0 0 0;">Todas as atualizações referente a qualquer um dos seus <b>Módulos de Gerenciamento</b> irão aparecer aqui.</p>
+            <p style="margin:2px 0 0 0;">Todos os participantes do projeto atual aparecerão aqui, independentemente de seu <b>Status</b> (Aceito, Pendente ou Recusado)</p>
         </div>
 
         <div class="card-body padding-10 space-bottom-6 space-top-6">
             <table class="relative" style="margin:0">
                 <thead style="background-color:#587658">
                     <tr>
-                        <th class="white bold-500 padding-10"><i class="fa fa-gears white"></i> Situação</th>
                         <th class="white bold-500 padding-10"><i class="fa fa-user white"></i> Participante</th>
+                        <th class="white bold-500 padding-10"><i class="fa fa-user white"></i> Status Requisição</th>
+                        <th class="white bold-500 padding-10"><i class="fa fa-gears white"></i> Situação</th>
                         <th class="white bold-500 padding-10"><i class="fa fa-briefcase white"></i> Cargo</th>
                         <th class="white bold-500 padding-10"><i class="fa fa-info-circle white"></i> Ações</th>
                     </tr>
@@ -43,13 +42,18 @@
                     @if(count($participants) > 0)
                         @foreach($participants as $participant)
                             <tr>
-                                <td>{!! (!empty($participant->cargo) && !empty($participant->deveresdesc)) ? '<i class="fa fa-check green-color big"></i>' : '<i class="fa fa-remove red-color big"></i>' !!}</td>
                                 <td>{{ $participant->user->nome }}</td>
-                                <td>{{ (!empty($participant->cargo)) ? $participant->cargo : '-' }}</td>
+                                <td>{!! App\Utilities\Participant\Arrays::getStatusLabel($participant->solicitapart) !!}</td>
+                                <td>{!! (!empty($participant->idcargo) || !empty($participant->deveresdesc)) ? '<i class="fa fa-check green-color big" data-toggle="tooltip" data-placement="top" title="Participante Posicionado"></i>' : '<i class="fa fa-remove red-color big" data-toggle="tooltip" data-placement="top" title="Participante Não Posicionado"></i>' !!}</td>
+                                <td>{{ (!empty($participant->idcargo)) ? App\Utilities\Post\Arrays::getPost($participant->idcargo) : '-' }}</td>
                                 <td>
-                                    <a href="{{ route('project.request', $id) }}" target="_blank" style="text-decoration:none">
-                                        <button class="btn btn-info circular-button" data-toggle="tooltip" data-placement="top" title="Verificar Requisição"><i class="fa fa-send white"></i></button>
-                                    </a>
+                                    @if(empty($participant->idcargo) || empty($participant->deveresdesc))
+                                        <a href="{{ route('project.request', $id) }}" target="_blank" style="text-decoration:none">
+                                            <button class="btn btn-info circular-button" data-toggle="tooltip" data-placement="top" title="Verificar Requisição"><i class="fa fa-send white"></i></button>
+                                        </a>
+                                    @else
+                                        <button class="btn btn-primary circular-button edit-participant" data-id="{{ $participant->id }}" data-toggle="tooltip" data-placement="top" title="Editar Participante"><i class="fa fa-edit white"></i></button>
+                                    @endif
                                     <a href="" class="cancel" data-id="{{ $participant->id }}" data-toggle="tooltip" data-placement="top" title="Cancelar Participação">
                                         <button class="btn btn-warning circular-button"><i class="fa fa-lock white"></i></button>
                                     </a>

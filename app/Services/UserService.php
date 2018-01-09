@@ -29,7 +29,7 @@ class UserService{
      */
     public function findByEmail($email)
     {
-        return $this->user->all()->where('email', '=', $email);
+        return $this->user->all()->where('email', '=', $email)->first();
     }
 
 }

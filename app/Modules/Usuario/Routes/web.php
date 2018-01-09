@@ -12,6 +12,8 @@ Route::group(['prefix' => 'usuario'], function () {
         Route::post('/projeto/cadastrar', 'ProjectController@store');
         Route::get('/projeto/{id}', 'ProjectController@show')->name('project.show');
         Route::get('/projeto/{id}/participante', 'ProjectController@participant')->name('project.participant');
+        Route::post('/projeto/{id}/adicionar/participante', 'ProjectController@addParticipant')->name('project.participant.add');
+        Route::put('/projeto/{id}/editar/participante', 'ProjectController@editParticipant')->name('project.participant.edit');
         Route::get('/projeto/{id}/requisicao', 'ProjectController@participationRequest')->name('project.request');
         Route::post('/projeto/{id}/editar/requisicao', 'ProjectController@editParticipationRequest')->name('project.request.edit');
         Route::post('/projeto/{id}/cancelar/requisicao', 'ProjectController@cancelParticipationRequest')->name('project.request.cancel');
@@ -30,6 +32,7 @@ Route::group(['prefix' => 'usuario'], function () {
          * Routes about Users (Participants)
          */
         Route::get('/checar-email-usuario', 'UserController@checkByEmail');
+        Route::get('/checar-participacao-usuario', 'UserController@checkParticipationByEmail');
 
         /*
          * Route to Logout
@@ -50,6 +53,8 @@ Route::group(['prefix' => 'usuario'], function () {
     Route::get('/modal/recusa', 'AjaxController@recuse')->name('modal.recuse');
     Route::get('/modal/editar/requisicao/participacao', 'AjaxController@editParticipation')->name('modal.edit-participation-request');
     Route::get('/modal/cancelar/requisicao/participacao', 'AjaxController@cancelParticipation')->name('modal.cancel-participation-request');
+    Route::get('/modal/participante/adicionar', 'AjaxController@addParticipant')->name('modal.add-participant');
+    Route::get('/modal/participante/editar', 'AjaxController@editParticipant')->name('modal.edit-participant');
 
     /*
      * Routes about Project Requests

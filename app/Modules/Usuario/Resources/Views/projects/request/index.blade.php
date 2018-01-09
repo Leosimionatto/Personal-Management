@@ -17,7 +17,7 @@
 
     <div class="actions space-bottom-15">
         <a href="{{ route('project.participant', $id) }}">
-            <button class="btn btn-warning">Adicionar participante <i class="fa fa-user-plus white"></i></button>
+            <button class="btn btn-warning">Lista de Participantes <i class="fa fa-users white"></i></button>
         </a>
     </div>
 

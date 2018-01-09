@@ -94,6 +94,9 @@
         // Method to check if User exists by Email
         function checkUser(email)
         {
+            input.removeClass('warning');
+            input.parent().find('.invalid-field').remove();
+
             var request = $.ajax({
                 url: '{{ url('usuario/checar-email-usuario') }}',
                 method: 'GET',

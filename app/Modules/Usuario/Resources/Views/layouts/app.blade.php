@@ -15,6 +15,13 @@
         <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Roboto%3A300%2C400%7CRaleway%3A400%2C500%2C900&#038;ver=3.1' type='text/css' media='all'/>
     </head>
     <body>
+        <div class="loader-background" style="display:none">
+            <figure class="text-center">
+                <img src="{{ asset('img/personal-management-loader.gif') }}" width="80px">
+                <figcaption style="margin-top:-6px;"><b style="color:rgba(33, 77, 115, 1)">Aguarde um momento...</b></figcaption>
+            </figure>
+        </div>
+
         <div class="application-menu">
             <span class="menu-title">
                 Personal <span style="color:#86C543;font-size:16px">Management</span>
@@ -22,7 +29,7 @@
             <div class="profile-configuration text-center">
                 <img src="{{ asset('img/sem-foto.png') }}" width="90px">
                 <div class="profile-options">
-                    <span class="block name space-top-6"><a href="">{{ \Illuminate\Support\Facades\Auth::guard('user')->user()->nome }} <i class="fa fa-edit"></i></a></span>
+                    <span class="block name space-top-6"><a href="">{{ \Illuminate\Support\Facades\Auth::guard('user')->user()->nome }} <i class="fa fa-user-circle"></i></a></span>
                 </div>
             </div>
             <div class="menu-actions">

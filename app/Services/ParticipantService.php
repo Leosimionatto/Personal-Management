@@ -2,9 +2,15 @@
 
 namespace App\Services;
 
+use App\Mail\Participation;
 use App\Models\Participant;
+use App\Models\Project;
+use App\Models\User;
 use App\Notifications\ParticipationRequestAnswerNotification;
+use App\Notifications\ParticipationRequestNotification;
+use App\Utilities\Str;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class ParticipantService{
 
@@ -14,13 +20,27 @@ class ParticipantService{
     protected $repository;
 
     /**
+     * @var User
+     */
+    protected $user;
+
+    /**
+     * @var Project
+     */
+    protected $project;
+
+    /**
      * ParticipantService constructor.
      *
      * @param Participant $repository
+     * @param User $user
+     * @param Project $project
      */
-    public function __construct(Participant $repository)
+    public function __construct(Participant $repository, User $user, Project $project)
     {
         $this->repository = $repository;
+        $this->user = $user;
+        $this->project = $project;
     }
 
     /**
@@ -35,7 +55,56 @@ class ParticipantService{
     }
 
     /**
-     * Method to edit an Participate
+     * Method to add an Participant
+     *
+     * @param $email
+     * @param $id
+     * @return array
+     */
+    public function add($email, $id)
+    {
+        DB::beginTransaction();
+        try{
+            $user = $this->user->all()->where('email', '=', $email)->first();
+            $project = $this->project->find($id);
+
+            if(!empty($user)){
+                $post = [
+                    'idprojeto'     => $id,
+                    'idusuario'     => $user->id,
+                    'criado_em'     => date('Y-m-d H:i:s'),
+                    'atualizado_em' => date('Y-m-d H:i:s'),
+                    'solicitapart'  => 'pen',
+                    'token'         => Str::random(),
+                    'fltoken'       => 's'
+                ];
+
+                $new = $this->repository->create($post);
+
+                $post = [
+                    'nmprojeto'      => $project->nmprojeto,
+                    'nmparticipante' => $new->user->nome,
+                    'token'          => $new->token
+                ];
+
+                Mail::to($new->user)->send(new Participation($post));
+
+                $new->user->notify(new ParticipationRequestNotification($project));
+
+                DB::commit();
+                return ['status' => '00'];
+            }
+
+            DB::rollback();
+            return ['status' => '01', 'message' => 'Ocorreu um erro! Caso o erro persista, contate um administrador.'];
+        }catch(\Exception $e){
+            DB::rollback();
+            return ['status' => '01', 'message' => $e->getMessage()];
+        }
+    }
+
+    /**
+     * Method to edit an Participant
      *
      * @param $data
      * @return array
@@ -152,5 +221,18 @@ class ParticipantService{
             DB::rollback();
             return ['status' => '01', 'message' => $e->getMessage()];
         }
+    }
+
+    /**
+     * Method to check User Participation
+     *
+     * @param $data
+     * @return \Illuminate\Database\Eloquent\Collection|static[]
+     */
+    public function checkParticipation($data)
+    {
+        $user = $this->user->all()->where('email', '=', $data['email'])->first();
+
+        return $this->repository->all()->where('idusuario', '=', $user->id)->where('idprojeto', '=', $data['id']);
     }
 }

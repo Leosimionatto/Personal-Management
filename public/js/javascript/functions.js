@@ -2,6 +2,12 @@ $(document).ready(function(){
     var dropdown_menu = $('.dropdown-menu');
 
     $.ajaxSetup({
+        beforeSend: function(){
+            loader();
+        },
+        complete: function(){
+            loader();
+        },
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
@@ -14,7 +20,7 @@ $(document).ready(function(){
     $('.summernote').summernote({
         height: 180,
         focus: true,
-        resize:false,
+        resize: false,
         toolbar: [
             ['style', ['bold', 'italic', 'underline', 'clear']],
             ['para', ['ul', 'ol', 'paragraph']]
@@ -53,6 +59,10 @@ $(document).ready(function(){
         this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
         e.preventDefault();
     });
+
+    var loader = function loader(){
+        $('.loader-background').toggle();
+    }
 });
 
 $(function () {
