@@ -6,6 +6,7 @@ use App\Mail\Participation;
 use App\Models\Participant;
 use App\Models\Project;
 use App\Models\User;
+use App\Notifications\ParticipantFunction;
 use App\Notifications\ParticipationRequestAnswerNotification;
 use App\Notifications\ParticipationRequestNotification;
 use App\Utilities\Str;
@@ -117,7 +118,12 @@ class ParticipantService{
 
             unset($data['id']);
 
-            if($this->repository->find($id)->update($data)){
+            $participant = $this->repository->find($id);
+            $project = $this->project->find($participant->idprojeto);
+
+            if($participant->update($data)){
+                $participant->user->notify(new ParticipantFunction($participant, $project));
+
                 DB::commit();
                 return ['status' => '00'];
             }
@@ -208,11 +214,14 @@ class ParticipantService{
         DB::beginTransaction();
         try{
             $participant = $this->findByToken($data['token']);
+            $project = $this->project->find($participant->idprojeto);
 
             unset($data['token']);
 
             if($participant->update($data)){
-                $participant->user->notify(new ParticipationRequestAnswerNotification($participant));
+                $user = $this->user->find($project->idusuario);
+
+                $user->notify(new ParticipationRequestAnswerNotification($participant));
             }
 
             DB::commit();

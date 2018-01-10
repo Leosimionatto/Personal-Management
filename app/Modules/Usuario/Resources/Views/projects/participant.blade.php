@@ -43,7 +43,7 @@
                         @foreach($participants as $participant)
                             <tr>
                                 <td>{{ $participant->user->nome }}</td>
-                                <td>{!! App\Utilities\Participant\Arrays::getStatusLabel($participant->solicitapart) !!}</td>
+                                <td>{!! App\Utilities\Participant\Arrays::getRequestStatusLabel($participant->solicitapart) !!}</td>
                                 <td>{!! (!empty($participant->idcargo) || !empty($participant->deveresdesc)) ? '<i class="fa fa-check green-color big" data-toggle="tooltip" data-placement="top" title="Participante Posicionado"></i>' : '<i class="fa fa-remove red-color big" data-toggle="tooltip" data-placement="top" title="Participante Não Posicionado"></i>' !!}</td>
                                 <td>{{ (!empty($participant->idcargo)) ? App\Utilities\Post\Arrays::getPost($participant->idcargo) : '-' }}</td>
                                 <td>

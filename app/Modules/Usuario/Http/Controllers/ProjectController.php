@@ -126,6 +126,25 @@ class ProjectController extends Controller{
     }
 
     /**
+     * Method to Show Participant Profile
+     *
+     * @param $id
+     * @param $key
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
+     */
+    public function showParticipant($id, $key)
+    {
+        $participant = $this->participantService->find($key);
+        $user = $participant->user;
+
+        if(!empty($participant)){
+            return view('usuario::projects.show-participant', compact('participant', 'user', 'id'));
+        }
+
+        return redirect()->route('project.participant');
+    }
+
+    /**
      * Method to add an Participant
      *
      * @param Request $request
