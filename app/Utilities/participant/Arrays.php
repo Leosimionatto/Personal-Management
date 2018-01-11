@@ -36,4 +36,35 @@ class Arrays{
 
         return $array[$status];
     }
+
+    /**
+     * Method to get Status Name by Status Code
+     *
+     * @param $status
+     * @return mixed
+     */
+    public static function getStatus($status)
+    {
+        $array = [
+            'ati' => 'Ativo',
+            'ina' => 'Inativo',
+        ];
+
+        return $array[$status];
+    }
+
+    /**
+     * Method to get an list of Status
+     *
+     * @return mixed
+     */
+    public static function statusList()
+    {
+        $array = [
+            'ati' => 'Ativo',
+            'ina' => 'Inativo',
+        ];
+
+        return $array;
+    }
 }

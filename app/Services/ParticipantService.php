@@ -6,9 +6,11 @@ use App\Mail\Participation;
 use App\Models\Participant;
 use App\Models\Project;
 use App\Models\User;
+use App\Notifications\CancelParticipation;
 use App\Notifications\ParticipantFunction;
 use App\Notifications\ParticipationRequestAnswerNotification;
 use App\Notifications\ParticipationRequestNotification;
+use App\Notifications\ReactivateParticipation;
 use App\Utilities\Str;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
@@ -116,13 +118,25 @@ class ParticipantService{
         try{
             $id = $data['id'];
 
+            $participant = $this->repository->find($id);
+
+            $pastFunction = $participant->idcargo;
+            $pastStatus = $participant->stparticipante;
+
             unset($data['id']);
 
-            $participant = $this->repository->find($id);
             $project = $this->project->find($participant->idprojeto);
 
             if($participant->update($data)){
-                $participant->user->notify(new ParticipantFunction($participant, $project));
+                if($data['stparticipante'] === 'ati' && $pastStatus === 'ina'){
+                    $participant->user->notify(new ReactivateParticipation($participant, $project));
+                }else if($data['stparticipante'] === 'ina' && $pastStatus === 'ati'){
+                    $participant->user->notify(new CancelParticipation($participant, $project));
+                }else{
+                    if($pastFunction != $data['idcargo']){
+                        $participant->user->notify(new ParticipantFunction($participant, $project));
+                    }
+                }
 
                 DB::commit();
                 return ['status' => '00'];

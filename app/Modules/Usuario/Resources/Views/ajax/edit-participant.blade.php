@@ -1,5 +1,5 @@
 <div class="modal-dialog">
-    <div class="modal-content" style="width:45%;max-height:367px;position:relative !important;">
+    <div class="modal-content" style="width:45%;position:relative !important;">
         <div class="modal-body" style="padding:0">
             <div class="width-38 padding-12 text-center inline-block align-top" style="position:absolute;left:0;bottom:0;top:0;background-color:#628D6E">
                 <div class="circular-icon space-top-6 space-bottom-10">
@@ -14,8 +14,18 @@
 
                     <i class="fa fa-book dark-green-color right big space-top-2"></i>
                 </div>
-                <form action="" class="padding-12 space-top-2 edit-participant-form">
+
+                <form action="" class="padding-12 space-top-2 edit-participant-form" style="padding-top:0 !important;">
                     <div class="form-group">
+                        <label for="stparticipante" class="form-label">Status</label>
+                        <select name="stparticipante" class="form-control" id="stparticipante">
+                            <option value="">Selecione uma opção</option>
+                            @foreach(App\Utilities\Participant\Arrays::statusList() as $key => $value)
+                                <option value="{{ $key }}" {{ ($participant->stparticipante === $key) ? 'selected' : '' }}>{{ $value }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group space-top-10">
                         <label for="idcargo" class="form-label" style="margin-top:-4px !important;">Cargo do Participante</label>
                         <select name="idcargo" class="form-control" id="idcargo">
                             <option value="">Selecione uma opção</option>

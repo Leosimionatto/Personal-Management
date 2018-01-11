@@ -34,7 +34,7 @@ class Participant extends Model
      * @var array
      */
     protected $fillable = [
-        'id', 'idcargo', 'deveresdesc', 'idprojeto', 'idusuario', 'criado_em', 'atualizado_em', 'solicitapart', 'token', 'fltoken'
+        'id', 'idcargo', 'deveresdesc', 'idprojeto', 'idusuario', 'criado_em', 'atualizado_em', 'solicitapart', 'token', 'fltoken', 'stparticipante'
     ];
 
     /**

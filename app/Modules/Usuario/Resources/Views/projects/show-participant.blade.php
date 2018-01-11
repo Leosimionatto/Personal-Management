@@ -17,8 +17,7 @@
     </div>
 
     <div class="actions space-bottom-15">
-        <button class="btn btn-warning space-right-6">Atribuir Compromissos <i class="fa fa-calendar-plus-o white"></i></button>
-        <button class="btn btn-warning">Atribuir Tarefas <i class="fa fa-plus-circle white"></i></button>
+        <button class="btn btn-warning">Atribuir Tarefas <i class="fa fa-book white"></i></button>
     </div>
 
     <div class="card padding-10">
@@ -47,89 +46,141 @@
         </div>
     </div>
 
-    <div class="card width-60 inline-block padding-12 space-right-10 space-top-15 align-top">
+    <div class="card padding-12 space-top-15" style="min-height:400px;">
         <div class="card-header padding-4">
             <h3>
-                Tarefas - <span class="project-color">Lista de Pendências</span>
-
-                <i class="fa fa-area-chart right"></i>
+                Principais Atualizações - <span class="project-color">Última Semana</span>
             </h3>
-        </div>
 
-        <div class="card-body text-center padding-10">
-            <div class="width-30 inline-block padding-4 space-left-6 space-right-6 align-top">
-                <input class="knob" id="finished-activities" data-width="90" value="55" disabled>
-
-                <h4 style="margin-top:8px !important;" class="underline">Tarefas Finalizadas</h4>
-
-                <span class="block space-top-6">Porcentual de tarefas que estão com status <b>revisão</b> e/ou <b>finalizado</b>.</span>
-            </div>
-
-            <div class="width-30 inline-block padding-4 space-left-6 space-right-6 align-top">
-                <input class="knob" id="pending-activities" data-width="90" value="25" disabled>
-
-                <h4 style="margin-top:8px !important;" class="underline">Tarefas Pendentes</h4>
-
-                <span class="block space-top-6">Porcentual de tarefas que estão com status <b>pendente</b> e/ou <b>não iniciado</b>.</span>
-            </div>
-
-            <div class="width-30 inline-block padding-4 space-left-6 space-right-6 align-top">
-                <input class="knob" id="paused-activities" data-width="90" value="20" disabled>
-
-                <h4 style="margin-top:8px !important;" class="underline">Tarefas Pausadas</h4>
-
-                <span class="block space-top-6">Porcentual de tarefas que estão com status <b>pausado</b>.</span>
-            </div>
-        </div>
-
-        <div class="card-footer text-right">
-            <button class="confirm-button space-top-6 space-bottom-2">
-                Verificar Tarefas <i class="fa fa-book white"></i>
-            </button>
-        </div>
-    </div>
-
-    <div class="card width-38 inline-block padding-12 space-top-15 align-top">
-        <div class="card-header padding-4">
-            <h3>
-                Participação no Projeto
-
-                <i class="fa fa-area-chart right"></i>
-            </h3>
+            <p style="margin:2px 0 0 0;">Conjunto de atualizações que foram emitidas por este usuário no período da última semana.</p>
         </div>
 
         <div class="card-body padding-10">
-            <div class="inline-block padding-6 text-left width-38">
-                <input class="knob" id="activities-participation-chart" data-width="100" value="45" disabled>
+            <div class="space-top-10 space-bottom-10">
+                <table>
+                    <thead>
+                        <tr class="background-dark-green">
+                            <th class="padding-12 white medium bold-500">Atualização</th>
+                            <th class="padding-12 white medium bold-500">Comentário</th>
+                            <th class="padding-12 white medium bold-500">Data Atualização</th>
+                            <th class="padding-12 white medium bold-500">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Andamento em Tarefa</td>
+                            <td>Uma nova tarefa foi alterada para <b>"Em andamento"</b> por <b>Gilberto Giro Resende</b></td>
+                            <td>{{ date('d/m/Y') }}</td>
+                            <td>
+                                <button class="btn btn-primary circular-button" data-toggle="tooltip" data-placement="top" title="Visualizar Atualização"><i class="fa fa-send white"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Andamento em Tarefa</td>
+                            <td>Uma nova tarefa foi alterada para <b>"Em andamento"</b> por <b>Gilberto Giro Resende</b></td>
+                            <td>{{ date('d/m/Y') }}</td>
+                            <td>
+                                <button class="btn btn-primary circular-button" data-toggle="tooltip" data-placement="top" title="Visualizar Atualização"><i class="fa fa-send white"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td>
+                                <!-- Colocar o paginate aqui -->
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="width-100 text-center">
+        <div class="card text-left width-60 inline-block padding-12 space-right-10 space-top-15 align-top">
+            <div class="card-header padding-4">
+                <h3>
+                    Tarefas - <span class="project-color">Lista de Pendências</span>
+
+                    <i class="fa fa-area-chart right"></i>
+                </h3>
             </div>
 
-            <div class="inline-block align-top space-top-10 width-60 space-bottom-6">
-                <h4 class="text-center underline">Atividades:</h4>
+            <div class="card-body text-center padding-10">
+                <div class="width-30 inline-block padding-4 space-left-6 space-right-6 align-top">
+                    <input class="knob" id="finished-activities" data-width="90" value="55" disabled>
 
-                <span class="block space-top-6">
-                    Porcentual de participação deste usuário para com as atividades já disponibilizadas no projeto.
-                </span>
+                    <h4 style="margin-top:8px !important;" class="underline">Tarefas Finalizadas</h4>
+
+                    <span class="block space-top-6">Porcentual de tarefas que estão com status <b>revisão</b> e/ou <b>finalizado</b>.</span>
+                </div>
+
+                <div class="width-30 inline-block padding-4 space-left-6 space-right-6 align-top">
+                    <input class="knob" id="pending-activities" data-width="90" value="25" disabled>
+
+                    <h4 style="margin-top:8px !important;" class="underline">Tarefas Pendentes</h4>
+
+                    <span class="block space-top-6">Porcentual de tarefas que estão com status <b>pendente</b> e/ou <b>não iniciado</b>.</span>
+                </div>
+
+                <div class="width-30 inline-block padding-4 space-left-6 space-right-6 align-top">
+                    <input class="knob" id="paused-activities" data-width="90" value="20" disabled>
+
+                    <h4 style="margin-top:8px !important;" class="underline">Tarefas Pausadas</h4>
+
+                    <span class="block space-top-6">Porcentual de tarefas que estão com status <b>pausado</b>.</span>
+                </div>
             </div>
 
-            <hr style="margin:0;">
-
-            <div class="inline-block padding-6 text-left width-38 space-top-6">
-                <input class="knob" id="commitments-participation-chart" data-width="100" value="10" disabled>
-            </div>
-
-            <div class="inline-block align-top space-top-10 width-60">
-                <h4 class="text-center underline">Compromissos:</h4>
-
-                <span class="block space-top-6">
-                    Porcentual de participação deste usuário para com os compromissos já disponibilizados no projeto.
-                </span>
+            <div class="card-footer text-right">
+                <button class="confirm-button space-top-6 space-bottom-2">
+                    Verificar Tarefas <i class="fa fa-book white"></i>
+                </button>
             </div>
         </div>
 
-        <div class="card-footer text-right">
-            <button class="confirm-button space-top-6 space-bottom-2">
-                Verificar Participações <i class="fa fa-book white"></i>
-            </button>
+        <div class="card text-left width-38 inline-block padding-12 space-top-15 align-top">
+            <div class="card-header padding-4">
+                <h3>
+                    Participação no Projeto
+
+                    <i class="fa fa-area-chart right"></i>
+                </h3>
+            </div>
+
+            <div class="card-body padding-10">
+                <div class="inline-block padding-6 text-left width-38">
+                    <input class="knob" id="activities-participation-chart" data-width="100" value="45" disabled>
+                </div>
+
+                <div class="inline-block align-top space-top-10 width-60 space-bottom-6">
+                    <h4 class="text-center underline">Atividades:</h4>
+
+                    <span class="block space-top-6">
+                    Porcentual de participação deste usuário para com as atividades já disponibilizadas no projeto.
+                </span>
+                </div>
+
+                <hr style="margin:0;">
+
+                <div class="inline-block padding-6 text-left width-38 space-top-6">
+                    <input class="knob" id="commitments-participation-chart" data-width="100" value="10" disabled>
+                </div>
+
+                <div class="inline-block align-top space-top-10 width-60">
+                    <h4 class="text-center underline">Compromissos:</h4>
+
+                    <span class="block space-top-6">
+                    Porcentual de participação deste usuário para com os compromissos já disponibilizados no projeto.
+                </span>
+                </div>
+            </div>
+
+            <div class="card-footer text-right">
+                <button class="confirm-button space-top-6 space-bottom-2">
+                    Verificar Participações <i class="fa fa-book white"></i>
+                </button>
+            </div>
         </div>
     </div>
 

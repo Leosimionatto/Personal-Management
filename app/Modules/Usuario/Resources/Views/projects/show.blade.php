@@ -22,9 +22,12 @@
             </div>
             <div class="card padding-12 space-top-15 space-bottom-15 text-left">
                 <div class="project-page-participant-tasks">
-                    <div class="card-header">
-                        <i class="fa fa-bookmark right"></i>
-                        <h4>Lista de tarefas - <span class="title">Entrega próxima</span>:</h4>
+                    <div class="card-header padding-4">
+                        <h3>
+                            Lista de tarefas - <span class="project-color">Entrega próxima</span>:
+
+                            <i class="fa fa-bookmark right"></i>
+                        </h3>
                     </div>
                     <div class="tasks space-top-6">
                         <table>
@@ -101,9 +104,12 @@
                 </div>
             </div>
             <div class="project-events card width-60 padding-12 inline-block space-right-8 align-top text-left">
-                <div class="card-header">
-                    <i class="fa fa-calendar-check-o right"></i>
-                    <h4>Agenda do projeto - <span class="title">Compromissos agendados</span>:</h4>
+                <div class="card-header padding-4">
+                    <h3>
+                        Agenda do projeto - <span class="project-color">Compromissos agendados</span>:
+
+                        <i class="fa fa-calendar-check-o right"></i>
+                    </h3>
                 </div>
                 <div class="events">
                     <div class="table">
@@ -138,9 +144,12 @@
                 </div>
             </div>
             <div class="card padding-12 width-38 inline-block align-top text-left">
-                <div class="card-header">
-                    <i class="fa fa-heartbeat right"></i>
-                    <h4>Lista de participantes - <span class="title">Situação atual</span>:</h4>
+                <div class="card-header padding-4">
+                    <h3>
+                        Lista de participantes - <span class="project-color">Situação atual</span>:
+
+                        <i class="fa fa-heartbeat right"></i>
+                    </h3>
                 </div>
                 <div class="participant">
                     <div class="table padding-10">
