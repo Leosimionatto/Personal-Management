@@ -62,7 +62,7 @@ $(document).ready(function(){
 
     var loader = function loader(){
         $('.loader-background').toggle();
-    }
+    };
 });
 
 $(function () {

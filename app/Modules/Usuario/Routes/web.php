@@ -11,14 +11,23 @@ Route::group(['prefix' => 'usuario'], function () {
         Route::get('/projeto/cadastrar', 'ProjectController@create')->name('project.create');
         Route::post('/projeto/cadastrar', 'ProjectController@store');
         Route::get('/projeto/{id}', 'ProjectController@show')->name('project.show');
+
+        /*
+         * Routes about Projects - Participants
+         */
         Route::get('/projeto/{id}/participante', 'ProjectController@participant')->name('project.participant');
         Route::get('/projeto/{id}/participante/{key}', 'ProjectController@showParticipant')->name('project.participant.show');
-        Route::post('/projeto/{id}/adicionar/participante', 'ProjectController@addParticipant')->name('project.participant.add');
-        Route::put('/projeto/{id}/editar/participante', 'ProjectController@editParticipant')->name('project.participant.edit');
+        Route::post('/projeto/{id}/participante/adicionar', 'ProjectController@addParticipant')->name('project.participant.add');
+        Route::put('/projeto/{id}/participante/editar', 'ProjectController@editParticipant')->name('project.participant.edit');
         Route::get('/projeto/{id}/requisicao', 'ProjectController@participationRequest')->name('project.request');
-        Route::post('/projeto/{id}/editar/requisicao', 'ProjectController@editParticipationRequest')->name('project.request.edit');
-        Route::post('/projeto/{id}/cancelar/requisicao', 'ProjectController@cancelParticipationRequest')->name('project.request.cancel');
+        Route::post('/projeto/{id}/requisicao/editar', 'ProjectController@editParticipationRequest')->name('project.request.edit');
+        Route::post('/projeto/{id}/requisicao/cancelar', 'ProjectController@cancelParticipationRequest')->name('project.request.cancel');
         Route::get('/projeto/{id}/administrativo', 'ProjectController@management')->name('project.management');
+
+        /*
+         * Routes about Projects - Back-end Group
+         */
+        Route::get('/projeto/{id}/back-end', 'ProjectController@backend')->name('project.back-end');
 
         /*
          * Routes about Notifications

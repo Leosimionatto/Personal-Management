@@ -19,9 +19,7 @@ html{
     background-color:#141519;
 }
 .application-menu .profile-configuration{
-    padding:12px;
-    padding-top:20px;
-    padding-bottom:20px;
+    padding:20px 12px 20px 12px;
     background-color:rgba(0, 0, 0, 0.2);
 }
 .application-menu .profile-options{
@@ -54,6 +52,54 @@ html{
     padding:18px !important;
     box-shadow:0 1px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
 }
+/* Configurações gerais da aplicação(Layout configuration) - Responsivo */
+.application-menu-mobile{
+    left:0;
+    top:0;
+    width:100%;
+    z-index:3;
+    position:fixed;
+    display:none;
+    background-color:#2a2c36;
+}
+.application-menu-mobile .menu-title{
+    width:20%;
+    height:55px;
+    color:#EDEAE3;
+    font-size:16px;
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    vertical-align:top;
+    text-align:center;
+    background-color:#141519;
+}
+.application-menu-mobile .menu-actions{
+    display:inline-block;
+    vertical-align:middle;
+}
+.application-menu-mobile .menu-actions ul{
+    margin:0;
+    padding:0;
+}
+.application-menu-mobile .menu-actions ul a{
+    list-style:none;
+    height:55px;
+    padding:16px 25px 16px 25px;
+    margin-left:-3px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    vertical-align:middle;
+    border-right:1px solid #3A404A;
+}
+.application-menu-mobile .menu-actions ul a:first-child{
+    border-left:1px solid #323B40;
+}
+.application-menu-mobile .menu-actions a li{
+    font-size:19px;
+}
+
 /* Essas são as configurações referentes ao módulo inicial do sistema(Painel - Home) */
 .home-page .modules{
     padding:12px;
@@ -694,6 +740,9 @@ table tfoot td{
 .width-45{
     width:45%;
 }
+.width-48{
+    width:48%;
+}
 .width-49{
     width:49%;
 }
@@ -792,6 +841,9 @@ table tfoot td{
 .space-left-8{
     margin-left:8px;
 }
+.space-left-10{
+    margin-left:10px;
+}
 .space-bottom-10{
     margin-bottom:10px;
 }
@@ -814,6 +866,11 @@ table tfoot td{
 .inline-block{
     display:inline-block !important;
 }
+.inline-flex-center{
+    display:inline-flex !important;
+    justify-content:center;
+    align-items:center;
+}
 .table{
     display:table;
 }
@@ -827,13 +884,13 @@ table tfoot td{
 }
 /* Vertical-align */
 .align-center{
-    vertical-align:middle;
+    vertical-align:middle !important;
 }
 .align-top{
-    vertical-align:top;
+    vertical-align:top !important;
 }
 .align-bottom{
-    vertical-align:bottom;
+    vertical-align:bottom !important;
 }
 /* Positions */
 .relative{
@@ -1406,4 +1463,21 @@ h3 .project-color{
 /* Jquery Knob */
 .panel-body {
     height:100% !important;
+}
+.c3-tooltip{
+    width:auto !important;
+}
+
+@media screen and (max-width: 1024px){
+    .application-menu{
+        display:none;
+    }
+    .application-menu-mobile{
+        display:block;
+    }
+    .application-body{
+        width:100% !important;
+        margin-left:0 !important;
+        margin-top:60px;
+    }
 }

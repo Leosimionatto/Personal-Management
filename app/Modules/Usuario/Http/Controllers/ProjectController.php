@@ -225,4 +225,17 @@ class ProjectController extends Controller{
     {
         return $this->participantService->cancel($request->get('id'));
     }
+
+    /**
+     * Method to show Back-end initial page
+     *
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function backend($id)
+    {
+        $project = $this->project->get($id);
+
+        return view('usuario::projects.back-end.index', compact('project'));
+    }
 }

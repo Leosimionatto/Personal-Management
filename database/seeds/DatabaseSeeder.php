@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
         $this->call(SituationTableSeeder::class);
         $this->call(PriorityTableSeeder::class);
         $this->call(ProjectTypeTableSeeder::class);
-        $this->call(CargoTableSeeder::class);
+        $this->call(PostTableSeeder::class);
+        $this->call(GroupTableSeeder::class);
     }
 }
