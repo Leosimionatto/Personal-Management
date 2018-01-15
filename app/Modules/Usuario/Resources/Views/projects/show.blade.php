@@ -7,7 +7,7 @@
                 <div class="block">
                     <span class="available-route-option"><a href="{{ route('index') }}">Página inicial <i class="fa fa-arrow-right"></i></a></span>
                     <span class="available-route-option"><a href="{{ route('project.index') }}">Projetos <i class="fa fa-arrow-right"></i></a></span>
-                    <span class="disabled-route-option">Visualização projeto</span>
+                    <span class="disabled-route-option">{{ $project->nmprojeto }}</span>
                     <span class="right sign-out disabled-route-option">Sair <i class="fa fa-sign-out"></i></span>
 
                     @include('usuario::layouts.notification')

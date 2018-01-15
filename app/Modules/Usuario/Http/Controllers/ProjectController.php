@@ -8,6 +8,7 @@ use App\Service\ProjectService;
 use App\Service\TechnologyService;
 use App\Services\ParticipantService;
 use App\Services\ProjectTypeService;
+use App\Services\TaskService;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
@@ -34,19 +35,26 @@ class ProjectController extends Controller{
     protected $participantService;
 
     /**
+     * @var TaskService
+     */
+    protected $taskService;
+
+    /**
      * ProjectController constructor.
      *
      * @param ProjectService $project
      * @param TechnologyService $technologyService
      * @param ProjectTypeService $projectTypeService
      * @param ParticipantService $participantService
+     * @param TaskService $taskService
      */
-    public function __construct(ProjectService $project, TechnologyService $technologyService, ProjectTypeService $projectTypeService, ParticipantService $participantService)
+    public function __construct(ProjectService $project, TechnologyService $technologyService, ProjectTypeService $projectTypeService, ParticipantService $participantService, TaskService $taskService)
     {
         $this->project = $project;
         $this->technologyService = $technologyService;
         $this->projectTypeService = $projectTypeService;
         $this->participantService = $participantService;
+        $this->taskService = $taskService;
     }
 
     /**
@@ -121,8 +129,9 @@ class ProjectController extends Controller{
     public function participant($id)
     {
         $participants = $this->participantService->getParticipantsByProject($id);
+        $project = $this->project->get($id);
 
-        return view('usuario::projects.participant', compact('participants', 'id'));
+        return view('usuario::projects.participant', compact('participants', 'project', 'id'));
     }
 
     /**
@@ -136,9 +145,10 @@ class ProjectController extends Controller{
     {
         $participant = $this->participantService->find($key);
         $user = $participant->user;
+        $project = $this->project->get($id);
 
         if(!empty($participant)){
-            return view('usuario::projects.show-participant', compact('participant', 'user', 'id'));
+            return view('usuario::projects.show-participant', compact('participant', 'project', 'user', 'id'));
         }
 
         return redirect()->route('project.participant');
@@ -235,7 +245,22 @@ class ProjectController extends Controller{
     public function backend($id)
     {
         $project = $this->project->get($id);
+        $tasks = $this->taskService->all($id, 1);
 
-        return view('usuario::projects.back-end.index', compact('project'));
+        return view('usuario::projects.back-end.index', compact('project', 'tasks'));
+    }
+
+    /**
+     * Method to show Add Task Form
+     *
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function addTask($id)
+    {
+        $project = $this->project->get($id);
+        $participants = $this->participantService->getParticipantsByProject($id);
+
+        return view('usuario::projects.back-end.new-task', compact('project', 'tasks', 'participants'));
     }
 }

@@ -1461,9 +1461,6 @@ h3 .project-color{
     -webkit-margin-after: 0em;
 }
 /* Jquery Knob */
-.panel-body {
-    height:100% !important;
-}
 .c3-tooltip{
     width:auto !important;
 }

@@ -30,6 +30,12 @@ Route::group(['prefix' => 'usuario'], function () {
         Route::get('/projeto/{id}/back-end', 'ProjectController@backend')->name('project.back-end');
 
         /*
+         * Routes about Projects - Tasks
+         */
+        Route::get('/projeto/{id}/tarefa/adicionar', 'ProjectController@addTask')->name('project.task.create');
+
+
+        /*
          * Routes about Notifications
          */
         Route::get('/notificacao', 'NotificationController@index')->name('notification.index');

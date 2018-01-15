@@ -5,7 +5,7 @@
         <div class="block">
             <span class="available-route-option"><a href="{{ route('index') }}">Página inicial <i class="fa fa-arrow-right"></i></a></span>
             <span class="available-route-option"><a href="{{ route('project.index') }}">Projetos <i class="fa fa-arrow-right"></i></a></span>
-            <span class="available-route-option"><a href="{{ route('project.show', $id) }}">Visualização Projeto <i class="fa fa-arrow-right"></i></a></span>
+            <span class="available-route-option"><a href="{{ route('project.show', $id) }}">{{ $project->nmprojeto }} <i class="fa fa-arrow-right"></i></a></span>
             <span class="available-route-option"><a href="{{ route('project.participant', $id) }}">Participantes <i class="fa fa-arrow-right"></i></a></span>
             <span class="disabled-route-option">{{ $user->nome }}</span>
             <span class="right sign-out"><a href="{{ route('logout') }}" class="disabled-route-option">Sair <i class="fa fa-sign-out"></i></a></span>
