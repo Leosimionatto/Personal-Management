@@ -379,7 +379,7 @@
                                     </div>
                                     <div class="table-cell align-middle">
                                         <span class="block"><b>Nome:</b> {{ $participant->user->nome }}</span>
-                                        <span class="block"><b>Função:</b> {{ App\Utilities\Post\Arrays::getPost($participant->idcargo) }}</span>
+                                        <span class="block"><b>Função:</b> {{ (!empty($participant->idcargo)) ? App\Utilities\Post\Arrays::getPost($participant->idcargo) : 'Não definido' }}</span>
                                         <span class="block"><b>Atividades pendentes:</b> 5 atividades</span>
                                     </div>
                                 </div>

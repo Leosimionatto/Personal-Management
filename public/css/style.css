@@ -118,7 +118,7 @@ html{
     text-decoration:none;
 }
 .home-page .modules-explanation-body .module{
-    width:22%;
+    width:19%;
     padding:8px;
     cursor:pointer;
     margin-top:8px;
@@ -1463,6 +1463,13 @@ h3 .project-color{
 /* Jquery Knob */
 .c3-tooltip{
     width:auto !important;
+}
+/* Font-Family */
+.roboto{
+    font-family:'Roboto', sans-serif !important;
+}
+.raleway{
+    font-family:'Raleway', sans-serif !important;
 }
 
 @media screen and (max-width: 1024px){

@@ -28,11 +28,7 @@ Route::group(['prefix' => 'usuario'], function () {
          * Routes about Projects - Back-end Group
          */
         Route::get('/projeto/{id}/back-end', 'ProjectController@backend')->name('project.back-end');
-
-        /*
-         * Routes about Projects - Tasks
-         */
-        Route::get('/projeto/{id}/tarefa/adicionar', 'ProjectController@addTask')->name('project.task.create');
+        Route::get('/projeto/{id}/back-end/tarefa/adicionar', 'ProjectController@addTask')->name('project.task.create');
 
 
         /*

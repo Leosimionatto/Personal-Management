@@ -43,7 +43,7 @@
                         <label for="prioridade" class="form-label">Qual a prioridade</label>
                         <select name="idprioridade" class="form-control required" id="prioridade">
                             <option value="">Prioridade da tarefa</option>
-                            @foreach(App\Utilities\Priority\Arrays::get() as $key => $priority){
+                            @foreach(App\Utilities\Priority\Arrays::get() as $key => $priority)
                                 <option value="{{ $key }}">{{ $priority }}</option>;
                             @endforeach
                         </select>
@@ -68,50 +68,34 @@
                 <form>
                     <h4>Informações etapas</h4>
 
-                    <div class="form-divider space-bottom-4 space-top-10">
-                        Adicionar Etapa - <span class="title">Informações etapa</span>:
-                    </div>
+                    <div class="steps-list">
+                        <div class="step-information space-top-10 space-bottom-10">
+                            <span class="block">
+                                <span class="big roboto bold">Etapa - <span class="green-color roboto big bold-500">Informações Gerais (Nome e Descrição)</span></span>
 
-                    <div class="alert alert-warning space-top-10" style="display:block;margin-bottom:4px">
-                        <b>Importante!</b> Para adicionar uma nova etapa nesta tarefa, basta seguir o seguinte procedimento:
-                        <ol class="space-top-6">
-                            <li>Preencher os campos disponibilizados abaixo com informações válidas</li>
-                            <li>Clicar em <b>Adicionar etapa</b></li>
-                        </ol>
-                    </div>
+                                <i class="fa fa-cube big space-top-2 right"></i>
+                            </span>
 
-                    <div class="step-information">
-                        <div class="form-group">
-                            <label for="nome" class="form-label">Nome da etapa</label>
-                            <input type="text" name="nome" class="form-control step-information-required" id="nome" placeholder="Qual a etapa?">
+                            <hr style="margin:3px 0 3px 0;">
+
+                            <div class="form-group">
+                                <label for="nome" class="form-label">Nome da etapa</label>
+                                <input type="text" name="nome" class="form-control required" id="nome" placeholder="Qual a etapa?">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="descricao" class="form-label">Descrição da etapa</label>
+
+                                <div class="summernote-container">
+                                    <textarea name="descricao" class="form-control summernote form-text-area required-summernote" id="descricao" placeholder="Qual a descriçao da etapa?"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="step-actions text-right block" style="margin:10px 0 15px 0 !important;">
+                                <button class="btn btn-primary left add-step" style="margin:0;">Adicionar etapa <i class="fa fa-puzzle-piece white"></i></button>
+                                <button class="btn btn-warning remove-step" style="margin-left:0 !important;">Remover etapa <i class="fa fa-remove white"></i></button>
+                            </div>
                         </div>
-
-                        <div class="form-group">
-                            <label for="descricao" class="form-label">Descrição da etapa</label>
-                            <textarea name="descricao" class="form-control summernote form-text-area step-information-required" id="descricao" placeholder="Qual a descriçao da etapa?"></textarea>
-                        </div>
-                    </div>
-
-                    <div class="steps-list-actions text-right space-top-10">
-                        <button class="btn btn-warning add-step">Adicionar etapa <i class="fa fa-puzzle-piece white"></i></button>
-                    </div>
-
-                    <div class="table">
-                        <table class="space-bottom-15 space-top-15">
-                            <thead style="background-color:#8181B0">
-                                <tr>
-                                    <th class="padding-12 white">Posição</th>
-                                    <th class="white">Nome da etapa</th>
-                                    <th class="white">Editar etapa</th>
-                                    <th class="white">Excluir etapa</th>
-                                </tr>
-                            </thead>
-                            <tbody class="steps-list">
-                                <tr class="without-steps">
-                                    <td colspan="4">Nenhuma etapa adicionada</td>
-                                </tr>
-                            </tbody>
-                        </table>
                     </div>
                 </form>
             </div>
