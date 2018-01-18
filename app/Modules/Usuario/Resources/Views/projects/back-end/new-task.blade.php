@@ -25,43 +25,53 @@
                     <i class="fa fa-book big right"></i>
                 </h3>
             </div>
-            <div class="card-body steps" data-href="">
+            <div class="card-body steps" data-href="{{ route('project.task.add', $project->id) }}">
+                <div class="alert alert-danger insert-errors-alert space-bottom-10 space-top-15">
+                    <b style="font-size:14px">Oops! Encontramos alguns problemas:</b>
+                    <span class="block space-top-2">
+                        Para prosseguir e completar esse cadastro, será necessário corrigir os seguintes erros:
+                    </span>
+                    <ul class="insert-errors" style="padding-left:15px;padding-top:2px"></ul>
+                </div>
+
                 <form>
                     <h4>Informações tarefa</h4>
 
-                    <div class="form-group">
-                        <label for="nome" class="form-label">Qual a tarefa?</label>
-                        <input type="text" name="nmtarefa" class="form-control required" id="nome" placeholder="Tarefa">
-                    </div>
+                    <div class="task-information">
+                        <div class="form-group">
+                            <label for="nome" class="form-label">Qual a tarefa?</label>
+                            <input type="text" name="nmtarefa" class="form-control required" id="nome" placeholder="Tarefa">
+                        </div>
 
-                    <div class="form-group">
-                        <label for="descricao" class="form-label">Qual a descrição?</label>
-                        <textarea name="descricao" class="form-control summernote form-text-area required-summernote" id="descricao" placeholder="Descrição da tarefa"></textarea>
-                    </div>
+                        <div class="form-group">
+                            <label for="descricao" class="form-label">Qual a descrição?</label>
+                            <textarea name="descricao" class="form-control summernote form-text-area required-summernote" id="descricao" placeholder="Descrição da tarefa"></textarea>
+                        </div>
 
-                    <div class="form-group">
-                        <label for="prioridade" class="form-label">Qual a prioridade</label>
-                        <select name="idprioridade" class="form-control required" id="prioridade">
-                            <option value="">Prioridade da tarefa</option>
-                            @foreach(App\Utilities\Priority\Arrays::get() as $key => $priority)
-                                <option value="{{ $key }}">{{ $priority }}</option>;
-                            @endforeach
-                        </select>
-                    </div>
+                        <div class="form-group">
+                            <label for="prioridade" class="form-label">Qual a prioridade</label>
+                            <select name="idprioridade" class="form-control required" id="prioridade">
+                                <option value="">Prioridade da tarefa</option>
+                                @foreach(App\Utilities\Priority\Arrays::get() as $key => $priority)
+                                    <option value="{{ $key }}">{{ $priority }}</option>;
+                                @endforeach
+                            </select>
+                        </div>
 
-                    <div class="form-group">
-                        <label for="idparticipante" class="form-label">Deseja atribuir essa tarefa a um participante?</label>
-                        <select name="idparticipante" class="form-control required" id="idparticipante">
-                            <option value="">Atribuição de tarefa</option>
-                            @foreach($participants as $participant)
-                                <option value="{{ $participant->id }}">{{ $participant->user->nome }}</option>
-                            @endforeach
-                        </select>
-                    </div>
+                        <div class="form-group">
+                            <label for="idparticipante" class="form-label">Deseja atribuir essa tarefa a um participante?</label>
+                            <select name="idparticipante" class="form-control required" id="idparticipante">
+                                <option value="">Atribuição de tarefa</option>
+                                @foreach($participants as $participant)
+                                    <option value="{{ $participant->id }}">{{ $participant->user->nome }}</option>
+                                @endforeach
+                            </select>
+                        </div>
 
-                    <div class="form-group">
-                        <label for="dtentrega" class="form-label">Qual a data de entrega?</label>
-                        <input type="date" name="dtentrega" class="form-control" id="dtentrega">
+                        <div class="form-group">
+                            <label for="dtentrega" class="form-label">Qual a data de entrega?</label>
+                            <input type="date" name="dtentrega" class="form-control" id="dtentrega">
+                        </div>
                     </div>
                 </form>
 

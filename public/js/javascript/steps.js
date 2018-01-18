@@ -195,52 +195,64 @@ $(document).ready(function(){
     });
 });
 
-function ajax_request(url, form, callback)
+function ajax_request(url, form, callback, treatment)
+{
+    treatment = treatment || false;
+
+    if(!treatment){
+        formTreatment(form, function(result){
+            var post = $.extend({}, result);
+
+            ajax_call(url, post, callback);
+        });
+    }else{
+        ajax_call(url, form, callback);
+    }
+}
+
+function ajax_call(url, post, callback)
 {
     var list = $('.insert-errors');
 
-    call_ajax(form, function(result){
-        var post = $.extend({}, result);
-
-        $.ajax({
-            url: url,
-            method: 'POST',
-            data: post,
-            success: function(data){
-                if(data.status === '00'){
-                    callback(data);
-                }
-
-                if(data.status === '01'){
-                    list.empty();
-
-                    list.append('<li>' + data.message + '</li>');
-
-                    $('.insert-errors-alert').show();
-                }
-            },
-            error: function(response){
-                if(response && response.responseJSON.errors){
-                    list.empty();
-
-                    var errors = $.map(response.responseJSON.errors, function(value, index) {
-                        return [value];
-                    });
-
-                    if(errors instanceof Array){
-                        $.each(errors, function(index, value){
-                            list.append('<li>' + value + '</li>');
-                        });
-                    }
-
-                    $('.insert-errors-alert').show();
-                }
+    $.ajax({
+        url: url,
+        method: 'POST',
+        data: post,
+        success: function(data){
+            if(data.status === '00'){
+                callback(data);
             }
-        });
-    })
+
+            if(data.status === '01'){
+                list.empty();
+
+                list.append('<li>' + data.message + '</li>');
+
+                $('.insert-errors-alert').show();
+            }
+        },
+        error: function(response){
+            if(response && response.responseJSON.errors){
+                list.empty();
+
+                var errors = $.map(response.responseJSON.errors, function(value, index) {
+                    return [value];
+                });
+
+                if(errors instanceof Array){
+                    $.each(errors, function(index, value){
+                        list.append('<li>' + value + '</li>');
+                    });
+                }
+
+                $('.insert-errors-alert').show();
+            }
+        }
+    });
 }
 
-function call_ajax(form, cb)
+// Method to do the treatment in forms who has two Keys (Forms with more than one page)
+function formTreatment(form, cb)
 {
     var post = [];
 

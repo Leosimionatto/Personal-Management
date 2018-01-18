@@ -4,6 +4,7 @@ namespace App\Modules\Usuario\Http\Controllers;
 
 use App\Http\Requests\EditParticipationRequest;
 use App\Http\Requests\StoreProjectRequest;
+use App\Http\Requests\StoreTaskRequest;
 use App\Service\ProjectService;
 use App\Service\TechnologyService;
 use App\Services\ParticipantService;
@@ -262,5 +263,16 @@ class ProjectController extends Controller{
         $participants = $this->participantService->getParticipantsByProject($id);
 
         return view('usuario::projects.back-end.new-task', compact('project', 'tasks', 'participants'));
+    }
+
+    /**
+     * Method to add an Task
+     *
+     * @param StoreTaskRequest $request
+     * @return array
+     */
+    public function storeTask(StoreTaskRequest $request)
+    {
+        return $this->taskService->add($request->all());
     }
 }

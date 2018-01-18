@@ -1,5 +1,6 @@
 <script>
     $(document).ready(function(){
+        var steps = [];
         var url = $('.steps').attr('data-href');
 
         $('.submit-form').on('click', function(event){
@@ -8,8 +9,9 @@
 
             var list = $('.steps-list');
             var condition = true;
+            var form = $('.steps');
 
-            list.find(':input.required').each(function(){
+            form.find(':input.required').each(function(){
                 var value = $(this).val();
 
                 $(this).removeClass('warning');
@@ -23,7 +25,7 @@
                 }
             });
 
-            list.find('.required-summernote').each(function(){
+            form.find('.required-summernote').each(function(){
                 var value = $(this).summernote('isEmpty');
 
                 $(this).parent().find('.invalid-field').remove();
@@ -38,7 +40,25 @@
             });
 
             if(condition){
+                steps = [];
 
+                list.find('.step-information').each(function(){
+                    var name = $(this).find('#nome').val();
+                    var description = $(this).find('#descricao').val();
+
+                    steps.push({nmetapa: name, descricao: description});
+                });
+
+                var post = $('.task-information :input').serializeArray();
+
+                post.push({name: 'etapas', value: JSON.stringify(steps)});
+                post.push({name: 'idprojeto', value: '{{ $project->id }}'});
+
+                ajax_request(url, post, function(response){
+                    if(response.status === '00'){
+                        window.location.reload();
+                    }
+                }, true);
             }
         });
     });

@@ -22,79 +22,81 @@
             <a href="{{ route('project.task.create', $project->id) }}"><button type="button" class="btn btn-primary">Nova tarefa <i class="fa fa-plus-circle white"></i></button></a>
         </div>
 
-        <div class="card width-23 space-right-8 space-left-8 space-top-15 space-bottom-15 inline-block padding-12 align-top">
-            <div class="card-header text-left padding-4">
-                <h3>
-                    Grupo - <span class="project-color">Status</span>
+        <div class="text-center">
+            <div class="card width-23 space-right-8 space-left-8 space-top-15 space-bottom-15 inline-block padding-12 align-top">
+                <div class="card-header text-left padding-4">
+                    <h3>
+                        Grupo - <span class="project-color">Status</span>
 
-                    <i class="fa fa-paint-brush right"></i>
-                </h3>
-            </div>
-
-            <div class="card-body text-center padding-10">
-                <div class="chart space-bottom-6 space-top-6">
-                    <input type="text" id="front-end-status" value="55" disabled>
+                        <i class="fa fa-paint-brush right"></i>
+                    </h3>
                 </div>
 
-                <h4><b class="big underline">Tarefas Finalizadas</b></h4>
-                <p class="block space-top-6">Porcentual de tarefas que estão com status <b>revisão</b> e/ou <b>finalizado</b>.</p>
-            </div>
-        </div>
+                <div class="card-body text-center padding-10">
+                    <div class="chart space-bottom-6 space-top-6">
+                        <input type="text" id="front-end-status" value="55" disabled>
+                    </div>
 
-        <div class="card width-23 space-right-8 space-left-8 space-top-15 space-bottom-15 inline-block padding-12 align-top">
-            <div class="card-header text-left padding-4">
-                <h3>
-                    Você - <span class="project-color">Finalizadas</span>
-
-                    <i class="fa fa-leaf right"></i>
-                </h3>
+                    <h4><b class="big underline">Tarefas Finalizadas</b></h4>
+                    <p class="block space-top-6">Porcentual de tarefas que estão com status <b>revisão</b> e/ou <b>finalizado</b>.</p>
+                </div>
             </div>
 
-            <div class="card-body text-center padding-10">
-                <div class="chart space-bottom-6 space-top-6">
-                    <input type="text" id="finished-activities" value="25" disabled>
+            <div class="card width-23 space-right-8 space-left-8 space-top-15 space-bottom-15 inline-block padding-12 align-top">
+                <div class="card-header text-left padding-4">
+                    <h3>
+                        Você - <span class="project-color">Finalizadas</span>
+
+                        <i class="fa fa-leaf right"></i>
+                    </h3>
                 </div>
 
-                <h4><b class="big underline">Tarefas Finalizadas</b></h4>
-                <p class="block space-top-6">Porcentual de tarefas que estão com status <b>revisão</b> e/ou <b>finalizado</b>.</p>
-            </div>
-        </div>
+                <div class="card-body text-center padding-10">
+                    <div class="chart space-bottom-6 space-top-6">
+                        <input type="text" id="finished-activities" value="25" disabled>
+                    </div>
 
-        <div class="card width-23 space-right-8 space-left-8 space-top-15 space-bottom-15 inline-block padding-12 align-top">
-            <div class="card-header text-left padding-4">
-                <h3>
-                    Você - <span class="project-color">Pausadas</span>
-
-                    <i class="fa fa-thumb-tack right"></i>
-                </h3>
+                    <h4><b class="big underline">Tarefas Finalizadas</b></h4>
+                    <p class="block space-top-6">Porcentual de tarefas que estão com status <b>revisão</b> e/ou <b>finalizado</b>.</p>
+                </div>
             </div>
 
-            <div class="card-body text-center padding-10">
-                <div class="chart space-bottom-6 space-top-6">
-                    <input type="text" id="paused-activities" value="20" disabled>
+            <div class="card width-23 space-right-8 space-left-8 space-top-15 space-bottom-15 inline-block padding-12 align-top">
+                <div class="card-header text-left padding-4">
+                    <h3>
+                        Você - <span class="project-color">Pausadas</span>
+
+                        <i class="fa fa-thumb-tack right"></i>
+                    </h3>
                 </div>
 
-                <h4><b class="big underline">Tarefas Pausadas</b></h4>
-                <p class="block space-top-6">Porcentual de tarefas que estão com status <b>pausado</b> (Comentários disponíveis).</p>
-            </div>
-        </div>
+                <div class="card-body text-center padding-10">
+                    <div class="chart space-bottom-6 space-top-6">
+                        <input type="text" id="paused-activities" value="20" disabled>
+                    </div>
 
-        <div class="card width-23 space-right-8 space-left-8 space-top-15 space-bottom-15 inline-block padding-12 align-top">
-            <div class="card-header text-left padding-4">
-                <h3>
-                    Você - <span class="project-color">Pendentes</span>
-
-                    <i class="fa fa-exclamation-triangle right"></i>
-                </h3>
+                    <h4><b class="big underline">Tarefas Pausadas</b></h4>
+                    <p class="block space-top-6">Porcentual de tarefas que estão com status <b>pausado</b> (Comentários disponíveis).</p>
+                </div>
             </div>
 
-            <div class="card-body text-center padding-10">
-                <div class="chart space-bottom-6 space-top-6">
-                    <input type="text" id="pending-activities" value="25" disabled>
+            <div class="card width-23 space-right-8 space-left-8 space-top-15 space-bottom-15 inline-block padding-12 align-top">
+                <div class="card-header text-left padding-4">
+                    <h3>
+                        Você - <span class="project-color">Pendentes</span>
+
+                        <i class="fa fa-exclamation-triangle right"></i>
+                    </h3>
                 </div>
 
-                <h4><b class="big underline">Tarefas Pendentes</b></h4>
-                <p class="block space-top-6">Porcentual de tarefas que estão com status <b>pendente</b> e/ou <b>não iniciado</b>.</p>
+                <div class="card-body text-center padding-10">
+                    <div class="chart space-bottom-6 space-top-6">
+                        <input type="text" id="pending-activities" value="25" disabled>
+                    </div>
+
+                    <h4><b class="big underline">Tarefas Pendentes</b></h4>
+                    <p class="block space-top-6">Porcentual de tarefas que estão com status <b>pendente</b> e/ou <b>não iniciado</b>.</p>
+                </div>
             </div>
         </div>
 

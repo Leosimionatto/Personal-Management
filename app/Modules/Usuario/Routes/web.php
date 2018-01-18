@@ -29,7 +29,7 @@ Route::group(['prefix' => 'usuario'], function () {
          */
         Route::get('/projeto/{id}/back-end', 'ProjectController@backend')->name('project.back-end');
         Route::get('/projeto/{id}/back-end/tarefa/adicionar', 'ProjectController@addTask')->name('project.task.create');
-
+        Route::post('/projeto/{id}/back-end/tarefa/adicionar', 'ProjectController@storeTask')->name('project.task.add');
 
         /*
          * Routes about Notifications
