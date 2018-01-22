@@ -58,4 +58,13 @@ class Task extends Model{
         return $this->belongsTo('App\Models\Project', 'idprojeto', 'id');
     }
 
+    /**
+     * Method to get related Steps
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function steps()
+    {
+        return $this->hasMany('App\Models\Step', 'idtarefa', 'id')->orderBy('etapa.id');
+    }
 }

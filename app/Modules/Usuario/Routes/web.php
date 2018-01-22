@@ -30,6 +30,12 @@ Route::group(['prefix' => 'usuario'], function () {
         Route::get('/projeto/{id}/back-end', 'ProjectController@backend')->name('project.back-end');
         Route::get('/projeto/{id}/back-end/tarefa/adicionar', 'ProjectController@addTask')->name('project.task.create');
         Route::post('/projeto/{id}/back-end/tarefa/adicionar', 'ProjectController@storeTask')->name('project.task.add');
+        Route::get('/projeto/{id}/back-end/tarefa/{number}', 'ProjectController@showTask')->name('project.task.show');
+
+        /*
+         * Routes about Ajax Template Requests
+         */
+        Route::get('/etapa/{id}', 'StepController@information')->name('step.information');
 
         /*
          * Routes about Notifications

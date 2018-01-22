@@ -17,9 +17,9 @@
             </div>
 
             <div class="project-page-actions text-left">
-                <a href="{{ route('project.management', $project->id) }}"><button type="button" class="btn btn-primary">Informações gerais <i class="fa fa-handshake-o"></i></button></a>
-                <a href="{{ route('project.back-end', $project->id) }}"><button type="button" class="btn btn-primary right">Grupo Back-end <i class="fa fa-laptop"></i></button></a>
-                <button type="button" class="btn btn-primary right space-right-6">Grupo Front-end <i class="fa fa-paint-brush"></i></button>
+                <a href="{{ route('project.management', $project->id) }}"><button type="button" class="confirm-button">Informações gerais <i class="fa fa-handshake-o"></i></button></a>
+                <a href="{{ route('project.back-end', $project->id) }}"><button type="button" class="confirm-button right">Grupo Back-end <i class="fa fa-laptop"></i></button></a>
+                <button type="button" class="confirm-button right space-right-6">Grupo Front-end <i class="fa fa-paint-brush"></i></button>
             </div>
 
             <div class="card width-23 space-right-8 space-left-8 space-top-15 space-bottom-15 inline-block padding-12 align-top">

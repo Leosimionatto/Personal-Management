@@ -66,6 +66,7 @@
             </div>
         </div>
         <div class="application-body">
+            <!-- Application Content -->
             @yield('content')
         </div>
     </body>

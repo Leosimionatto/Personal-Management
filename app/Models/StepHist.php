@@ -4,13 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Step extends Model{
+class StepHist extends Model{
     /**
      * Database Table
      *
      * @var string
      */
-    protected $table = 'etapa';
+    protected $table = 'etapahist';
 
     /**
      * Database Table Primary Key
@@ -22,7 +22,7 @@ class Step extends Model{
     /**
      * @var bool
      */
-    public $timestamps = false;
+    public $incrementing = false;
 
     /**
      * Database Table Columns
@@ -30,16 +30,16 @@ class Step extends Model{
      * @var array
      */
     protected $fillable = [
-        'nmetapa', 'idtarefa', 'idsituacao', 'descricao', 'criado_em', 'atualizado_em'
+        'idetapa', 'descricao', 'idparticipante', 'criado_em', 'atualizado_em'
     ];
 
     /**
-     * Method to get related history
+     * Method to get related Participant
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function history()
+    public function participant()
     {
-        return $this->hasMany('App\Models\StepHist', 'idetapa', 'id');
+        return $this->belongsTo('App\Models\Participant', 'idparticipante', 'id');
     }
 }

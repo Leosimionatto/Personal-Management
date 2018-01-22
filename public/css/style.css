@@ -1,6 +1,3 @@
-html{
-    overflow-y: scroll;
-}
 /* Configurações gerais da aplicação(Layout configuration) */
 .application-menu{
     top:0;
@@ -507,40 +504,60 @@ html{
     border:1px solid #C0C0C0;
 }
 .project-page .steps-percent{
-    padding:2px;
+    padding:8px 2px 2px 2px;
     margin-top:8px;
-    padding-top:8px;
     border-top:1px solid #E0E0E0;
 }
 .project-page .task-step{
     cursor:pointer;
-    margin-bottom:0;
-    padding-left:15px;
+    margin-bottom:8px;
+    padding-right:8px;
+    padding-left:8px;
 }
-.project-page .task-step:hover .disabled{
-    border-left:4px solid #3C763D;
+.project-page .task-step:last-child{
+    margin-bottom:0 !important;
 }
 .project-page .task-step .actived{
     padding-left:10px;
-    border-left:4px solid #3C763D;
+    border-left:5px solid #3C763D;
+}
+.project-page .task-step .pendent{
+    padding-left:10px;
+    border-left:5px solid #F8D584;
 }
 .project-page .task-step .disabled{
     padding-left:10px;
-    border-left:4px solid #C44D58;
+    border-left:5px solid #C44D58;
 }
 .project-page .task-step .table-cell{
-    padding:8px;
-    border-bottom:1px dotted #D0D0D0;
+    padding:16px;
+    border-top:1px solid #E0E0E0;
+    border-bottom:1px solid #E0E0E0;
+    background-color:#f9f9f9;
 }
+.project-page .task-step .table-cell:last-child{
+    border-right:1px solid #E0E0E0;
+}
+.project-page .task-actions{
+    text-align:center;
+}
+.project-page .task-actions .action{
+    width:45px;
+    height:40px;
+    padding:6px;
+    cursor:pointer;
+    font-size:17px;
+    display:inline-block;
+    margin:0 5px 0 5px;
+}
+
 /* Este css é referente a página de Informações de uma tarefa(Painel - Tarefa desenvolvimento) */
 .projects .task-definition{
-    height:520px;
-    position:relative;
     padding-left:16px;
     border-left:1px solid #DBDBDB;
 }
 .projects .step-explanation{
-    height:480px;
+    height:535px;
     padding-right:12px;
 }
 .projects .task-explanation{
@@ -551,12 +568,24 @@ html{
 .projects .task-explanation i{
     color:#999;
 }
+.projects .update{
+    margin-bottom:15px;
+    border-bottom:1px solid #F0F0F0;
+}
+.projects .update:last-child{
+    border-bottom:0;
+}
 .projects .update .update-title{
     padding:2px;
     font-weight:500;
     margin-bottom:4px;
-    border-bottom:1px solid #E0E0E0;
+    border-bottom:1px solid #F0F0F0;
 }
+.projects .update .update-content{
+    font-size:13px !important;
+    padding-bottom:15px !important;
+}
+
 /* Configuração de tags globais */
 *{
     color:#595969;
@@ -773,6 +802,10 @@ table tfoot td{
 .width-100{
     width:100%;
 }
+/* Min-width */
+.min-width-100{
+    min-width:100% !important;
+}
 /* Paddings */
 .padding-4{
     padding:4px;
@@ -801,6 +834,9 @@ table tfoot td{
 }
 .space-top-6{
     margin-top:6px;
+}
+.space-top-4{
+    margin-top:4px;
 }
 .space-top-2{
     margin-top:2px;
@@ -843,6 +879,9 @@ table tfoot td{
 }
 .space-left-10{
     margin-left:10px;
+}
+.space-left-15{
+    margin-left:15px;
 }
 .space-bottom-10{
     margin-bottom:10px;
@@ -999,7 +1038,7 @@ table tfoot td{
     font-size:12px !important;
 }
 .medium{
-    font-size:14px;
+    font-size:15px !important;
 }
 .big{
     font-size:17px !important;
@@ -1031,7 +1070,6 @@ table tfoot td{
     width:30px;
     border-radius:50% !important;
 }
-
 /* Dropdown */
 .dropdown i{
     cursor:pointer;
@@ -1205,7 +1243,7 @@ table tfoot td{
 }
 /* font-awesome icons */
 .fa-search{
-    color:#86C543 !important;
+    color:#86C543;
 }
 /* Configuração do título com espaço inferior */
 .top-title{
@@ -1270,49 +1308,15 @@ h3 .project-color{
     border:1px solid #EB5766 !important;
 }
 .invalid-field{
-    margin:0;
     color:#EB5766;
-    margin-top:4px;
+    margin:4px 0 0 0;
 }
 .steps .warning-specific{
     border:1px solid #EB5766;
 }
 .steps .invalid-field-specific{
-    margin:0;
     color:#EB5766;
-    margin-top:4px;
-}
-/* Fullcalendar design */
-.calendar .fc-head{
-    background-color:#639232;
-}
-.calendar .fc-head .fc-day-header span{
-    color:#FFF !important;
-}
-.calendar .fc-head .fc-day-header{
-    padding:10px;
-    font-weight:500;
-}
-.calendar .fc-scroller::-webkit-scrollbar {
-    width: 0.6em;
-}
-.calendar .fc-scroller::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-}
-.calendar .fc-scroller::-webkit-scrollbar-thumb {
-    background-color:#D0D0D0;
-}
-.calendar .fc-center h2{
-    font-size:18px;
-}
-.calendar .fc-time{
-    color:#FFF;
-    display:block;
-    font-weight:bold;
-}
-.calendar .fc-title{
-    color:#FFF;
-    display:block;
+    margin:4px 0 0 0;
 }
 /* Bootstrap alerts */
 .alert{
@@ -1345,7 +1349,7 @@ h3 .project-color{
      color:#628D6E !important;
  }
 .dark-yellow-color{
-    color:#FDB652 !important;
+    color:#F0AD4E !important;
 }
 .red-color{
     color:#C44D58 !important;
@@ -1369,8 +1373,17 @@ h3 .project-color{
 .background-dark-yellow{
     background-color:#FDB652 !important;
 }
+.background-dark-pink{
+    background-color:#A33E5C !important;
+}
+.background-pink{
+    background-color:#E496BA !important;
+}
 .background-red{
     background-color:#C44D58 !important;
+}
+.background-violet{
+    background-color:#8C87D7 !important;
 }
 .background-green{
     background-color:#86C543 !important;
@@ -1388,9 +1401,9 @@ h3 .project-color{
 .success-button{
     padding:8px !important;
     border:none;
-    border-radius:0 !important;
     color:#fff;
     background:#6B9A78;
+    border-radius:2px !important;
 }
 .success-button:hover{
     background:#628D6E;
@@ -1400,7 +1413,7 @@ h3 .project-color{
     border:none;
     color:#fff;
     background:#428bca;
-    border-radius:0 !important;
+    border-radius:2px !important;
 }
 .confirm-button:hover{
     background:#3A79B0;
@@ -1410,10 +1423,20 @@ h3 .project-color{
     border:none;
     color:#fff;
     background:#c44d58;
-    border-radius:0 !important;
+    border-radius:2px !important;
 }
 .warning-button:hover{
     background:#AA434D;
+}
+.danger-button{
+    padding:8px !important;
+    border:none;
+    color:#fff;
+    background:#F0AD4E;
+    border-radius:2px !important;
+}
+.danger-button:hover{
+    background:#E3A44A;
 }
 /* Loader CSS */
 .loader-background{

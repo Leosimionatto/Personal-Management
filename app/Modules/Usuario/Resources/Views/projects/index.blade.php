@@ -14,9 +14,9 @@
             </div>
         </div>
         <div class="text-right">
-            <button type="button" class="btn btn-warning left">Compromissos associados <i class="fa fa-calendar-check-o white"></i></button>
-            <button type="button" class="btn btn-primary left space-left-6">Principais acontecimentos <i class="fa fa-calendar-check-o white"></i></button>
-            <a href="{{ route('project.create') }}"><button type="button" class="btn btn-primary">Novo projeto <i class="fa fa-plus-circle white"></i></button></a>
+            <button type="button" class="danger-button left">Compromissos associados <i class="fa fa-calendar-check-o white"></i></button>
+            <button type="button" class="confirm-button left space-left-6">Principais acontecimentos <i class="fa fa-calendar-check-o white"></i></button>
+            <a href="{{ route('project.create') }}"><button type="button" class="confirm-button">Novo projeto <i class="fa fa-plus-circle white"></i></button></a>
         </div>
         <div class="card padding-12 space-top-15 space-bottom-15 projects-list">
             <div class="card-header block space-bottom-15">

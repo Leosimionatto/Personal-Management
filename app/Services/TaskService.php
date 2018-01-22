@@ -45,6 +45,17 @@ class TaskService{
     }
 
     /**
+     * Method to get Task Information
+     *
+     * @param $id
+     * @return mixed
+     */
+    public function get($id)
+    {
+        return $this->task->find($id);
+    }
+
+    /**
      * Method to add an Task
      *
      * @param $data

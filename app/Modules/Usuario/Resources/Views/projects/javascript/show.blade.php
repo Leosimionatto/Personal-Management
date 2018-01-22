@@ -76,6 +76,7 @@
             bindto: '#front-and-back-end-comparison',
             data: {
                 x: 'x',
+                type: 'area',
                 columns: [
                     ['x', '1 Sem', '2 Sem', '3 Sem', '4 Sem'],
                     ['Back-end', 3, 1, 4, 2],

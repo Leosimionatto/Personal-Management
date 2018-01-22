@@ -275,4 +275,23 @@ class ProjectController extends Controller{
     {
         return $this->taskService->add($request->all());
     }
+
+    /**
+     * Method to show Task Information
+     *
+     * @param $id
+     * @param $number
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function showTask($id, $number)
+    {
+        $project = $this->project->get($id);
+        $task = $this->taskService->get($number);
+
+        if(empty($task)){
+            return redirect()->route('project.task.show', $id);
+        }
+
+        return view('usuario::projects.back-end.show-task', compact('project', 'task'));
+    }
 }

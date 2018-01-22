@@ -17,9 +17,9 @@
         </div>
 
         <div class="text-right">
-            <button type="button" class="btn btn-warning left">Chat do Grupo <i class="fa fa-comments white"></i></button>
-            <button type="button" class="btn btn-primary left space-left-6">Principais acontecimentos <i class="fa fa-calendar-check-o white"></i></button>
-            <a href="{{ route('project.task.create', $project->id) }}"><button type="button" class="btn btn-primary">Nova tarefa <i class="fa fa-plus-circle white"></i></button></a>
+            <button type="button" class="danger-button space-right-4">Chat do Grupo <i class="fa fa-comments white"></i></button>
+            <button type="button" class="confirm-button left">Principais acontecimentos <i class="fa fa-calendar-check-o white"></i></button>
+            <a href="{{ route('project.task.create', $project->id) }}"><button type="button" class="confirm-button">Nova tarefa <i class="fa fa-plus-circle white"></i></button></a>
         </div>
 
         <div class="text-center">
@@ -127,7 +127,7 @@
                                     <td>{{ $task->participant->user->nome }}</td>
                                     <td>{!! App\Utilities\Priority\Arrays::priorityLabel($task->idprioridade) !!}</td>
                                     <td>{{ (!empty($task->dtentrega)) ? (new \Carbon\Carbon($task->dtentrega))->format('d/m/Y') : 'Indefinido' }}</td>
-                                    <td><a href="">Visualizar mais <i class="fa fa-plus-circle"></i></a></td>
+                                    <td><a href="{{ route('project.task.show', [$project->id, $task->id]) }}">Visualizar mais <i class="fa fa-plus-circle"></i></a></td>
                                 </tr>
                             @endforeach
                         @else
