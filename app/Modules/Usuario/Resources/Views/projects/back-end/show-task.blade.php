@@ -60,30 +60,31 @@
 
                             <hr style="margin:3px 0 15px 0;">
 
-                            <div class="block space-bottom-10">
-                                <div class="action background-green" data-toggle="tooltip" data-placement="top" title="Finalizar etapa">
-                                    <i class="fa fa-thumbs-up align-center white"></i>
+                            <div class="block space-bottom-15">
+                                <b class="block medium roboto space-bottom-10">Atualização de Status - Etapa Atual:</b>
+
+                                <div class="action background-dark-pink" data-toggle="tooltip" data-placement="top" title="Andamento">
+                                    <i class="fa fa-play align-center white"></i>
                                 </div>
-                                <div class="action background-dark-yellow" data-toggle="tooltip" data-placement="top" title="Pausar etapa">
+                                <div class="action background-dark-yellow" data-toggle="tooltip" data-placement="top" title="Pausada">
                                     <i class="fa fa-pause align-center white"></i>
                                 </div>
-                                <div class="action background-red" data-toggle="tooltip" data-placement="top" title="Deixar como pendente">
+                                <div class="action background-red" data-toggle="tooltip" data-placement="top" title="Pendente">
                                     <i class="fa fa-exclamation-triangle align-center white"></i>
                                 </div>
-                                <div class="action background-blue" data-toggle="tooltip" data-placement="top" title="Adicionar horas trabalhadas">
-                                    <i class="fa fa-clock-o align-center white"></i>
-                                </div>
-                                <div class="action background-dark-pink" data-toggle="tooltip" data-placement="top" title="Adicionar comentário">
-                                    <i class="fa fa-comment align-center white"></i>
+                                <div class="action background-green" data-toggle="tooltip" data-placement="top" title="Finalizada">
+                                    <i class="fa fa-thumbs-up align-center white"></i>
                                 </div>
                             </div>
 
                             <div class="block">
-                                <div class="action background-violet" data-toggle="tooltip" data-placement="top" title="Requisitar correção">
-                                    <i class="fa fa-search align-center white"></i>
+                                <b class="block medium roboto space-bottom-10">Histórico de Atualizações:</b>
+
+                                <div class="action background-violet" data-toggle="tooltip" data-placement="top" title="Adicionar comentário">
+                                    <i class="fa fa-comment align-center white"></i>
                                 </div>
-                                <div class="action background-blue" data-toggle="tooltip" data-placement="top" title="Requisitar ajuda">
-                                    <i class="fa fa-question-circle align-center white"></i>
+                                <div class="action background-blue" data-toggle="tooltip" data-placement="top" title="Adicionar tempo gasto">
+                                    <i class="fa fa-clock-o align-center white"></i>
                                 </div>
                             </div>
                         </div>
@@ -102,6 +103,8 @@
             </div>
         </div>
     </div>
+
+    <div class="modal fade actual-modal"></div>
 @endsection
 
 @section('scripts')

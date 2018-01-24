@@ -33,11 +33,6 @@ Route::group(['prefix' => 'usuario'], function () {
         Route::get('/projeto/{id}/back-end/tarefa/{number}', 'ProjectController@showTask')->name('project.task.show');
 
         /*
-         * Routes about Ajax Template Requests
-         */
-        Route::get('/etapa/{id}', 'StepController@information')->name('step.information');
-
-        /*
          * Routes about Notifications
          */
         Route::get('/notificacao', 'NotificationController@index')->name('notification.index');
@@ -67,12 +62,14 @@ Route::group(['prefix' => 'usuario'], function () {
     /*
      * Routes about Ajax Requests
      */
-    Route::get('/modal/confirmacao', 'AjaxController@confirm')->name('modal.confirm');
-    Route::get('/modal/recusa', 'AjaxController@recuse')->name('modal.recuse');
-    Route::get('/modal/editar/requisicao/participacao', 'AjaxController@editParticipation')->name('modal.edit-participation-request');
-    Route::get('/modal/cancelar/requisicao/participacao', 'AjaxController@cancelParticipation')->name('modal.cancel-participation-request');
-    Route::get('/modal/participante/adicionar', 'AjaxController@addParticipant')->name('modal.add-participant');
-    Route::get('/modal/participante/editar', 'AjaxController@editParticipant')->name('modal.edit-participant');
+    Route::get('/ajax/modal/confirmacao', 'AjaxController@confirm')->name('modal.confirm');
+    Route::get('/ajax/modal/recusa', 'AjaxController@recuse')->name('modal.recuse');
+    Route::get('/ajax/modal/editar/requisicao/participacao', 'AjaxController@editParticipation')->name('modal.edit-participation-request');
+    Route::get('/ajax/modal/cancelar/requisicao/participacao', 'AjaxController@cancelParticipation')->name('modal.cancel-participation-request');
+    Route::get('/ajax/modal/participante/adicionar', 'AjaxController@addParticipant')->name('modal.add-participant');
+    Route::get('/ajax/modal/participante/editar', 'AjaxController@editParticipant')->name('modal.edit-participant');
+    Route::get('/ajax/etapa/editar/{id}', 'AjaxController@editStep');
+    Route::get('/ajax/etapa/{id}', 'AjaxController@stepInformation');
 
     /*
      * Routes about Project Requests

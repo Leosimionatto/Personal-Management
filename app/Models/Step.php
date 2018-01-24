@@ -42,4 +42,14 @@ class Step extends Model{
     {
         return $this->hasMany('App\Models\StepHist', 'idetapa', 'id');
     }
+
+    /**
+     * Method to get related Task
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function task()
+    {
+        return $this->belongsTo('App\Models\Task', 'idtarefa', 'id');
+    }
 }

@@ -49,10 +49,10 @@ class Arrays{
     static function situationsLabel($param)
     {
         $array = [
-            1 => '<label class="label label-primary"> Pendente </label>',
+            1 => '<label class="label label-danger"> Pendente </label>',
             2  => '<label class="label label-warning"> Andamento </label>',
-            3  => '<label class="label label-danger"> Revisão </label>',
-            4  => '<label class="label label-info"> Pausada </label>',
+            3  => '<label class="label label-succes"> Revisão </label>',
+            4  => '<label class="label label-danger"> Pausada </label>',
             5  => '<label class="label label-success"> Finalizada </label>'
         ];
 

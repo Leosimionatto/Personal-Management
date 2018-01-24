@@ -289,7 +289,7 @@ class ProjectController extends Controller{
         $task = $this->taskService->get($number);
 
         if(empty($task)){
-            return redirect()->route('project.task.show', $id);
+            return redirect()->route('project.back-end', $id);
         }
 
         return view('usuario::projects.back-end.show-task', compact('project', 'task'));

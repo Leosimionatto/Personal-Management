@@ -530,7 +530,7 @@
     border-left:5px solid #C44D58;
 }
 .project-page .task-step .table-cell{
-    padding:16px;
+    padding:14px;
     border-top:1px solid #E0E0E0;
     border-bottom:1px solid #E0E0E0;
     background-color:#f9f9f9;
@@ -542,13 +542,13 @@
     text-align:center;
 }
 .project-page .task-actions .action{
-    width:45px;
-    height:40px;
-    padding:6px;
     cursor:pointer;
-    font-size:17px;
-    display:inline-block;
+    font-size:16px;
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
     margin:0 5px 0 5px;
+    padding:10px 12px 10px 12px;
 }
 
 /* Este css é referente a página de Informações de uma tarefa(Painel - Tarefa desenvolvimento) */
@@ -569,11 +569,10 @@
     color:#999;
 }
 .projects .update{
+    padding:6px;
     margin-bottom:15px;
-    border-bottom:1px solid #F0F0F0;
-}
-.projects .update:last-child{
-    border-bottom:0;
+    background: #F9F9F9;
+    border:1px solid #E6E6E6 !important;
 }
 .projects .update .update-title{
     padding:2px;

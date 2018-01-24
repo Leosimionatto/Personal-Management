@@ -4,6 +4,7 @@ namespace App\Modules\Usuario\Http\Controllers;
 
 use App\Services\ParticipantService;
 use App\Services\PostService;
+use App\Services\StepService;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
@@ -21,15 +22,22 @@ class AjaxController extends Controller
     protected $postService;
 
     /**
+     * @var StepService
+     */
+    protected $stepService;
+
+    /**
      * AjaxController constructor.
      *
      * @param ParticipantService $participantService
      * @param PostService $postService
+     * @param StepService $stepService
      */
-    public function __construct(ParticipantService $participantService, PostService $postService)
+    public function __construct(ParticipantService $participantService, PostService $postService, StepService $stepService)
     {
         $this->participantService = $participantService;
         $this->postService = $postService;
+        $this->stepService = $stepService;
     }
 
     /**
@@ -39,7 +47,7 @@ class AjaxController extends Controller
      */
     public function confirm()
     {
-        return response()->json(['html' => view('usuario::ajax.confirm')->render()]);
+        return response()->json(['html' => view('usuario::ajax.participation.confirm')->render()]);
     }
 
     /**
@@ -49,7 +57,7 @@ class AjaxController extends Controller
      */
     public function recuse()
     {
-        return response()->json(['html' => view('usuario::ajax.recuse')->render()]);
+        return response()->json(['html' => view('usuario::ajax.participation.recuse')->render()]);
     }
 
     /**
@@ -63,7 +71,7 @@ class AjaxController extends Controller
         $participant = $this->participantService->find($request->get('id'));
         $posts = $this->postService->all();
 
-        return response()->json(['html' => view('usuario::ajax.edit-participation', compact('participant', 'posts'))->render()]);
+        return response()->json(['html' => view('usuario::ajax.participation.edit-participation', compact('participant', 'posts'))->render()]);
     }
 
     /**
@@ -76,7 +84,7 @@ class AjaxController extends Controller
     {
         $participant = $this->participantService->find($request->get('id'));
 
-        return response()->json(['html' => view('usuario::ajax.cancel-participation', compact('participant'))->render()]);
+        return response()->json(['html' => view('usuario::ajax.participation.cancel-participation', compact('participant'))->render()]);
     }
 
     /**
@@ -88,7 +96,7 @@ class AjaxController extends Controller
     {
         $posts = $this->postService->all();
 
-        return response()->json(['html' => view('usuario::ajax.add-participant', compact('posts'))->render()]);
+        return response()->json(['html' => view('usuario::ajax.participant.add-participant', compact('posts'))->render()]);
     }
 
     /**
@@ -102,6 +110,32 @@ class AjaxController extends Controller
         $posts = $this->postService->all();
         $participant = $this->participantService->find($request->get('id'));
 
-        return response()->json(['html' => view('usuario::ajax.edit-participant', compact('posts', 'participant'))->render()]);
+        return response()->json(['html' => view('usuario::ajax.participant.edit-participant', compact('posts', 'participant'))->render()]);
+    }
+
+    /**
+     * Method to call and get Step Information Template
+     *
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function stepInformation($id)
+    {
+        $step = $this->stepService->get($id);
+
+        return response()->json(['html' => view('usuario::ajax.step.step-information', compact('step'))->render()]);
+    }
+
+    /**
+     * Method to call and get Edit Step Modal
+     *
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function editStep($id)
+    {
+        $step = $this->stepService->get($id);
+
+        return response()->json(['html' => view('usuario::ajax.step.edit-step', compact('step'))->render()]);
     }
 }
