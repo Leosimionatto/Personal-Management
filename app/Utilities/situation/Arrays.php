@@ -11,11 +11,12 @@ class Arrays{
     public static function get()
     {
         $array = [
-            '1' => 'Pendente',
-            '2'  => 'Andamento',
-            '3'  => 'Revisão',
-            '4'  => 'Pausada',
-            '5'  => 'Finalizada'
+            1  => 'Não iniciado',
+            2  => 'Pendente',
+            3  => 'Andamento',
+            4  => 'Revisão',
+            5  => 'Pausada',
+            6  => 'Finalizada'
         ];
 
         return $array;
@@ -30,11 +31,12 @@ class Arrays{
     public static function situations($param)
     {
         $array = [
-            1  => 'Pendente',
-            2  => 'Andamento',
-            3  => 'Revisão',
-            4  => 'Pausada',
-            5  => 'Finalizada'
+            1  => 'Não iniciado',
+            2  => 'Pendente',
+            3  => 'Andamento',
+            4  => 'Revisão',
+            5  => 'Pausada',
+            6  => 'Finalizada'
         ];
 
         return $array[$param];
@@ -49,11 +51,12 @@ class Arrays{
     static function situationsLabel($param)
     {
         $array = [
-            1 => '<label class="label label-danger"> Pendente </label>',
-            2  => '<label class="label label-warning"> Andamento </label>',
-            3  => '<label class="label label-succes"> Revisão </label>',
-            4  => '<label class="label label-danger"> Pausada </label>',
-            5  => '<label class="label label-success"> Finalizada </label>'
+            1 => '<label class="label label-warning"> Não iniciado </label>',
+            2 => '<label class="label label-danger"> Pendente </label>',
+            3  => '<label class="label label-warning"> Andamento </label>',
+            4  => '<label class="label label-succes"> Revisão </label>',
+            5  => '<label class="label label-danger"> Pausada </label>',
+            6  => '<label class="label label-success"> Finalizada </label>'
         ];
 
         return $array[$param];

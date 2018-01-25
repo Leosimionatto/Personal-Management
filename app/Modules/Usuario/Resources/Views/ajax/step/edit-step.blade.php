@@ -10,7 +10,7 @@
             </div>
             <div class="inline-block width-60" style="margin-left:39%;height:325px;">
                 <div style="border-bottom:1px solid #e0e0e0;padding:8px 12px 5px 8px;">
-                    <b class="big">Etapa <i class="fa fa-arrow-right dark-green-color space-right-4 space-left-4"></i> {{ $step->nmetapa }}</b>
+                    <b class="big">{{ $step->nmetapa }} <i class="fa fa-arrow-right dark-green-color space-right-4 space-left-4"></i> <u class="big bold roboto">Andamento</u></b>
 
                     <i class="fa fa-thermometer-three-quarters dark-green-color right big space-top-2"></i>
                 </div>

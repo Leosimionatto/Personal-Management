@@ -11,32 +11,44 @@ class SituationTableSeeder extends Seeder
      */
     public function run()
     {
-        $rolls = [
+        $rows = [
             0 => [
+                'id'          => 1,
+                'codsituacao' => 'nin',
+                'nmsituacao'  => 'Não iniciado',
+                'criado_em'   => date('Y-m-d'),
+                'atualizado_em'   => date('Y-m-d')
+            ],
+            1 => [
+                'id'          => 2,
                 'codsituacao' => 'pen',
                 'nmsituacao'  => 'Pendente',
                 'criado_em'   => date('Y-m-d'),
                 'atualizado_em'   => date('Y-m-d')
             ],
-            1 => [
+            2 => [
+                'id'          => 3,
                 'codsituacao' => 'and',
                 'nmsituacao'  => 'Andamento',
                 'criado_em'   => date('Y-m-d'),
                 'atualizado_em'   => date('Y-m-d')
             ],
-            2 => [
+            3 => [
+                'id'          => 4,
                 'codsituacao' => 'rev',
                 'nmsituacao'  => 'Revisão',
                 'criado_em'   => date('Y-m-d'),
                 'atualizado_em'   => date('Y-m-d')
             ],
-            3 => [
+            4 => [
+                'id'          => 5,
                 'codsituacao' => 'pau',
                 'nmsituacao'  => 'Pausado',
                 'criado_em'   => date('Y-m-d'),
                 'atualizado_em'   => date('Y-m-d')
             ],
-            4 => [
+            5 => [
+                'id'          => 6,
                 'codsituacao' => 'fin',
                 'nmsituacao'  => 'Finalizado',
                 'criado_em'   => date('Y-m-d'),
@@ -44,6 +56,14 @@ class SituationTableSeeder extends Seeder
             ],
         ];
 
-        \DB::table('situacao')->insert($rolls);
+        foreach($rows as $situation){
+            $sit = DB::table('situacao')->where('id', $situation['id'])->first();
+
+            if(empty($sit->id)){
+                DB::table('situacao')->insert($situation);
+            }else{
+                DB::table('situacao')->where('id', $situation['id'])->update($situation);
+            }
+        }
     }
 }

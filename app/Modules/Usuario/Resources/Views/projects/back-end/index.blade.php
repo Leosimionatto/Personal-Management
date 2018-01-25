@@ -23,7 +23,7 @@
         </div>
 
         <div class="text-center">
-            <div class="card width-23 space-right-8 space-left-8 space-top-15 space-bottom-15 inline-block padding-12 align-top">
+            <div class="card width-23 space-right-8 space-left-8 space-top-15 space-bottom-15 inline-block padding-12 align-top" style="height:275px;">
                 <div class="card-header text-left padding-4">
                     <h3>
                         Grupo - <span class="project-color">Status</span>
@@ -42,7 +42,7 @@
                 </div>
             </div>
 
-            <div class="card width-23 space-right-8 space-left-8 space-top-15 space-bottom-15 inline-block padding-12 align-top">
+            <div class="card width-23 space-right-8 space-left-8 space-top-15 space-bottom-15 inline-block padding-12 align-top" style="height:275px;">
                 <div class="card-header text-left padding-4">
                     <h3>
                         Você - <span class="project-color">Finalizadas</span>
@@ -61,7 +61,7 @@
                 </div>
             </div>
 
-            <div class="card width-23 space-right-8 space-left-8 space-top-15 space-bottom-15 inline-block padding-12 align-top">
+            <div class="card width-23 space-right-8 space-left-8 space-top-15 space-bottom-15 inline-block padding-12 align-top" style="height:275px;">
                 <div class="card-header text-left padding-4">
                     <h3>
                         Você - <span class="project-color">Pausadas</span>
@@ -80,7 +80,7 @@
                 </div>
             </div>
 
-            <div class="card width-23 space-right-8 space-left-8 space-top-15 space-bottom-15 inline-block padding-12 align-top">
+            <div class="card width-23 space-right-8 space-left-8 space-top-15 space-bottom-15 inline-block padding-12 align-top" style="height:275px;">
                 <div class="card-header text-left padding-4">
                     <h3>
                         Você - <span class="project-color">Pendentes</span>
