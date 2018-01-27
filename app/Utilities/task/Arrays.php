@@ -13,11 +13,12 @@ class Arrays{
     public static function getSpanBySituation($situation)
     {
         $array = [
-            1 => '<span class="red-color medium roboto">Pendente</span>',
-            2 => '<span class="yellow-color medium roboto">Andamento</span>',
-            3 => '<span class="green-color medium roboto">Revisão</span>',
-            4 => '<span class="red-color medium roboto">Pausada</span>',
-            5 => '<span class="green-color medium roboto">Finalizada</span>',
+            1 => '<span class="dark-yellow-color medium roboto">Não iniciada</span>',
+            2 => '<span class="red-color medium roboto">Pendente</span>',
+            3 => '<span class="dark-yellow-color medium roboto">Andamento</span>',
+            4 => '<span class="green-color medium roboto">Revisão</span>',
+            5 => '<span class="red-color medium roboto">Pausada</span>',
+            6 => '<span class="green-color medium roboto">Finalizada</span>'
         ];
 
         return $array[$situation];
@@ -32,11 +33,12 @@ class Arrays{
     public static function getClassBySituation($situation)
     {
         $array = [
-            1 => 'disabled',
-            2 => 'pendent',
-            3 => 'actived',
-            4 => 'disabled',
-            5 => 'actived'
+            1 => 'pendent',
+            2 => 'disabled',
+            3 => 'pendent',
+            4 => 'actived',
+            5 => 'disabled',
+            6 => 'actived'
         ];
 
         return $array[$situation];

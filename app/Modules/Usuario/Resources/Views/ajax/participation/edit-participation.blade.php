@@ -1,5 +1,5 @@
 <div class="modal-dialog">
-    <div class="modal-content" style="width:45%;max-height:367px;position:relative !important;">
+    <div class="modal-content" style="width:45%;position:relative !important;">
         <div class="modal-body" style="padding:0">
             <div class="width-38 padding-12 text-center inline-block align-top" style="position:absolute;left:0;bottom:0;top:0;background-color:#628D6E">
                 <div class="circular-icon space-top-6 space-bottom-10">
@@ -24,6 +24,16 @@
                             @endforeach
                         </select>
                     </div>
+
+                    <div class="form-group space-top-10">
+                        <label for="stparticipante" class="form-label" style="margin-top:-4px !important;">Status Participante</label>
+                        <select name="stparticipante" class="form-control" id="stparticipante">
+                            <option value="">Selecione uma opção</option>
+                            <option value="ati" {{ ($participant->stparticipante === 'ati') ? 'selected' : '' }}>Ativo</option>
+                            <option value="ina" {{ ($participant->stparticipante === 'ina') ? 'selected' : '' }}>Inativo</option>
+                        </select>
+                    </div>
+
                     <div class="form-group" style="margin-bottom:0;">
                         <label for="deveresdesc" class="form-label">Descrição dos Deveres</label>
                         <textarea name="deveresdesc" class="form-control form-text-area" id="deveresdesc" placeholder="Descrição de Exemplo..."></textarea>

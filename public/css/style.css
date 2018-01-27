@@ -115,7 +115,7 @@
     text-decoration:none;
 }
 .home-page .modules-explanation-body .module{
-    width:19%;
+    width:22%;
     padding:8px;
     cursor:pointer;
     margin-top:8px;
@@ -485,23 +485,6 @@
 }
 .project-page .project-events .table .table-row:first-child .table-cell{
     border-top:0 !important;
-}
-.project-page .developer-tasks-filter{
-    margin-top:6px;
-}
-.project-page .developer-tasks-filter input{
-    width:15%;
-    padding:6px;
-    margin-right:3px;
-    border-radius:3px;
-    border:1px solid #C0C0C0;
-}
-.project-page .developer-tasks-filter select{
-    width:15%;
-    padding:6px;
-    margin-right:3px;
-    border-radius:3px;
-    border:1px solid #C0C0C0;
 }
 .project-page .steps-percent{
     padding:8px 2px 2px 2px;
@@ -1121,7 +1104,6 @@ table tfoot td{
 .overflow-auto::-webkit-scrollbar-thumb{
     background-color:#D0D0D0;
 }
-
 /* Modal */
 .modal{
     left:0;
@@ -1144,6 +1126,7 @@ table tfoot td{
     outline:0;
     width:600px;
     margin:auto;
+    max-width:1200px;
     position:relative;
     background-color:#fff;
     border-radius:1px !important;
@@ -1307,7 +1290,7 @@ h3 .project-color{
     border:1px solid #EB5766 !important;
 }
 .invalid-field{
-    color:#EB5766;
+    color:#C44D58;
     margin:4px 0 0 0;
 }
 .steps .warning-specific{
@@ -1486,6 +1469,12 @@ h3 .project-color{
 .c3-tooltip{
     width:auto !important;
 }
+/* Three Dots */
+.dots{
+    white-space: nowrap;
+    overflow:hidden !important;
+    text-overflow: ellipsis;
+}
 /* Font-Family */
 .roboto{
     font-family:'Roboto', sans-serif !important;
@@ -1493,7 +1482,6 @@ h3 .project-color{
 .raleway{
     font-family:'Raleway', sans-serif !important;
 }
-
 @media screen and (max-width: 1024px){
     .application-menu{
         display:none;

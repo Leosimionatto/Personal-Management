@@ -22,6 +22,10 @@ Route::group(['prefix' => 'usuario'], function () {
         Route::get('/projeto/{id}/requisicao', 'ProjectController@participationRequest')->name('project.request');
         Route::post('/projeto/{id}/requisicao/editar', 'ProjectController@editParticipationRequest')->name('project.request.edit');
         Route::post('/projeto/{id}/requisicao/cancelar', 'ProjectController@cancelParticipationRequest')->name('project.request.cancel');
+
+        /*
+         * Routes about Projects - Management Group
+         */
         Route::get('/projeto/{id}/administrativo', 'ProjectController@management')->name('project.management');
 
         /*
@@ -31,6 +35,11 @@ Route::group(['prefix' => 'usuario'], function () {
         Route::get('/projeto/{id}/back-end/tarefa/adicionar', 'ProjectController@addTask')->name('project.task.create');
         Route::post('/projeto/{id}/back-end/tarefa/adicionar', 'ProjectController@storeTask')->name('project.task.add');
         Route::get('/projeto/{id}/back-end/tarefa/{number}', 'ProjectController@showTask')->name('project.task.show');
+
+        /*
+         * Routes about Tasks - Steps
+         */
+        Route::put('etapa/status/atualizar', 'StepController@updateSituation')->name('step.status.update');
 
         /*
          * Routes about Notifications

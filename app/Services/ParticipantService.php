@@ -79,7 +79,7 @@ class ParticipantService{
                     'atualizado_em' => date('Y-m-d H:i:s'),
                     'solicitapart'  => 'pen',
                     'token'         => Str::random(),
-                    'fltoken'       => 's'
+                    'fltoken'       => 'n'
                 ];
 
                 $new = $this->repository->create($post);

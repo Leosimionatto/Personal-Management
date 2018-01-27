@@ -25,6 +25,11 @@ class StepHist extends Model{
     public $incrementing = false;
 
     /**
+     * @var bool
+     */
+    public $timestamps = false;
+
+    /**
      * Database Table Columns
      *
      * @var array

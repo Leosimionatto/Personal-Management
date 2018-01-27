@@ -130,12 +130,14 @@ class AjaxController extends Controller
      * Method to call and get Edit Step Modal
      *
      * @param $id
+     * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function editStep($id)
+    public function editStep($id, Request $request)
     {
         $step = $this->stepService->get($id);
+        $situation = $request->get('situacao');
 
-        return response()->json(['html' => view('usuario::ajax.step.edit-step', compact('step'))->render()]);
+        return response()->json(['html' => view('usuario::ajax.step.edit-step', compact('step', 'situation'))->render()]);
     }
 }

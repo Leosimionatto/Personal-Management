@@ -32,24 +32,26 @@
                     </h3>
                 </div>
                 <div class="card-body min-width-100 relative">
-                    <div class="width-30 space-top-10 inline-block align-top" style="position:relative;margin-right:4px;height:595px">
+                    <div class="width-30 space-top-10 inline-block align-top" style="position:relative;margin-right:4px;height:620px">
                         <div class="space-top-15 space-bottom-6">
                             <span class="bold big roboto">Informações das Etapas - <span class="big roboto bold-500">Status Atual</span>:</span>
                         </div>
 
-                        <div class="overflow-auto" style="max-height:270px;height:auto;">
+                        <div class="overflow-auto steps-list" style="max-height:270px;">
                             @foreach($task->steps as $key => $step)
-                                <div class="block task-step padding-4 table" data-id="{{ $step->id }}" data-name="{{ $step->nmetapa }}" data-toggle="tooltip" data-placement="right" title="{{ App\Utilities\Situation\Arrays::situations($step->idsituacao) }}">
-                                    <div class="table-row">
-                                        <div class="table-cell text-center align-center {{ App\Utilities\Task\Arrays::getClassBySituation($step->idsituacao) }}">
-                                            <img src="{{ asset('img/seo-marketing/png/039-code-1.png') }}" alt="" width="60px">
-                                        </div>
-                                        <div class="table-cell align-center padding-4">
-                                            <span class="bold medium roboto">{{ ($key + 1) }}º Etapa - {!! App\Utilities\Task\Arrays::getSpanBySituation($step->idsituacao) !!}</span>
-                                            <p>Clique aqui para visualizar todas as informações disponibilizadas.</p>
+                                <a class="step-information" data-toggle="tooltip" data-placement="right" data-id="{{ $step->id }}" data-name="{{ $step->nmetapa }}" title="{{ App\Utilities\Situation\Arrays::situations($step->idsituacao) }}" style="text-decoration:none !important;">
+                                    <div class="block task-step padding-4 table">
+                                        <div class="table-row">
+                                            <div class="table-cell text-center align-center {{ App\Utilities\Task\Arrays::getClassBySituation($step->idsituacao) }}">
+                                                <img src="{{ asset('img/seo-marketing/png/039-code-1.png') }}" alt="" width="60px">
+                                            </div>
+                                            <div class="table-cell align-center padding-4">
+                                                <span class="bold medium roboto">{{ ($key + 1) }}º Etapa - {!! App\Utilities\Task\Arrays::getSpanBySituation($step->idsituacao) !!}</span>
+                                                <p>Clique aqui para visualizar todas as informações disponibilizadas.</p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                </a>
                             @endforeach
                         </div>
 
@@ -63,18 +65,29 @@
                             <div class="block space-bottom-15">
                                 <b class="block medium roboto space-bottom-10">Atualização de Status - Etapa Atual:</b>
 
-                                <div class="action background-dark-pink" data-toggle="tooltip" data-placement="top" title="Andamento">
-                                    <i class="fa fa-play align-center white"></i>
-                                </div>
-                                <div class="action background-dark-yellow" data-toggle="tooltip" data-placement="top" title="Pausada">
-                                    <i class="fa fa-pause align-center white"></i>
-                                </div>
-                                <div class="action background-red" data-toggle="tooltip" data-placement="top" title="Pendente">
-                                    <i class="fa fa-exclamation-triangle align-center white"></i>
-                                </div>
-                                <div class="action background-green" data-toggle="tooltip" data-placement="top" title="Finalizada">
-                                    <i class="fa fa-thumbs-up align-center white"></i>
-                                </div>
+                                @if($step->idsituacao != 3)
+                                    <div class="action background-dark-pink" data-code="3" data-toggle="tooltip" data-placement="top" title="Andamento">
+                                        <i class="fa fa-play align-center white"></i>
+                                    </div>
+                                @endif
+
+                                @if($step->idsituacao != 5)
+                                    <div class="action background-dark-yellow" data-code="5" data-toggle="tooltip" data-placement="top" title="Pausada">
+                                        <i class="fa fa-pause align-center white"></i>
+                                    </div>
+                                @endif
+
+                                @if($step->idsituacao != 2)
+                                    <div class="action background-red" data-code="2" data-toggle="tooltip" data-placement="top" title="Pendente">
+                                        <i class="fa fa-exclamation-triangle align-center white"></i>
+                                    </div>
+                                @endif
+
+                                @if($step->idsituacao != 6)
+                                    <div class="action background-green" data-code="6" data-toggle="tooltip" data-placement="top" title="Finalizada">
+                                        <i class="fa fa-thumbs-up align-center white"></i>
+                                    </div>
+                                @endif
                             </div>
 
                             <div class="block">
