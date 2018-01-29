@@ -40,6 +40,7 @@ Route::group(['prefix' => 'usuario'], function () {
          * Routes about Tasks - Steps
          */
         Route::put('etapa/status/atualizar', 'StepController@updateSituation')->name('step.status.update');
+        Route::put('etapa/comentario/adicionar', 'StepController@createComment')->name('step.comment.create');
 
         /*
          * Routes about Notifications
@@ -77,8 +78,9 @@ Route::group(['prefix' => 'usuario'], function () {
     Route::get('/ajax/modal/cancelar/requisicao/participacao', 'AjaxController@cancelParticipation')->name('modal.cancel-participation-request');
     Route::get('/ajax/modal/participante/adicionar', 'AjaxController@addParticipant')->name('modal.add-participant');
     Route::get('/ajax/modal/participante/editar', 'AjaxController@editParticipant')->name('modal.edit-participant');
-    Route::get('/ajax/etapa/editar/{id}', 'AjaxController@editStep');
     Route::get('/ajax/etapa/{id}', 'AjaxController@stepInformation');
+    Route::get('/ajax/etapa/{id}/editar', 'AjaxController@editStep');
+    Route::get('/ajax/etapa/{id}/comentario/adicionar', 'AjaxController@createComment');
 
     /*
      * Routes about Project Requests

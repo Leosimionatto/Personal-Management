@@ -2,10 +2,12 @@
 
 namespace App\Services;
 
+use App\Models\Participant;
 use App\Models\Step;
 use App\Models\StepHist;
 use App\Utilities\Situation\Arrays as Situation;
 use App\Notifications\StepSituationUpdate;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class StepService{
@@ -21,15 +23,22 @@ class StepService{
     protected $stepHist;
 
     /**
+     * @var Participant
+     */
+    protected $participant;
+
+    /**
      * StepService constructor.
      *
      * @param Step $step
      * @param StepHist $stepHist
+     * @param Participant $participant
      */
-    public function __construct(Step $step, StepHist $stepHist)
+    public function __construct(Step $step, StepHist $stepHist, Participant $participant)
     {
         $this->step = $step;
         $this->stepHist = $stepHist;
+        $this->participant = $participant;
     }
 
     /**
@@ -55,12 +64,24 @@ class StepService{
         try{
             $id = $data['idetapa'];
             $step = $this->step->find($id);
+            $task = $step->task;
 
             unset($data['idetapa']);
 
-            if($step->update($data)){
-                $task = $step->task;
+            $participant = $this->participant->all()->where('idusuario', Auth::guard('user')->user()->id)->first();
+            $active = $this->step->all()->where('idtarefa', $step->idtarefa)->where('idsituacao', '!=', 1)->where('idsituacao', '!=', 2)->where('id', '!=', $step->id);
 
+            if($participant->id != $task->idparticipante){
+                DB::rollback();
+                return ['status' => '01', 'message' => 'Somente o participante responsável pela tarefa pode alterar o <b>Status</b> da mesma.'];
+            }
+
+            if(count($active) > 0){
+                DB::rollback();
+                return ['status' => '01', 'message' => 'Não foi possível realizar essa ação pois já existem etapas ativas'];
+            }
+
+            if($step->update($data)){
                 $hist = [
                     'idetapa' => $id,
                     'descricao' => 'Alterada para ' . Situation::situations($data['idsituacao']) . ' por <b>' . $task->participant->user->nome . '</b>',
@@ -78,8 +99,14 @@ class StepService{
                         'idetapa'    => $id
                     ];
 
-                    $task->assigner->notify(new StepSituationUpdate($data));
-                    $task->participant->user->notify(new StepSituationUpdate($data));
+                    $assigner = $task->assigner;
+                    $user = $task->participant->user;
+
+                    $assigner->notify(new StepSituationUpdate($data));
+
+                    if($user->id != $assigner->id){
+                        $user->notify(new StepSituationUpdate($data));
+                    }
 
                     DB::commit();
                     return ['status' => '00'];

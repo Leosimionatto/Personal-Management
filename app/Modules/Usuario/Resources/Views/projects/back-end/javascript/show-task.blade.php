@@ -11,7 +11,7 @@
             step(data);
         });
 
-        $('.action').each(function(){
+        $('.update-situation').each(function(){
             $(this).on('click', function(event){
                 event.preventDefault();
 
@@ -20,6 +20,14 @@
 
                 editStepModal(idetapa, idsituacao);
             });
+        });
+
+        $('.create-comment').on('click', function(event){
+            event.preventDefault();
+
+            var idetapa = $(this).attr('data-id');
+
+            createCommentModal(idetapa);
         });
 
         step({id: stepobj.id, name: stepobj.nmetapa});
@@ -46,6 +54,12 @@
 
         request
             .done(function(response){
+                $('.action').each(function(){
+                    $(this).show();
+                });
+
+                $('.action[data-code="' + response.code + '"]').hide();
+
                 $('.step-explanation').html(response.html);
             })
             .fail(function(response){
@@ -66,9 +80,30 @@
     // Method to get edit step Modal
     function editStepModal(idetapa, idsituacao){
         var request = $.ajax({
-            url: '{{ url('usuario/ajax/etapa/editar') }}' + '/' + idetapa,
+            url: '{{ url('usuario/ajax/etapa') }}' + '/' + idetapa + '/editar',
             method: 'GET',
             data: {situacao: idsituacao}
+        });
+
+        request
+            .done(function(response){
+                var modal = $('.actual-modal');
+
+                modal.html(response.html);
+
+                modal.modal('show');
+            })
+            .fail(function(response){
+                // Do nothing
+            });
+    }
+
+    // Method to get edit step Modal
+    function createCommentModal(idetapa){
+        var request = $.ajax({
+            url: '{{ url('usuario/ajax/etapa/') }}' + '/' + idetapa + '/comentario/adicionar',
+            method: 'GET',
+            data: {}
         });
 
         request
@@ -108,7 +143,7 @@
 
                     error.show();
 
-                    error.fadeOut(5000);
+                    error.fadeOut(6000);
                 }
             })
             .fail(function(response){

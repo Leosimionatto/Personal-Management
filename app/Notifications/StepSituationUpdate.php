@@ -50,7 +50,7 @@ class StepSituationUpdate extends Notification
         $step = Step::find($this->data['idetapa']);
 
         return [
-            'message' => 'A tarefa "<b>' . $step->task->nmtarefa .'</b>" foi alterada para <b>' . Situation::situations($this->data['idsituacao']) . '</b> no projeto <b>' . $step->task->project->nmprojeto . '</b>',
+            'message' => 'Uma etapa da tarefa "<b>' . $step->task->nmtarefa .'</b>" foi alterada para <b>' . Situation::situations($this->data['idsituacao']) . '</b> no projeto <b>' . $step->task->project->nmprojeto . '</b>',
             'module'  => 'Projetos',
             'issuer'  => $step->task->participant->user->nome,
             'route'   => route('project.task.show', ['id' => $this->data['idprojeto'], 'number' => $step->task->id])

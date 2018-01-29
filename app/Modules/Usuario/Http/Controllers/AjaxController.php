@@ -122,8 +122,8 @@ class AjaxController extends Controller
     public function stepInformation($id)
     {
         $step = $this->stepService->get($id);
-
-        return response()->json(['html' => view('usuario::ajax.step.step-information', compact('step'))->render()]);
+        
+        return response()->json(['html' => view('usuario::ajax.step.step-information', compact('step'))->render(), 'code' => $step->idsituacao]);
     }
 
     /**
@@ -139,5 +139,18 @@ class AjaxController extends Controller
         $situation = $request->get('situacao');
 
         return response()->json(['html' => view('usuario::ajax.step.edit-step', compact('step', 'situation'))->render()]);
+    }
+
+    /**
+     * Method to call and get Add Step Comment Modal
+     *
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function createComment($id)
+    {
+        $step = $this->stepService->get($id);
+
+        return response()->json(['html' => view('usuario::ajax.step.create-comment', compact('step'))->render()]);
     }
 }

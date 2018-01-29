@@ -64,36 +64,27 @@
 
                             <div class="block space-bottom-15">
                                 <b class="block medium roboto space-bottom-10">Atualização de Status - Etapa Atual:</b>
-
-                                @if($step->idsituacao != 3)
-                                    <div class="action background-dark-pink" data-code="3" data-toggle="tooltip" data-placement="top" title="Andamento">
+                                    <div class="action update-situation background-dark-pink" data-code="3" data-toggle="tooltip" data-placement="top" title="Andamento">
                                         <i class="fa fa-play align-center white"></i>
                                     </div>
-                                @endif
 
-                                @if($step->idsituacao != 5)
-                                    <div class="action background-dark-yellow" data-code="5" data-toggle="tooltip" data-placement="top" title="Pausada">
+                                    <div class="action update-situation background-dark-yellow" data-code="5" data-toggle="tooltip" data-placement="top" title="Pausada">
                                         <i class="fa fa-pause align-center white"></i>
                                     </div>
-                                @endif
 
-                                @if($step->idsituacao != 2)
-                                    <div class="action background-red" data-code="2" data-toggle="tooltip" data-placement="top" title="Pendente">
+                                    <div class="action update-situation background-red" data-code="2" data-toggle="tooltip" data-placement="top" title="Pendente">
                                         <i class="fa fa-exclamation-triangle align-center white"></i>
                                     </div>
-                                @endif
 
-                                @if($step->idsituacao != 6)
-                                    <div class="action background-green" data-code="6" data-toggle="tooltip" data-placement="top" title="Finalizada">
+                                    <div class="action update-situation background-green" data-code="6" data-toggle="tooltip" data-placement="top" title="Finalizada">
                                         <i class="fa fa-thumbs-up align-center white"></i>
                                     </div>
-                                @endif
                             </div>
 
                             <div class="block">
                                 <b class="block medium roboto space-bottom-10">Histórico de Atualizações:</b>
 
-                                <div class="action background-violet" data-toggle="tooltip" data-placement="top" title="Adicionar comentário">
+                                <div class="action create-comment background-violet" data-toggle="tooltip" data-placement="top" title="Adicionar comentário">
                                     <i class="fa fa-comment align-center white"></i>
                                 </div>
                                 <div class="action background-blue" data-toggle="tooltip" data-placement="top" title="Adicionar tempo gasto">
