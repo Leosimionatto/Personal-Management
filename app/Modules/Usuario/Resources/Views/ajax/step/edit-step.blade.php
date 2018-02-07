@@ -1,7 +1,7 @@
 <div class="modal-dialog">
-    <div class="modal-content" style="width:48%;position:relative !important;">
+    <div class="modal-content" style="width:700px;position:relative !important;">
         <div class="modal-body" style="padding:0">
-            <div class="width-38 background-dark-green padding-12 text-center inline-block align-top" style="position:absolute;left:0;bottom:0;top:0;">
+            <div class="width-38 background-dark-green padding-12 text-center inline-block align-top" style="position:absolute;left:0;bottom:0;top:0;background-color:#628D6E">
                 <div class="circular-icon space-top-6 space-bottom-10">
                     <img src="{{ asset('img/notes-tasks/png/022-whiteboard.png') }}" width="60px">
                 </div>
@@ -12,7 +12,7 @@
                 <div style="border-bottom:1px solid #e0e0e0;padding:8px 12px 5px 8px;">
                     <i class="fa fa-thermometer-three-quarters dark-green-color right big space-top-2"></i>
 
-                    <div class="dots" style="width:320px;" title="{{ $step->nmetapa }}">
+                    <div class="dots" style="width:90%;" title="{{ $step->nmetapa }}">
                         <b class="big">{{ App\Utilities\Situation\Arrays::situations($situation) }} <i class="fa fa-arrow-right dark-green-color space-right-4 space-left-4"></i> {{ $step->nmetapa }}</b>
                     </div>
                 </div>

@@ -40,7 +40,7 @@ Route::group(['prefix' => 'usuario'], function () {
          * Routes about Tasks - Steps
          */
         Route::put('etapa/status/atualizar', 'StepController@updateSituation')->name('step.status.update');
-        Route::put('etapa/comentario/adicionar', 'StepController@createComment')->name('step.comment.create');
+        Route::post('etapa/comentario/adicionar', 'StepController@createComment')->name('step.comment.create');
 
         /*
          * Routes about Notifications

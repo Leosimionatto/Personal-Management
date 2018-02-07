@@ -99,7 +99,7 @@
                     </div>
                     <div class="task-definition width-68 padding-12 space-top-10 align-top inline-block">
                         <div class="space-bottom-10">
-                            <span class="bold big roboto step-name">Cadastro de Usuários</span> - <span class="big roboto bold-500">Informações gerais</span>:
+                            <span class="bold big roboto step-name"></span> - <span class="big roboto bold-500">Informações gerais</span>:
                         </div>
                         <div class="step-explanation overflow-auto"></div>
                     </div>

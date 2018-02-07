@@ -33,4 +33,15 @@ class StepController extends Controller{
     {
         return $this->stepService->updateSituation($request->all());
     }
+
+    /**
+     * Method to create an Comment
+     *
+     * @param Request $request
+     * @return array
+     */
+    public function createComment(Request $request)
+    {
+        return $this->stepService->createComment($request->all());
+    }
 }

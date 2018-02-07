@@ -67,6 +67,12 @@
                         <div class="space-top-6">
                             {!! $history->descricao !!}
                         </div>
+
+                        @if(!empty($history->idvisualizador))
+                            <div class="right">
+                                <b>Visualizador:</b> {{ $history->viewer->user->nome }}
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>

@@ -42,6 +42,32 @@
         updateStepStatus(form);
     });
 
+    $(document).on('click', '.submit-comment', function(event){
+        event.preventDefault();
+        event.stopPropagation();
+
+        var form = $('.create-comment-form');
+        var condition = true;
+
+        form.find('.required-summernote').each(function(){
+            var value = $(this).summernote('isEmpty');
+
+            $(this).parent().find('.invalid-field').remove();
+            $(this).parent().find('.note-frame').removeClass('warning');
+
+            if(value){
+                $(this).parent().find('.note-frame').addClass('warning');
+                $(this).parent().append('<p class="invalid-field">Este campo é obrigatório!</p>');
+
+                condition = false;
+            }
+        });
+
+        if(condition){
+            addComment(form.serializeArray());
+        }
+    });
+
     // Method to get Step Information by passed id
     function step(data){
         $('.step-name').html(data.name);
@@ -113,6 +139,37 @@
                 modal.html(response.html);
 
                 modal.modal('show');
+            })
+            .fail(function(response){
+                // Do nothing
+            });
+    }
+
+    function addComment(form)
+    {
+        var request = $.ajax({
+            url: '{{ route('step.comment.create') }}',
+            method: 'POST',
+            data: form
+        });
+
+        $('.create-comment-error').empty();
+
+        request
+            .done(function(response){
+                if(response.status === '00'){
+                    window.location.reload();
+                }
+
+                if(typeof response === 'object' && response.message){
+                    var error = $('.create-comment-error');
+
+                    error.append('<li class="invalid-field">' + response.message + '</li>');
+
+                    error.show();
+
+                    error.fadeOut(6000);
+                }
             })
             .fail(function(response){
                 // Do nothing

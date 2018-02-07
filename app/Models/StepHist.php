@@ -22,11 +22,6 @@ class StepHist extends Model{
     /**
      * @var bool
      */
-    public $incrementing = false;
-
-    /**
-     * @var bool
-     */
     public $timestamps = false;
 
     /**
@@ -35,7 +30,7 @@ class StepHist extends Model{
      * @var array
      */
     protected $fillable = [
-        'idetapa', 'descricao', 'idparticipante', 'criado_em', 'atualizado_em'
+        'idetapa', 'descricao', 'idparticipante', 'criado_em', 'atualizado_em', 'idvisualizador'
     ];
 
     /**
@@ -46,5 +41,25 @@ class StepHist extends Model{
     public function participant()
     {
         return $this->belongsTo('App\Models\Participant', 'idparticipante', 'id');
+    }
+
+    /**
+     * Method to get related Participant
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function viewer()
+    {
+        return $this->hasOne('App\Models\Participant', 'id', 'idvisualizador');
+    }
+
+    /**
+     * Method to get related Step
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function step()
+    {
+        return $this->belongsTo('App\Models\Step', 'idetapa', 'id');
     }
 }

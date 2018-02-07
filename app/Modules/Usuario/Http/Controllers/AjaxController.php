@@ -151,6 +151,8 @@ class AjaxController extends Controller
     {
         $step = $this->stepService->get($id);
 
-        return response()->json(['html' => view('usuario::ajax.step.create-comment', compact('step'))->render()]);
+        $participants = $step->task->project->participants->where('idgrupo', '!=', 2);
+
+        return response()->json(['html' => view('usuario::ajax.step.create-comment', compact('step', 'participants'))->render()]);
     }
 }

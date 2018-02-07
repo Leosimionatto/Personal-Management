@@ -115,7 +115,7 @@
     text-decoration:none;
 }
 .home-page .modules-explanation-body .module{
-    width:22%;
+    width:20.5%;
     padding:8px;
     cursor:pointer;
     margin-top:8px;
@@ -1023,7 +1023,7 @@ table tfoot td{
     font-size:15px !important;
 }
 .big{
-    font-size:17px !important;
+    font-size:18px !important;
 }
 /* Center Elements in Page */
 .center-page{

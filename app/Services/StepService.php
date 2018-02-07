@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Models\Participant;
 use App\Models\Step;
 use App\Models\StepHist;
+use App\Notifications\CommentViewer;
 use App\Utilities\Situation\Arrays as Situation;
 use App\Notifications\StepSituationUpdate;
 use Illuminate\Support\Facades\Auth;
@@ -53,6 +54,54 @@ class StepService{
     }
 
     /**
+     * Method to add an Step Comment
+     *
+     * @param $data
+     * @return array
+     */
+    public function createComment($data)
+    {
+        DB::beginTransaction();
+        try{
+            $participant = $this->participant->all()->where('idusuario', Auth::guard('user')->user()->id)->first();
+
+            $post = [
+                'idetapa' => $data['idetapa'],
+                'descricao' => $data['descricao'],
+                'idparticipante' => $participant->id,
+                'idvisualizador' => (!empty($data['idvisualizador'])) ? $data['idvisualizador'] : null,
+                'criado_em' => date('d/m/Y H:i:s'),
+                'atualizado_em' => date('d/m/Y H:i:s'),
+            ];
+
+            $new = $this->stepHist->create($post);
+
+            if(!empty($new->id)){
+                if(!empty($data['idvisualizador'])){
+                    $post = [
+                        'idparticipante' => $participant->id,
+                        'idvisualizador' => $data['idvisualizador'],
+                        'idtarefa' => $new->step->task->id
+                    ];
+
+                    $user = $this->participant->find($data['idvisualizador'])->user;
+
+                    $user->notify(new CommentViewer($post));
+                }
+
+                DB::commit();
+                return ['status' => '00'];
+            }
+
+            DB::rollback();
+            return ['status' => '01', 'Ocorreu um erro! Caso o erro persista, contate um administrador.'];
+        }catch(\Exception $e){
+            DB::rollback();
+            return ['status' => '01', 'message' => $e->getMessage()];
+        }
+    }
+
+    /**
      * Method to update Step Status
      *
      * @param $data
@@ -71,7 +120,7 @@ class StepService{
             $participant = $this->participant->all()->where('idusuario', Auth::guard('user')->user()->id)->first();
             $active = $this->step->all()->where('idtarefa', $step->idtarefa)->where('idsituacao', '!=', 1)->where('idsituacao', '!=', 2)->where('id', '!=', $step->id);
 
-            if($participant->id != $task->idparticipante){
+            if($participant->id != $task->idparticipante && $participant->id != $task->idatribuidor){
                 DB::rollback();
                 return ['status' => '01', 'message' => 'Somente o participante responsável pela tarefa pode alterar o <b>Status</b> da mesma.'];
             }
@@ -84,8 +133,8 @@ class StepService{
             if($step->update($data)){
                 $hist = [
                     'idetapa' => $id,
-                    'descricao' => 'Alterada para ' . Situation::situations($data['idsituacao']) . ' por <b>' . $task->participant->user->nome . '</b>',
-                    'idparticipante' => $task->participant->id,
+                    'descricao' => 'Alterada para ' . Situation::situations($data['idsituacao']) . ' por <b>' . $participant->user->nome . '</b>',
+                    'idparticipante' => $participant->id,
                     'criado_em' => date('d/m/Y H:i:s'),
                     'atualizado_em' => date('d/m/Y H:i:s'),
                 ];
