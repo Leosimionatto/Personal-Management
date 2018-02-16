@@ -10,7 +10,7 @@
 
         <li class="divider"></li>
 
-        <div class="overflow-auto" style="height:183px;margin-bottom:4px;">
+        <div class="overflow-auto without-scroll" style="height:183px;margin-bottom:4px;">
             @if(count($notifications) > 0)
                 @foreach($notifications as $notification)
                     <a href="" data-id="{{ $notification->id }}" data-href="{{ (!empty($notification->data['route'])) ? $notification->data['route'] : '' }}" class="block mark-as-read">

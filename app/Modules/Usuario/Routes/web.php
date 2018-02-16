@@ -80,7 +80,12 @@ Route::group(['prefix' => 'usuario'], function () {
     Route::get('/ajax/modal/participante/editar', 'AjaxController@editParticipant')->name('modal.edit-participant');
     Route::get('/ajax/etapa/{id}', 'AjaxController@stepInformation');
     Route::get('/ajax/etapa/{id}/editar', 'AjaxController@editStep');
+    Route::get('/ajax/etapa/{id}/tempo/adicionar', 'AjaxController@updateTimeSpent');
     Route::get('/ajax/etapa/{id}/comentario/adicionar', 'AjaxController@createComment');
+
+    route::get('/fireEvent', function(){
+        event(new \App\Events\eventTrigger());
+    });
 
     /*
      * Routes about Project Requests

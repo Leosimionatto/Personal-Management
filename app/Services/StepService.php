@@ -130,6 +130,11 @@ class StepService{
                 return ['status' => '01', 'message' => 'Não foi possível realizar essa ação pois já existem etapas ativas'];
             }
 
+            if($data['idsituacao'] == 6 && empty($step->tempogasto)){
+                DB::rollback();
+                return ['status' => '01', 'message' => 'É necessário fornecer o tempo gasto na etapa antes e finalizá-la'];
+            }
+
             if($step->update($data)){
                 $hist = [
                     'idetapa' => $id,

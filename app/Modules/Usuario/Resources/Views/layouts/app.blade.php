@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>Personal Management</title>
-        <meta name="csrf-token" content="{{ csrf_token() }}" />
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
@@ -44,7 +44,7 @@
 
         <div class="application-menu">
             <span class="menu-title">
-                Personal <span style="color:#86C543;font-size:16px">Management</span>
+                Personal <span style="color:#86C543;font-size:18px">Management</span>
             </span>
             <div class="profile-configuration text-center">
                 <img src="{{ asset('img/sem-foto.png') }}" width="90px">
@@ -54,14 +54,14 @@
             </div>
             <div class="menu-actions">
                 <ul>
-                    <li><a href=""><i class="fa fa-home"></i> Página inicial</a></li>
-                    <li><a href=""><i class="fa fa-cloud"></i> Feed de notícias</a></li>
-                    <li><a href=""><i class="fa fa-dashboard"></i> Dashboard</a></li>
-                    <li><a href="{{ route('project.index') }}"><i class="fa fa-database"></i> Projetos</a></li>
-                    <li><a href=""><i class="fa fa-group"></i> Tarefas</a></li>
-                    <li><a href=""><i class="fa fa-bar-chart"></i> Estudos</a></li>
-                    <li><a href=""><i class="fa fa-book"></i> Quadro de anotações</a></li>
-                    <li><a href=""><i class="fa fa-calendar-check-o"></i> Compromissos</a></li>
+                    <a href=""><li><i class="fa fa-home"></i> Página inicial</li></a>
+                    <a href=""><li><i class="fa fa-cloud"></i> Feed de notícias</li></a>
+                    <a href=""><li><i class="fa fa-dashboard"></i> Dashboard</li></a>
+                    <a href="{{ route('project.index') }}"><li><i class="fa fa-database"></i> Projetos</li></a>
+                    <a href=""><li><i class="fa fa-group"></i> Tarefas</li></a>
+                    <a href=""><li><i class="fa fa-bar-chart"></i> Estudos</li></a>
+                    <a href=""><li><i class="fa fa-book"></i> Quadro de anotações</li></a>
+                    <a href=""><li><i class="fa fa-calendar-check-o"></i> Compromissos</li></a>
                 </ul>
             </div>
         </div>
@@ -69,7 +69,13 @@
             <!-- Application Content -->
             @yield('content')
         </div>
+        <div class="application-chat-open-button open-chat" data-toggle="tooltip" data-placement="left" title="Sistema de Chat" id="application">
+            <i class="fa fa-envelope-square"></i>
+        </div>
     </body>
+
+    <!-- Laravel JS file -->
+    <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
 
     <!-- Jquery include -->
     <script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
@@ -91,8 +97,10 @@
     <script src="{{ asset('js/multiple-select-master/multiple-select.js') }}"></script>
     <script type="text/javascript" charset="utf-8" src="http://d3js.org/d3.v3.min.js"></script>
     <script src="{{ asset('c3/c3.min.js') }}"></script>
+    <script src="{{ asset('js/jquery-mask/jquery.mask.js')  }}"></script>
 
     @include('usuario::layouts.javascript.notification')
+    @include('usuario::layouts.chat')
 
     @section('scripts')
     @show

@@ -52,17 +52,32 @@ $(document).ready(function(){
         }
     });
 
-    // $('.overflow-auto').on('mousewheel DOMMouseScroll', function (e) {
-    //     var e0 = e.originalEvent;
-    //     var delta = e0.wheelDelta || -e0.detail;
-    //
-    //     this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
-    //     e.preventDefault();
-    // });
+    $('.open-chat').on('click', function(){
+        var chat = $('.application-chat');
+
+        if(chat.is(':visible')){
+            $(this).css({'right': '0'});
+        }else{
+            $(this).css({'right': '399px'});
+        }
+
+        chat.toggle();
+    });
+
+    /* Jquery Mask Configuration */
+    $('.time').mask('00:00', {reverse: true});
 
     var loader = function loader(){
         $('.loader-background').toggle();
     };
+});
+
+$(document).on('mousewheel DOMMouseScroll', '.without-scroll', function (e) {
+    var e0 = e.originalEvent;
+    var delta = e0.wheelDelta || -e0.detail;
+
+    this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+    e.preventDefault();
 });
 
 $(function () {

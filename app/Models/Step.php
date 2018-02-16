@@ -30,7 +30,7 @@ class Step extends Model{
      * @var array
      */
     protected $fillable = [
-        'nmetapa', 'idtarefa', 'idsituacao', 'descricao', 'criado_em', 'atualizado_em'
+        'nmetapa', 'idtarefa', 'idsituacao', 'descricao', 'tempogasto', 'criado_em', 'atualizado_em'
     ];
 
     /**

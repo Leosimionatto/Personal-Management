@@ -49,7 +49,7 @@
 
 <hr style="margin:0 0 8px 0;">
 
-<div class="steps text-center" style="padding-top:6px;">
+<div class="steps text-center overflow-auto without-scroll" style="height:250px;padding:6px 10px 0 0;">
     @if(count($step->history) > 0)
         @foreach($step->history as $history)
             <div class="update block">

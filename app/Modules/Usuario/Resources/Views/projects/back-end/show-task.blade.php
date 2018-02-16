@@ -37,7 +37,7 @@
                             <span class="bold big roboto">Informações das Etapas - <span class="big roboto bold-500">Status Atual</span>:</span>
                         </div>
 
-                        <div class="overflow-auto steps-list" style="max-height:270px;">
+                        <div class="overflow-auto without-scroll steps-list" style="max-height:270px;">
                             @foreach($task->steps as $key => $step)
                                 <a class="step-information" data-toggle="tooltip" data-placement="right" data-id="{{ $step->id }}" data-name="{{ $step->nmetapa }}" title="{{ App\Utilities\Situation\Arrays::situations($step->idsituacao) }}" style="text-decoration:none !important;">
                                     <div class="block task-step padding-4 table">
@@ -87,7 +87,7 @@
                                 <div class="action create-comment background-violet" data-toggle="tooltip" data-placement="top" title="Adicionar comentário">
                                     <i class="fa fa-comment align-center white"></i>
                                 </div>
-                                <div class="action background-blue" data-toggle="tooltip" data-placement="top" title="Adicionar tempo gasto">
+                                <div class="action update-time-spent background-blue" data-id="{{ $step->id }}" data-toggle="tooltip" data-placement="top" title="Adicionar tempo gasto">
                                     <i class="fa fa-clock-o align-center white"></i>
                                 </div>
                             </div>
@@ -101,7 +101,7 @@
                         <div class="space-bottom-10">
                             <span class="bold big roboto step-name"></span> - <span class="big roboto bold-500">Informações gerais</span>:
                         </div>
-                        <div class="step-explanation overflow-auto"></div>
+                        <div class="step-explanation"></div>
                     </div>
                 </div>
             </div>

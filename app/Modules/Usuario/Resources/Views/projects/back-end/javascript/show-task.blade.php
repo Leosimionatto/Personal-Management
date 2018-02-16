@@ -1,4 +1,12 @@
 <script>
+    var actions_hide = {
+        1: [5, 6],
+        2: [2, 5, 6],
+        3: [3],
+        5: [2, 5, 6],
+        6: [5, 6]
+    };
+
     $(document).ready(function(){
         var stepobj = JSON.parse('{!! json_encode($task->steps()->first()) !!}');
 
@@ -28,6 +36,14 @@
             var idetapa = $(this).attr('data-id');
 
             createCommentModal(idetapa);
+        });
+
+        $('.update-time-spent').on('click', function(event){
+            event.preventDefault();
+
+            var idetapa = $(this).attr('data-id');
+
+            updateTimeSpentModal(idetapa);
         });
 
         step({id: stepobj.id, name: stepobj.nmetapa});
@@ -84,7 +100,9 @@
                     $(this).show();
                 });
 
-                $('.action[data-code="' + response.code + '"]').hide();
+                actions_hide[response.code].forEach(function(value){
+                    $('.action[data-code="' + value + '"]').hide();
+                });
 
                 $('.step-explanation').html(response.html);
             })
@@ -107,6 +125,27 @@
     function editStepModal(idetapa, idsituacao){
         var request = $.ajax({
             url: '{{ url('usuario/ajax/etapa') }}' + '/' + idetapa + '/editar',
+            method: 'GET',
+            data: {situacao: idsituacao}
+        });
+
+        request
+            .done(function(response){
+                var modal = $('.actual-modal');
+
+                modal.html(response.html);
+
+                modal.modal('show');
+            })
+            .fail(function(response){
+                // Do nothing
+            });
+    }
+
+    // Method to get update Time Spent Modal
+    function updateTimeSpentModal(idetapa, idsituacao){
+        var request = $.ajax({
+            url: '{{ url('usuario/ajax/etapa') }}' + '/' + idetapa + '/tempo/adicionar',
             method: 'GET',
             data: {situacao: idsituacao}
         });

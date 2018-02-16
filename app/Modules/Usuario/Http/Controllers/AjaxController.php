@@ -155,4 +155,17 @@ class AjaxController extends Controller
 
         return response()->json(['html' => view('usuario::ajax.step.create-comment', compact('step', 'participants'))->render()]);
     }
+
+    /**
+     * Method to call and get Update Time Spent Modal
+     *
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function updateTimeSpent($id)
+    {
+        $step = $this->stepService->get($id);
+
+        return response()->json(['html' => view('usuario::ajax.step.update-time-spent', compact('step'))->render()]);
+    }
 }

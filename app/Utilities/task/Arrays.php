@@ -16,9 +16,9 @@ class Arrays{
             1 => '<span class="dark-yellow-color medium roboto">Não iniciada</span>',
             2 => '<span class="red-color medium roboto">Pendente</span>',
             3 => '<span class="dark-yellow-color medium roboto">Andamento</span>',
-            4 => '<span class="green-color medium roboto">Revisão</span>',
+            4 => '<span class="dark-green-color medium roboto">Revisão</span>',
             5 => '<span class="red-color medium roboto">Pausada</span>',
-            6 => '<span class="green-color medium roboto">Finalizada</span>'
+            6 => '<span class="dark-green-color medium roboto">Finalizada</span>'
         ];
 
         return $array[$situation];
