@@ -18,6 +18,16 @@
                 </div>
             </div>
         </div>
+
+        <div class="application-chat-actions">
+            <div class="hidden-field inline-block space-right-4">
+                <input type="text" class="form-control new-conversation-field" placeholder="E-mail do Usuário" style="display:none !important;">
+            </div>
+
+            <button class="btn btn-warning big-circular-button new-conversation" data-toggle="tooltip" data-placement="left" title="Nova Conversa">
+                <i class="fa fa-user-plus medium white"></i>
+            </button>
+        </div>
     </div>
     <div class="application-chat-footer">
         © Copyright <span class="green-color" style="margin:0 3px 0 3px">Personal Management</span> Reserved

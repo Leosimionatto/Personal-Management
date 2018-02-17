@@ -48,7 +48,7 @@ import Echo from 'laravel-echo'
 window.Pusher = require('pusher-js');
 
 window.Echo = new Echo({
-    // authEndpoint:'http://localhost:8080/personal-management/public/broadcast/auth',
+    authEndpoint:'http://localhost:8080/personal-management/public/broadcasting/auth',
     broadcaster: 'pusher',
     key: '4265580512634fa9ac42',
     cluster: 'mt1',

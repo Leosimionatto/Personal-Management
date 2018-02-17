@@ -82,10 +82,7 @@ Route::group(['prefix' => 'usuario'], function () {
     Route::get('/ajax/etapa/{id}/editar', 'AjaxController@editStep');
     Route::get('/ajax/etapa/{id}/tempo/adicionar', 'AjaxController@updateTimeSpent');
     Route::get('/ajax/etapa/{id}/comentario/adicionar', 'AjaxController@createComment');
-
-    route::get('/fireEvent', function(){
-        event(new \App\Events\eventTrigger());
-    });
+    Route::get('/ajax/chat/conversa/adicionar', 'AjaxController@newConversation')->name('modal.add-conversation');
 
     /*
      * Routes about Project Requests

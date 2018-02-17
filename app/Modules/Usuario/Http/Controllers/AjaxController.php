@@ -8,9 +8,7 @@ use App\Services\StepService;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
-class AjaxController extends Controller
-{
-
+class AjaxController extends Controller{
     /**
      * @var ParticipantService
      */

@@ -69,7 +69,7 @@
             <!-- Application Content -->
             @yield('content')
         </div>
-        <div class="application-chat-open-button open-chat" data-toggle="tooltip" data-placement="left" title="Sistema de Chat" id="application">
+        <div class="application-chat-open-button open-chat" data-toggle="tooltip" data-placement="left" title="Conversas" id="application">
             <i class="fa fa-envelope-square"></i>
         </div>
     </body>

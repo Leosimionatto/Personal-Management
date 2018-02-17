@@ -2,11 +2,11 @@
 
 namespace App\Listeners;
 
-use App\Events\eventTrigger;
+use App\Events\ChatMessageEvent;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class popUpBox
+class ChatMessageListener
 {
     /**
      * Create the event listener.
@@ -21,10 +21,10 @@ class popUpBox
     /**
      * Handle the event.
      *
-     * @param  eventTrigger  $event
+     * @param  ChatMessageEvent  $event
      * @return void
      */
-    public function handle(eventTrigger $event)
+    public function handle(ChatMessageEvent $event)
     {
         //
     }

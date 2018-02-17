@@ -70,6 +70,10 @@ $(document).ready(function(){
     var loader = function loader(){
         $('.loader-background').toggle();
     };
+
+    $('*[data-toggle="tooltip"]').tooltip({
+        container:'body'
+    });
 });
 
 $(document).on('mousewheel DOMMouseScroll', '.without-scroll', function (e) {
