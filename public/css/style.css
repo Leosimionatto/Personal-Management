@@ -64,12 +64,13 @@
 /* Configurações do Chat da Aplicação */
 .application-chat{
     bottom:0;
-    right:0;
+    right:8px;
     width:400px;
     height:480px;
     position:fixed;
     display:none;
     border-left:1px solid #C0C0C0;
+    border-right:1px solid #C0C0C0;
 }
 .application-chat-menu{
     width:100%;
@@ -126,6 +127,45 @@
     right:0;
     z-index:100 !important;
     font-size:25px !important;
+}
+.application-chat-conversation-page{
+    width:100%;
+    height:375px;
+}
+.application-chat-conversation-page-messages{
+    width:100%;
+    height:325px;
+    padding:12px;
+    position:relative;
+    border-bottom:1px solid #e0e0e0;
+}
+.application-chat .conversation-message{
+    width:275px;
+    padding:12px;
+    color:#f5f5f5;
+    margin:0 0 10px 0;
+    border-radius:4px;
+}
+.issuer-message{
+    margin-left:0 !important;
+    margin-right:auto !important;
+    background-color:#2a6496;
+}
+.recipient-message{
+    margin-left:auto !important;
+    margin-right:0 !important;
+    background-color:#6891B4;
+}
+.application-chat-conversation-page-field{
+    height:50px;
+    padding:6px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+.application-chat-conversation-page-field .form-control{
+    width:90%;
+    padding:14px !important;
 }
 /* Configurações gerais da aplicação(Layout configuration) - Responsivo */
 .application-menu-mobile{
@@ -1137,7 +1177,7 @@ table tfoot td{
 }
 .big-circular-button{
     width:40px;
-    height:40px;
+    height:38px;
     font-size:19px !important;
     border-radius:50% !important;
 }

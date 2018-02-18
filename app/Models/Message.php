@@ -28,4 +28,24 @@ class Message extends Model{
         'idemitente', 'iddestinatario', 'conteudo', 'criado_em', 'visualizado_em'
     ];
 
+    /**
+     * M
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function issuer()
+    {
+        return $this->belongsTo(User::class, 'idemitente', 'id');
+    }
+
+    /**
+     * Method to get related Recipient
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function recipient()
+    {
+        return $this->belongsTo(User::class, 'iddestinatario', 'id');
+    }
+
 }

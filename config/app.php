@@ -172,6 +172,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\NotificationServiceProvider::class,
+        App\Providers\ChatMessageServiceProvider::class,
         App\Providers\BroadcastServiceProvider::class,
 
         /*

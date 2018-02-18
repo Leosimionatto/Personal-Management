@@ -5,8 +5,10 @@ namespace App\Modules\Usuario\Http\Controllers;
 use App\Services\ParticipantService;
 use App\Services\PostService;
 use App\Services\StepService;
+use App\Services\UserService;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class AjaxController extends Controller{
     /**
@@ -25,17 +27,24 @@ class AjaxController extends Controller{
     protected $stepService;
 
     /**
+     * @var UserService
+     */
+    protected $userService;
+
+    /**
      * AjaxController constructor.
      *
      * @param ParticipantService $participantService
      * @param PostService $postService
      * @param StepService $stepService
+     * @param UserService $userService
      */
-    public function __construct(ParticipantService $participantService, PostService $postService, StepService $stepService)
+    public function __construct(ParticipantService $participantService, PostService $postService, StepService $stepService, UserService $userService)
     {
         $this->participantService = $participantService;
         $this->postService = $postService;
         $this->stepService = $stepService;
+        $this->userService = $userService;
     }
 
     /**
@@ -165,5 +174,29 @@ class AjaxController extends Controller{
         $step = $this->stepService->get($id);
 
         return response()->json(['html' => view('usuario::ajax.step.update-time-spent', compact('step'))->render()]);
+    }
+
+    /**
+     * Method to get all Conversations
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function conversations()
+    {
+        $authenticated = Auth::guard('user')->user();
+        $conversations = $this->userService->getConversations(Auth::guard('user')->user()->id);
+
+        return response()->json(['html' => view('usuario::ajax.chat.conversations', compact('conversations', 'authenticated'))->render()]);
+    }
+
+    /**
+     * Method to get all Conversations
+     *
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function conversationRoom($id)
+    {
+        return response()->json(['html' => view('usuario::ajax.chat.conversation-page', compact('id'))->render()]);
     }
 }

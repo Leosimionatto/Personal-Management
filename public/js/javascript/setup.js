@@ -58,7 +58,7 @@ $(document).ready(function(){
         if(chat.is(':visible')){
             $(this).css({'right': '0'});
         }else{
-            $(this).css({'right': '399px'});
+            $(this).css({'right': '407px'});
         }
 
         chat.toggle();
@@ -70,6 +70,7 @@ $(document).ready(function(){
     var loader = function loader(){
         $('.loader-background').toggle();
     };
+
 
     $('*[data-toggle="tooltip"]').tooltip({
         container:'body'
