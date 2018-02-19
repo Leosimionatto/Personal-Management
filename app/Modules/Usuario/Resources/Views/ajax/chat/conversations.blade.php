@@ -15,7 +15,9 @@
         </div>
     @endforeach
 @else
-    Olá mundo!
+    <div class="alert alert-warning" style="display:block">
+        Nenhuma conversa encontrada
+    </div>
 @endif
 
 <div class="application-chat-actions">

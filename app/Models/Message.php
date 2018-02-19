@@ -20,12 +20,17 @@ class Message extends Model{
     protected $primaryKey = 'id';
 
     /**
+     * @var bool
+     */
+    public $timestamps = false;
+
+    /**
      * Database Table Columns
      *
      * @var array
      */
     protected $fillable = [
-        'idemitente', 'iddestinatario', 'conteudo', 'criado_em', 'visualizado_em'
+        'idemitente', 'iddestinatario', 'conteudo', 'criado_em', 'atualizado_em'
     ];
 
     /**

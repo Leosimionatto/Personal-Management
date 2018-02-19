@@ -2,13 +2,36 @@
     $(document).ready(function(){
         window.Echo.channel('user.' + '{{ \Illuminate\Support\Facades\Auth::guard('user')->user()->id }}')
             .listen('ChatMessageEvent', (e) => {
-                alert(e);
+                alert('Recebi uma nova mensagem!');
             });
 
         conversations(function(response){
             if(response.html){
                 $('.application-chat-body').html(response.html);
             }
+        });
+
+        $('.back-conversations').on('click', function(event){
+            event.preventDefault();
+
+            conversations(function(response){
+                if(response.html){
+                    $('.application-chat-body').html(response.html);
+                }
+            });
+        });
+    });
+
+    $(document).on('click', '.chat-conversation', function(event){
+        event.preventDefault();
+        event.stopPropagation();
+
+        let id = $(this).attr('data-id');
+
+        conversationRoom(id, function(response){
+            $('.application-chat-body').html(response.html);
+
+            $('.back-conversations').show();
         });
     });
 
@@ -30,6 +53,8 @@
                 if(response.status === '00'){
                     conversationRoom(response.user.id, function(response){
                         $('.application-chat-body').html(response.html);
+
+                        $('.back-conversations').show();
                     });
                 }
 
@@ -41,6 +66,18 @@
         }
     });
 
+    $(document).on('click', '.application-chat-send-message', function(event){
+        event.preventDefault();
+        event.stopPropagation();
+
+        let id = $(this).attr('data-id');
+        let content = $(this).closest('.application-chat-conversation-page-field').find('input').val();
+
+        sendMessage({
+            id: id, conteudo: content
+        });
+    });
+
     // Method to get an List of Messages
     function getMessages()
     {
@@ -50,7 +87,7 @@
     // Method to get New Conversation Modal
     function newConversation(email, callback)
     {
-        var request = $.ajax({
+        let request = $.ajax({
             url: '{{ url('usuario/checar-email-usuario') }}',
             method: 'GET',
             data: {email: email}
@@ -68,7 +105,9 @@
     // Method to get all Conversations
     function conversations(callback)
     {
-        var request = $.ajax({
+        $('.back-conversations').hide();
+
+        let request = $.ajax({
             url: '{{ route('ajax.chat.conversations') }}',
             method: 'GET',
             data: {}
@@ -85,7 +124,7 @@
 
     function conversationRoom(id, callback)
     {
-        var request = $.ajax({
+        let request = $.ajax({
             url: '{{ url('usuario/ajax/chat/conversa') }}' + '/' + id,
             method: 'GET',
             data: {}
@@ -97,6 +136,28 @@
             })
             .fail(function(response){
                 callback(response);
+            });
+    }
+
+    // Method to send Messages
+    function sendMessage(data)
+    {
+        let url = '{{ url('usuario/chat/mensagem/enviar') }}' + '/' + data.id;
+
+        let request = $.ajax({
+            url: url,
+            method: 'POST',
+            data: data
+        });
+
+        request
+            .done(function(response){
+                if(response.status === '00'){
+                    $('.application-chat-conversation-page-messages').append('<div class="conversation-message issuer-message">' + response.message + '</div>')
+                }
+            })
+            .fail(function(response){
+                // Do nothing
             });
     }
 </script>

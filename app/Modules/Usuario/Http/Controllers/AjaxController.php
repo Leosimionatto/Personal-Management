@@ -197,6 +197,9 @@ class AjaxController extends Controller{
      */
     public function conversationRoom($id)
     {
-        return response()->json(['html' => view('usuario::ajax.chat.conversation-page', compact('id'))->render()]);
+        $userid = Auth::guard('user')->user()->id;
+        $messages = $this->userService->messagesWithAnotherUser($id);
+
+        return response()->json(['html' => view('usuario::ajax.chat.conversation-page', compact('id', 'userid', 'messages'))->render()]);
     }
 }

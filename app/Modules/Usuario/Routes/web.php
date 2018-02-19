@@ -58,6 +58,11 @@ Route::group(['prefix' => 'usuario'], function () {
         Route::get('/checar-participacao-usuario', 'UserController@checkParticipationByEmail');
 
         /*
+         * Routes about User Chat
+         */
+        Route::post('/chat/mensagem/enviar/{id}', 'ChatController@send')->name('chat.message.send');
+
+        /*
          * Route to Logout
          */
         Route::get('/logout', 'LoginController@logout')->name('logout');
