@@ -15,7 +15,7 @@
         </div>
     @endforeach
 @else
-    <div class="alert alert-warning" style="display:block">
+    <div class="alert alert-warning" style="margin:8px;display:block">
         Nenhuma conversa encontrada
     </div>
 @endif

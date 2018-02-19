@@ -34,4 +34,14 @@ class ChatController extends Controller{
     {
         return $this->messageService->send($request->all());
     }
+
+    /**
+     * Method to get all User new Messages
+     *
+     * @return array
+     */
+    public function newMessages()
+    {
+        return $this->messageService->newMessages();
+    }
 }

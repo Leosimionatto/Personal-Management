@@ -2,7 +2,25 @@
     $(document).ready(function(){
         window.Echo.channel('user.' + '{{ \Illuminate\Support\Facades\Auth::guard('user')->user()->id }}')
             .listen('ChatMessageEvent', (e) => {
-                alert('Recebi uma nova mensagem!');
+                getMessages(function(response){
+                    let actual = $('.application-chat-send-message');
+
+                    if(actual.attr('data-id')){
+                        let id = actual.attr('data-id');
+
+                        let body = $('.application-chat-conversation-page-messages');
+
+                        $.each(response['message'], function(index, element){
+                            if(id === index){
+                                $.each(element['conteudo'], function(key, value){
+                                    body.append('<div class="conversation-message recipient-message">' + value + '</div>');
+                                });
+
+                                body.scrollTop(body[0].scrollHeight);
+                            }
+                        });
+                    }
+                });
             });
 
         conversations(function(response){
@@ -31,6 +49,10 @@
         conversationRoom(id, function(response){
             $('.application-chat-body').html(response.html);
 
+            let content = $('.application-chat-conversation-page-messages');
+
+            content.scrollTop(content[0].scrollHeight);
+
             $('.back-conversations').show();
         });
     });
@@ -54,6 +76,10 @@
                     conversationRoom(response.user.id, function(response){
                         $('.application-chat-body').html(response.html);
 
+                        let content = $('.application-chat-conversation-page-messages');
+
+                        content.scrollTop(content[0].scrollHeight);
+
                         $('.back-conversations').show();
                     });
                 }
@@ -63,6 +89,14 @@
                     field.val('Usuário Inexistente');
                 }
             });
+        }
+    });
+
+    $(document).on('keypress', '.message-content', function(event){
+        let code = event.keyCode || event.which;
+
+        if(code === 13){
+            $('.application-chat-send-message').trigger('click');
         }
     });
 
@@ -79,9 +113,23 @@
     });
 
     // Method to get an List of Messages
-    function getMessages()
+    function getMessages(callback)
     {
-        // Do nothing
+        let url = '{{ route('chat.message.new') }}';
+
+        let request = $.ajax({
+            url: url,
+            method: 'GET',
+            data: {}
+        });
+
+        request
+            .done(function(response){
+                callback(response);
+            })
+            .fail(function(response){
+                callback(response);
+            });
     }
 
     // Method to get New Conversation Modal
@@ -153,7 +201,13 @@
         request
             .done(function(response){
                 if(response.status === '00'){
-                    $('.application-chat-conversation-page-messages').append('<div class="conversation-message issuer-message">' + response.message + '</div>')
+                    let content = $('.application-chat-conversation-page-messages');
+
+                    content.append('<div class="conversation-message issuer-message">' + response.message + '</div>');
+
+                    $('.message-content').val('');
+
+                    content.scrollTop(content[0].scrollHeight);
                 }
             })
             .fail(function(response){

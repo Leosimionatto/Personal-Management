@@ -61,6 +61,7 @@ Route::group(['prefix' => 'usuario'], function () {
          * Routes about User Chat
          */
         Route::post('/chat/mensagem/enviar/{id}', 'ChatController@send')->name('chat.message.send');
+        Route::get('/chat/mensagem', 'ChatController@newMessages')->name('chat.message.new');
 
         /*
          * Route to Logout

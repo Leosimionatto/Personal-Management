@@ -30,7 +30,7 @@ class Message extends Model{
      * @var array
      */
     protected $fillable = [
-        'idemitente', 'iddestinatario', 'conteudo', 'criado_em', 'atualizado_em'
+        'idemitente', 'iddestinatario', 'conteudo', 'criado_em', 'atualizado_em', 'visualizado_em'
     ];
 
     /**

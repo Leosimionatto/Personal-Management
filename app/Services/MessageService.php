@@ -69,4 +69,36 @@ class MessageService{
         }
     }
 
+    /**
+     * Method to get all new Messages
+     *
+     * @return array
+     */
+    public function newMessages()
+    {
+        $result = [];
+        $id = Auth::guard('user')->user()->id;
+
+        DB::beginTransaction();
+        try{
+            $messages = Message::where('iddestinatario', '=', $id)->whereNull('visualizado_em')->get();
+
+            foreach($messages as $message){
+                $result[$message->idemitente]['conteudo'][] = $message->conteudo;
+            }
+
+            $rows = $this->message->all()->where('iddestinatario', '=', $id);
+
+            foreach($rows as $row){
+                $row->update(['visualizado_em' => date('Y-m-d H:i:s')]);
+            }
+
+            DB::commit();
+            return ['status' => '00', 'message' => $result];
+        }catch(\Exception $e){
+            DB::rollback();
+            return ['status' => '01', 'message' => $e->getMessage()];
+        }
+    }
+
 }
